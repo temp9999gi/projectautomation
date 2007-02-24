@@ -1,0 +1,81 @@
+/*====================================================================*
+ * 테이블:TB_BTR_DOMESTIC_SCDL_MGMT(국내일정관리) 
+ *====================================================================*/
+/*--------------------------------------------------------------------*
+ * createTbBtrDomesticScdlMgmt001: 국내일정관리 입력 
+ *--------------------------------------------------------------------*/
+INSERT INTO TB_BTR_DOMESTIC_SCDL_MGMT (
+   RQST_NO                    /*신청번호*/
+  ,DT                         /*일자*/
+  ,SEQ_NO                     /*순번*/
+  ,ARR_PLC                    /*도착지*/
+  ,STR_PLC                    /*출발지*/
+  ,TRAFFIC_KIND               /*교통종류*/
+  ,ROUND_YN                   /*왕복여부*/
+  ,AMT                        /*금액*/) 
+VALUES (
+   #rqstNo#
+  ,#dt#
+  ,#seqNo#
+  ,#arrPlc#
+  ,#strPlc#
+  ,#trafficKind#
+  ,#roundYn#
+  ,#amt#
+ )
+
+/*--------------------------------------------------------------------*
+ * updateTbBtrDomesticScdlMgmt001: 국내일정관리 수정
+ *--------------------------------------------------------------------*/
+UPDATE TB_BTR_DOMESTIC_SCDL_MGMT
+SET
+   ARR_PLC                   = #arrPlc#
+  ,STR_PLC                   = #strPlc#
+  ,TRAFFIC_KIND              = #trafficKind#
+  ,ROUND_YN                  = #roundYn#
+  ,AMT                       = #amt#
+WHERE RQST_NO                   = #rqstNo# 
+  AND DT                        = #dt# 
+  AND SEQ_NO                    = #seqNo# 
+
+/*--------------------------------------------------------------------*
+ * deleteTbBtrDomesticScdlMgmt001: 국내일정관리 삭제
+ *--------------------------------------------------------------------*/
+DELETE FROM TB_BTR_DOMESTIC_SCDL_MGMT
+WHERE RQST_NO                   = #rqstNo# 
+  AND DT                        = #dt# 
+  AND SEQ_NO                    = #seqNo# 
+
+/*--------------------------------------------------------------------*
+ * findTbBtrDomesticScdlMgmt001: 국내일정관리 조회
+ *--------------------------------------------------------------------*/
+SELECT
+   RQST_NO                    /*신청번호*/
+  ,DT                         /*일자*/
+  ,SEQ_NO                     /*순번*/
+  ,ARR_PLC                    /*도착지*/
+  ,STR_PLC                    /*출발지*/
+  ,TRAFFIC_KIND               /*교통종류*/
+  ,ROUND_YN                   /*왕복여부*/
+  ,AMT                        /*금액*/
+FROM TB_BTR_DOMESTIC_SCDL_MGMT
+WHERE RQST_NO                   = #rqstNo# 
+  AND DT                        = #dt# 
+  AND SEQ_NO                    = #seqNo# 
+
+/*--------------------------------------------------------------------*
+ * findTbBtrDomesticScdlMgmt002: 국내일정관리 조회
+ *--------------------------------------------------------------------*/
+SELECT
+   T1.RQST_NO                    /*신청번호*/
+  ,T1.DT                         /*일자*/
+  ,T1.SEQ_NO                     /*순번*/
+  ,T1.ARR_PLC                    /*도착지*/
+  ,T1.STR_PLC                    /*출발지*/
+  ,T1.TRAFFIC_KIND               /*교통종류*/
+  ,T1.ROUND_YN                   /*왕복여부*/
+  ,T1.AMT                        /*금액*/
+FROM TB_BTR_DOMESTIC_SCDL_MGMT T1
+WHERE T1.RQST_NO                   = #rqstNo# 
+  AND T1.DT                        = #dt# 
+  AND T1.SEQ_NO                    = #seqNo# 
