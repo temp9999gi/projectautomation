@@ -1,0 +1,3 @@
+project automation
+-sourece code generation(java generation, sql generation)
+-deliverable generation(excel etc)
