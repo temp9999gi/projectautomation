@@ -1,0 +1,177 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<XMI xmi.version = "1.1" xmlns:UML="href://org.omg/UML/1.3" timestamp = "Thu Feb 08 15:32:9 2007">
+<XMI.header>
+  <XMI.documentation>
+    <XMI.owner></XMI.owner>
+    <XMI.contact></XMI.contact>
+    <XMI.exporter>StarUML.XMI-Addin</XMI.exporter>
+    <XMI.exporterVersion>1.0</XMI.exporterVersion>
+    <XMI.notice></XMI.notice>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = "UML" xmi.version = "1.3"/>
+ </XMI.header>
+<XMI.content>
+<UML:Model xmi.id="UMLProject.1" xmi.uuid="DCE:74DFBD60-6F2F-4706-93FB-35040FF85A54">
+  <UML:Namespace.ownedElement>
+    <UML:Model xmi.id="UMLModel.2" xmi.uuid="DCE:EE90C79B-AE3A-4480-8411-EE4307D41F5D" name="Use Case Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Package xmi.id="UMLPackage.3" xmi.uuid="DCE:378E23A7-7305-4B06-80B6-29D12613EC7D" name="kins" visibility="public" isSpecification="false" namespace="UMLModel.2" isRoot="false" isLeaf="false" isAbstract="false">
+          <UML:Namespace.ownedElement>
+            <UML:Package xmi.id="UMLPackage.4" xmi.uuid="DCE:3D511447-AE32-416F-9A3C-37C1CE03230C" name="ka" visibility="public" isSpecification="false" namespace="UMLPackage.3" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.5" xmi.uuid="DCE:3FAA6E74-E6A2-42EE-B33E-3E7C3F99533A" name="aa" visibility="public" isSpecification="false" namespace="UMLPackage.4" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.6" xmi.uuid="DCE:18E727D6-1839-42BF-ACCB-4C5F53F9DDB2" name="aaa" visibility="public" isSpecification="false" namespace="UMLPackage.5" isRoot="false" isLeaf="false" isAbstract="false"/>
+                    <UML:Package xmi.id="UMLPackage.7" xmi.uuid="DCE:52073440-36A0-475E-B655-16590E6FA8A1" name="aab" visibility="public" isSpecification="false" namespace="UMLPackage.5" isRoot="false" isLeaf="false" isAbstract="false"/>
+                    <UML:Package xmi.id="UMLPackage.8" xmi.uuid="DCE:D3EF3105-D4B3-4E70-B536-23BD2C7D7BA5" name="actors" visibility="public" isSpecification="false" namespace="UMLPackage.5" isRoot="false" isLeaf="false" isAbstract="false">
+                      <UML:Namespace.ownedElement>
+                        <UML:Actor xmi.id="UMLActor.9" xmi.uuid="DCE:17DFF6A8-3D16-45DA-AA47-66DAF878794F" name="Kim, Jeongil" visibility="public" isSpecification="false" namespace="UMLPackage.8" isRoot="false" isLeaf="false" isAbstract="false"/>
+                      </UML:Namespace.ownedElement>
+                    </UML:Package>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.10" xmi.uuid="DCE:CBF8B50D-E214-4EB0-8335-3148D781AFC7" name="ab" visibility="public" isSpecification="false" namespace="UMLPackage.4" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.11" xmi.uuid="DCE:C4EE2611-4761-4E60-90C0-8259F5DD08F4" name="a21" visibility="public" isSpecification="false" namespace="UMLPackage.10" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.12" xmi.uuid="DCE:F67ADB1D-C2CF-4A6F-9D10-CD65E051453C" name="actors" visibility="public" isSpecification="false" namespace="UMLPackage.4" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Actor xmi.id="UMLActor.13" xmi.uuid="DCE:53B93685-1540-4F59-8F6B-D885CB6A019D" name="Kim, Hyunsoo" visibility="public" isSpecification="false" namespace="UMLPackage.12" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.14" xmi.uuid="DCE:8CA73337-989E-4722-B398-2592EE347E8B" name="az" visibility="public" isSpecification="false" namespace="UMLPackage.4" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.15" xmi.uuid="DCE:9C088599-551E-4174-893D-542E1D200C70" name="kb" visibility="public" isSpecification="false" namespace="UMLPackage.3" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.16" xmi.uuid="DCE:5C9C7927-01CC-469E-88A0-244CC0F766CF" name="ba" visibility="public" isSpecification="false" namespace="UMLPackage.15" isRoot="false" isLeaf="false" isAbstract="false"/>
+                <UML:Package xmi.id="UMLPackage.17" xmi.uuid="DCE:917C0EE6-3133-4969-8E9C-6B9D018E0902" name="bb" visibility="public" isSpecification="false" namespace="UMLPackage.15" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.18" xmi.uuid="DCE:153FE4B1-DF7A-499A-BECE-4162129466D9" name="kz" visibility="public" isSpecification="false" namespace="UMLPackage.3" isRoot="false" isLeaf="false" isAbstract="false"/>
+            <UML:Package xmi.id="UMLPackage.19" xmi.uuid="DCE:12CB5B29-CCD8-4934-BC37-4CB7F3E9766D" name="actors" visibility="public" isSpecification="false" namespace="UMLPackage.3" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Actor xmi.id="UMLActor.20" xmi.uuid="DCE:519AFA14-701B-400B-A74D-1F0B3695E2D3" name="사용자" visibility="public" isSpecification="false" namespace="UMLPackage.19" isRoot="false" isLeaf="false" isAbstract="false"/>
+                <UML:Actor xmi.id="UMLActor.21" xmi.uuid="DCE:4E3BF42B-6A02-4D0C-88A9-BCD92425056E" name="코드관리자" visibility="public" isSpecification="false" namespace="UMLPackage.19" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:UseCase xmi.id="UMLUseCase.22" xmi.uuid="DCE:A32AFCFC-DDB3-466E-8D81-196C8DC8F2DC" name="자재등록" visibility="public" isSpecification="false" namespace="UMLModel.2" isRoot="false" isLeaf="false" isAbstract="false" participant="UMLAssociationEnd.26"/>
+        <UML:Actor xmi.id="UMLActor.23" xmi.uuid="DCE:F2FCD607-1CDC-4941-96A5-8F9E58A12C9D" name="Kum, Deukkyu" visibility="public" isSpecification="false" namespace="UMLModel.2" isRoot="false" isLeaf="false" isAbstract="false" participant="UMLAssociationEnd.25 UMLAssociationEnd.29"/>
+        <UML:Association xmi.id="UMLAssociation.24" xmi.uuid="DCE:B5DA47B2-0509-4090-AA55-F021CA225A63" name="" visibility="public" isSpecification="false" namespace="UMLModel.2">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="UMLAssociationEnd.25" xmi.uuid="DCE:A7786125-7393-4300-9063-3D7E6560EA4D" name="" visibility="public" isSpecification="false" isNavigable="true" ordering="unordered" aggregation="none" targetScope="instance" changeability="changeable" association="UMLAssociation.24" type="UMLActor.23"/>
+            <UML:AssociationEnd xmi.id="UMLAssociationEnd.26" xmi.uuid="DCE:C12E8E08-FCD6-4818-913C-9A9FC8F8AE56" name="" visibility="public" isSpecification="false" isNavigable="true" ordering="unordered" aggregation="none" targetScope="instance" changeability="changeable" association="UMLAssociation.24" type="UMLUseCase.22"/>
+          </UML:Association.connection>
+        </UML:Association>
+        <UML:UseCase xmi.id="UMLUseCase.27" xmi.uuid="DCE:0653EEE3-1B74-4704-9ED3-697E98182E61" name="재고등록" visibility="public" isSpecification="false" namespace="UMLModel.2" isRoot="false" isLeaf="false" isAbstract="false" participant="UMLAssociationEnd.30"/>
+        <UML:Association xmi.id="UMLAssociation.28" xmi.uuid="DCE:CFEB60A7-1925-4B6B-B0BA-30148F985B2B" name="" visibility="public" isSpecification="false" namespace="UMLModel.2">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="UMLAssociationEnd.29" xmi.uuid="DCE:9CF1C1BC-53B8-440A-8CDB-0B8C0517C0C9" name="" visibility="public" isSpecification="false" isNavigable="true" ordering="unordered" aggregation="none" targetScope="instance" changeability="changeable" association="UMLAssociation.28" type="UMLActor.23"/>
+            <UML:AssociationEnd xmi.id="UMLAssociationEnd.30" xmi.uuid="DCE:1D0DED3C-3BA8-4BEC-986E-549430081545" name="" visibility="public" isSpecification="false" isNavigable="true" ordering="unordered" aggregation="none" targetScope="instance" changeability="changeable" association="UMLAssociation.28" type="UMLUseCase.27"/>
+          </UML:Association.connection>
+        </UML:Association>
+        <UML:Stereotype xmi.id="X.74" xmi.uuid="DCE:2B70BA35-B92B-430D-9967-E2566F059063" name="useCaseModel" extendedElement="UMLModel.2"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.31" xmi.uuid="DCE:BF0E5F54-DAF1-42EB-8AD1-EDE9DB4616FA" name="Analysis Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Package xmi.id="UMLPackage.32" xmi.uuid="DCE:494B214D-F685-422A-A23F-CC3864473D72" name="kins" visibility="public" isSpecification="false" namespace="UMLModel.31" isRoot="false" isLeaf="false" isAbstract="false">
+          <UML:Namespace.ownedElement>
+            <UML:Package xmi.id="UMLPackage.33" xmi.uuid="DCE:F321670B-4A9E-4BCC-B904-9E08F4F5B438" name="ka" visibility="public" isSpecification="false" namespace="UMLPackage.32" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.34" xmi.uuid="DCE:8BD1C326-6322-4C78-8F22-FFDCE5717F1E" name="a10" visibility="public" isSpecification="false" namespace="UMLPackage.33" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.35" xmi.uuid="DCE:07A0A65B-4781-4F9D-BF50-BEE4EA147F7A" name="a11" visibility="public" isSpecification="false" namespace="UMLPackage.34" isRoot="false" isLeaf="false" isAbstract="false">
+                      <UML:Namespace.ownedElement>
+                        <UML:Package xmi.id="UMLPackage.36" xmi.uuid="DCE:E6F46258-EA6C-4722-A200-F6F72A255BB2" name="sys" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.37" xmi.uuid="DCE:E8FA8747-F4BD-4D80-B8A0-06E13CB15049" name="mgr" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.38" xmi.uuid="DCE:6E69CF65-9B2A-4F5C-A7C9-1EB89AAF72D9" name="dao" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.39" xmi.uuid="DCE:7FB2DE65-89DB-4659-8BA3-5FF60E5FED26" name="vo" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.40" xmi.uuid="DCE:18682BD8-CD7F-495A-ACC8-37F6C62451AF" name="cmd" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.41" xmi.uuid="DCE:4CA22C55-C111-4947-AD33-054C6C353626" name="a111" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.42" xmi.uuid="DCE:9EF6BEEE-CE5F-47F4-BE1F-1EADD824D418" name="a112" visibility="public" isSpecification="false" namespace="UMLPackage.35" isRoot="false" isLeaf="false" isAbstract="false"/>
+                      </UML:Namespace.ownedElement>
+                    </UML:Package>
+                    <UML:Package xmi.id="UMLPackage.43" xmi.uuid="DCE:3C76004A-B8DF-4841-9B8C-CACEE836D06E" name="a1a" visibility="public" isSpecification="false" namespace="UMLPackage.34" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.44" xmi.uuid="DCE:A3F47719-EAE2-4A21-82FE-934C522BF7D7" name="a20" visibility="public" isSpecification="false" namespace="UMLPackage.33" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.45" xmi.uuid="DCE:CD28C92A-8FA5-42BD-BD3E-6853184EA2B5" name="a21" visibility="public" isSpecification="false" namespace="UMLPackage.44" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.46" xmi.uuid="DCE:DE943143-38AE-4481-962C-451F0D57D7BE" name="az_common" visibility="public" isSpecification="false" namespace="UMLPackage.33" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.47" xmi.uuid="DCE:4A1A1FDE-033D-463A-8C27-48BD0210A3A2" name="kb" visibility="public" isSpecification="false" namespace="UMLPackage.32" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.48" xmi.uuid="DCE:CCA55F09-2CD5-4FA8-BC0B-48DFB09C106F" name="b10" visibility="public" isSpecification="false" namespace="UMLPackage.47" isRoot="false" isLeaf="false" isAbstract="false"/>
+                <UML:Package xmi.id="UMLPackage.49" xmi.uuid="DCE:B311A2D6-02A5-4B72-B10C-D05EB2D383AB" name="bz_common" visibility="public" isSpecification="false" namespace="UMLPackage.47" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.50" xmi.uuid="DCE:F6AE0AAE-B49A-4ABF-AD05-531361441FB4" name="kz_common" visibility="public" isSpecification="false" namespace="UMLPackage.32" isRoot="false" isLeaf="false" isAbstract="false"/>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:Stereotype xmi.id="X.75" xmi.uuid="DCE:3E2FC6C6-0879-4461-9A4C-21B283D3768A" name="analysisModel" extendedElement="UMLModel.31"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.51" xmi.uuid="DCE:1779B410-6C4E-4DC1-96DB-121EE98874CA" name="Design Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Package xmi.id="UMLPackage.52" xmi.uuid="DCE:A1F25672-922F-42C8-ADD8-D351AA9B3F11" name="kins" visibility="public" isSpecification="false" namespace="UMLModel.51" isRoot="false" isLeaf="false" isAbstract="false">
+          <UML:Namespace.ownedElement>
+            <UML:Package xmi.id="UMLPackage.53" xmi.uuid="DCE:EDDC796F-D59F-4BED-B1DB-4E2A29F8B85A" name="ka" visibility="public" isSpecification="false" namespace="UMLPackage.52" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.54" xmi.uuid="DCE:7DFE8D0C-82A1-472C-8367-CEA38B07E5ED" name="a10" visibility="public" isSpecification="false" namespace="UMLPackage.53" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.55" xmi.uuid="DCE:A6F287F4-48B6-4EF8-BB73-EC136BDAAA3C" name="a11" visibility="public" isSpecification="false" namespace="UMLPackage.54" isRoot="false" isLeaf="false" isAbstract="false">
+                      <UML:Namespace.ownedElement>
+                        <UML:Package xmi.id="UMLPackage.56" xmi.uuid="DCE:E841B73E-FCAF-42AA-89C3-C8F0D6802A71" name="sys" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.57" xmi.uuid="DCE:95CBC00A-5999-40AC-87E6-B958F0BDDDED" name="mgr" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.58" xmi.uuid="DCE:4EA34FBD-467F-4C70-9292-BCF283395944" name="dao" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.59" xmi.uuid="DCE:1AB6C381-B7B6-4470-9128-69657C650FF1" name="vo" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.60" xmi.uuid="DCE:E558B2F1-D6AC-4A79-8334-F569D257AA4C" name="cmd" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.61" xmi.uuid="DCE:78F24163-BA9E-4D57-A1EA-BB0CE9EF93AA" name="a111" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                        <UML:Package xmi.id="UMLPackage.62" xmi.uuid="DCE:325042DA-5246-482F-B750-1B6A0150A5FC" name="a112" visibility="public" isSpecification="false" namespace="UMLPackage.55" isRoot="false" isLeaf="false" isAbstract="false"/>
+                      </UML:Namespace.ownedElement>
+                    </UML:Package>
+                    <UML:Package xmi.id="UMLPackage.63" xmi.uuid="DCE:BD57EBE6-B911-468B-9017-2748B2D63778" name="a1a" visibility="public" isSpecification="false" namespace="UMLPackage.54" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.64" xmi.uuid="DCE:C3D249F9-C153-45F8-AFCA-FD0265230EC9" name="a20" visibility="public" isSpecification="false" namespace="UMLPackage.53" isRoot="false" isLeaf="false" isAbstract="false">
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id="UMLPackage.65" xmi.uuid="DCE:4F9E5807-5713-489E-82BC-FD97E75089F7" name="a21" visibility="public" isSpecification="false" namespace="UMLPackage.64" isRoot="false" isLeaf="false" isAbstract="false"/>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="UMLPackage.66" xmi.uuid="DCE:1E5D4A91-5D50-4A82-A4FD-0E1306BCF9BE" name="az_common" visibility="public" isSpecification="false" namespace="UMLPackage.53" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.67" xmi.uuid="DCE:99623A8C-7A52-4A75-B30C-E6831F048AB8" name="kb" visibility="public" isSpecification="false" namespace="UMLPackage.52" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="UMLPackage.68" xmi.uuid="DCE:52902FA6-7166-4FF5-AFD4-C0B710D2FBBB" name="b10" visibility="public" isSpecification="false" namespace="UMLPackage.67" isRoot="false" isLeaf="false" isAbstract="false"/>
+                <UML:Package xmi.id="UMLPackage.69" xmi.uuid="DCE:EF99B698-2440-4E0E-A6A6-91811982B7AA" name="bz_common" visibility="public" isSpecification="false" namespace="UMLPackage.67" isRoot="false" isLeaf="false" isAbstract="false"/>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <UML:Package xmi.id="UMLPackage.70" xmi.uuid="DCE:79839E1D-8E20-42EB-9FE4-7DC0016D24C2" name="kz_common" visibility="public" isSpecification="false" namespace="UMLPackage.52" isRoot="false" isLeaf="false" isAbstract="false"/>
+            <UML:Package xmi.id="UMLPackage.71" xmi.uuid="DCE:E48E398B-67B3-431A-9C01-8CF75F66395A" name="framework" visibility="public" isSpecification="false" namespace="UMLPackage.52" isRoot="false" isLeaf="false" isAbstract="false"/>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:Stereotype xmi.id="X.76" xmi.uuid="DCE:8D02E1A7-2515-48C6-80BF-49AD4611A703" name="designModel" extendedElement="UMLModel.51"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.72" xmi.uuid="DCE:F216C6C0-7ABA-4E15-91A8-6FAAC5B89D9F" name="Implementation Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.77" xmi.uuid="DCE:FF60558F-8BAC-42DB-AD7D-85E155117B63" name="implementationModel" extendedElement="UMLModel.72"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.73" xmi.uuid="DCE:C3880A97-3E3D-4C29-BC53-BC31CCAA5479" name="Deployment Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.78" xmi.uuid="DCE:CF5E9CB4-AC2F-419E-8C8D-0586F2F35870" name="deploymentModel" extendedElement="UMLModel.73"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </UML:Namespace.ownedElement>
+</UML:Model>
+</XMI.content>
+</XMI>

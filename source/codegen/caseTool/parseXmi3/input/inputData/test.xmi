@@ -1,0 +1,172 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<XMI xmi.version = "1.1" xmlns:UML="href://org.omg/UML/1.3" timestamp = "Sun Jan 14 13:21:38 2007">
+<XMI.header>
+  <XMI.documentation>
+    <XMI.owner></XMI.owner>
+    <XMI.contact></XMI.contact>
+    <XMI.exporter>StarUML.XMI-Addin</XMI.exporter>
+    <XMI.exporterVersion>1.0</XMI.exporterVersion>
+    <XMI.notice></XMI.notice>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = "UML" xmi.version = "1.3"/>
+ </XMI.header>
+<XMI.content>
+<UML:Model xmi.id="UMLProject.1" xmi.uuid="DCE:D1B33B43-704F-4C80-970D-470C5719E263">
+  <UML:Namespace.ownedElement>
+    <UML:Model xmi.id="UMLModel.2" xmi.uuid="DCE:E140A282-C475-4630-B58D-C7BCEC2803A3" name="Use Case Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.60" xmi.uuid="DCE:692CDD6A-C8A1-4AFF-9F6B-492C4D6B57E9" name="useCaseModel" extendedElement="UMLModel.2"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.3" xmi.uuid="DCE:73DFAF02-68B9-4F1F-83B5-94EE80D883EE" name="Analysis Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.61" xmi.uuid="DCE:BFBD75A8-0B78-4752-B80D-483B56D734B5" name="analysisModel" extendedElement="UMLModel.3"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.4" xmi.uuid="DCE:64DAA9B0-4614-4F14-A98D-00F541E3BBE3" name="Design Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Package xmi.id="UMLPackage.5" xmi.uuid="DCE:31E5EC56-7DC1-4DF1-8EE9-AD54B411A5E6" name="mgr" visibility="public" isSpecification="false" namespace="UMLModel.4" clientDependency="UMLDependency.56 UMLDependency.57" isRoot="false" isLeaf="false" isAbstract="false">
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id="UMLClass.6" xmi.uuid="DCE:6EE9E06E-FA2B-48B7-8D66-126743E24A95" name="CommCdMgr" visibility="public" isSpecification="false" namespace="UMLPackage.5" clientDependency="UMLRealization.55" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id="UMLAttribute.7" xmi.uuid="DCE:EA77CA9A-F127-4B47-8E94-59029B5E2EEA" name="commCdDAO" visibility="protected" isSpecification="false" ownerScope="instance" changeability="changeable" targetScope="instance" type="" owner="UMLClass.6"/>
+                <UML:Attribute xmi.id="UMLAttribute.8" xmi.uuid="DCE:49512F70-CB69-4CD5-8DFB-0F99579FF3DF" name="commDetlCdDAO" visibility="protected" isSpecification="false" ownerScope="instance" changeability="changeable" targetScope="instance" type="X.64" owner="UMLClass.6"/>
+                <UML:Operation xmi.id="UMLOperation.9" xmi.uuid="DCE:C97A571A-6892-4E30-80FF-38AE8D6053A4" name="CommCdMgr" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6"/>
+                <UML:Operation xmi.id="UMLOperation.10" xmi.uuid="DCE:C66EEC93-B05E-4FFA-984F-81A0A79F278F" name="setCommCdDAO" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.11" xmi.uuid="DCE:9085CA5E-6AAD-44E7-B293-6EE5DF5B1B52" name="commCdDAO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.10" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.12" xmi.uuid="DCE:2151CD0C-5307-44AC-92F3-AD0CD133E230" name="setCommDetlCdDAO" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.13" xmi.uuid="DCE:DCBB5C36-D201-40B8-8297-EEACB126DF89" name="commDetlCdDAO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.12" type="X.64"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.14" xmi.uuid="DCE:19D545C6-4126-4D70-B6AD-2D9EAD653099" name="createCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.15" xmi.uuid="DCE:B3F04D33-21E2-4D4C-B2F0-23253866AEB5" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.14" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.16" xmi.uuid="DCE:CF447881-667F-412B-9B42-5EB6ECAD264D" name="deleteCommCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.17" xmi.uuid="DCE:23CE9201-EE21-4061-9907-690D144F5F4A" name="commCdList" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.16" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.18" xmi.uuid="DCE:0A134150-D871-45DB-93E8-9284CE606055" name="findCommCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.19" xmi.uuid="DCE:AB844484-BF7B-4A27-84E1-46DD37E8A6E5" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.18" type=""/>
+                    <UML:Parameter xmi.id="UMLParameter.20" xmi.uuid="DCE:45B360EA-479C-4C63-96C4-F35938B44A4F" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.18" type="X.66"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.21" xmi.uuid="DCE:5F7C7C8D-86EF-459C-8C15-FB7A733CA622" name="updateCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.22" xmi.uuid="DCE:FB901965-EE25-42F7-941C-17757F8A4687" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.21" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.23" xmi.uuid="DCE:35AF17CA-4F53-4285-870E-B822B0749C2D" name="findCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.24" xmi.uuid="DCE:CA81E710-13F0-45A5-935B-C2A0EF6D55CD" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.23" type=""/>
+                    <UML:Parameter xmi.id="UMLParameter.25" xmi.uuid="DCE:82A9D393-6481-4F38-A4CE-6727BA361AA0" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.23" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.26" xmi.uuid="DCE:598EAEC2-AB13-4C10-BB4F-B1A3D03E05FD" name="saveCommDetlCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.27" xmi.uuid="DCE:3EE88ADC-4BED-48AF-9C5C-7086FD084ECD" name="commDetlCdVOList" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.26" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.28" xmi.uuid="DCE:DCC84B17-4FA4-4824-A43E-8729CFF52AD8" name="findCommDetlCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.29" xmi.uuid="DCE:06B72530-948D-486F-BE03-088A2E74976E" name="commDetlCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.28" type="X.67"/>
+                    <UML:Parameter xmi.id="UMLParameter.30" xmi.uuid="DCE:2A98624D-3EB7-4C0A-A4A3-A5193B44D84F" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.28" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.31" xmi.uuid="DCE:16F954CA-4596-40A0-A5FF-96D2C86A6876" name="createCommDetlCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.32" xmi.uuid="DCE:2ED949ED-E2A0-4C6A-BF0E-90659BD5F3D0" name="commDetlCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.31" type="X.67"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.33" xmi.uuid="DCE:8DB1DCF4-C132-4DA5-B6C7-18052644B03C" name="updateCommDetlCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.34" xmi.uuid="DCE:E4AB9422-3232-4617-BF33-1521399CE114" name="commDetlCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.33" type="X.67"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.35" xmi.uuid="DCE:B231CB35-D667-487F-B685-3E528728275F" name="deleteCommDetlCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.6">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.36" xmi.uuid="DCE:C23173DA-806D-4B81-9A8E-A3C0890B1843" name="commDetlCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.35" type="X.67"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Interface xmi.id="UMLInterface.37" xmi.uuid="DCE:9FB17AAC-5D01-4F97-AFE4-653C0F37518F" name="ICommCdMgr" visibility="public" isSpecification="false" namespace="UMLPackage.5" supplierDependency="UMLRealization.55" isRoot="false" isLeaf="false" isAbstract="false">
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id="UMLOperation.38" xmi.uuid="DCE:91A74260-8405-4E88-99DF-E008F451A920" name="createCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.39" xmi.uuid="DCE:1427AED6-E078-4C9B-908E-1F31689D906A" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.38" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.40" xmi.uuid="DCE:E47B732C-2BCE-460E-8721-10F28BCF5F1A" name="deleteCommCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.41" xmi.uuid="DCE:F69D671F-A2BF-45A6-97A5-5F7F04AB3D2F" name="commCdList" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.40" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.42" xmi.uuid="DCE:17E03DCF-C2C5-4AE6-ADA3-B5336D27F9AE" name="findCommCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.43" xmi.uuid="DCE:CCC0D7A7-BC18-4AC9-B445-25544A0BCCDD" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.42" type=""/>
+                    <UML:Parameter xmi.id="UMLParameter.44" xmi.uuid="DCE:CEB3F79D-19D9-408D-BEF1-36A7C6ECA2E3" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.42" type="X.66"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.45" xmi.uuid="DCE:DBD026FB-969C-4833-BB91-6D13192BE6BB" name="updateCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.46" xmi.uuid="DCE:0AF00F18-E275-4E09-8E14-003F49CF0864" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.45" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.47" xmi.uuid="DCE:4810B548-916E-437C-9D64-3C2F3E32D4FE" name="findCommCd" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.48" xmi.uuid="DCE:DE5FEDEB-4328-4E09-A7EC-05FAA0971209" name="commCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.47" type=""/>
+                    <UML:Parameter xmi.id="UMLParameter.49" xmi.uuid="DCE:495D4D0E-CEE5-43B1-BE9E-BC65E2EDFB0A" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.47" type=""/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.50" xmi.uuid="DCE:5D3AE073-7A13-44C9-AD97-3D76942AC1DF" name="saveCommDetlCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.51" xmi.uuid="DCE:E5857E48-139F-4572-AE13-68B5E273C2E0" name="commDetlCdVOList" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.50" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id="UMLOperation.52" xmi.uuid="DCE:432B2755-C92D-4F1D-9B36-0183B7A29B53" name="findCommDetlCdList" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLInterface.37">
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id="UMLParameter.53" xmi.uuid="DCE:2CA60CE4-B2B7-48F2-AA6E-5C43EFB9B308" name="commDetlCdVO" visibility="public" isSpecification="false" kind="in" behavioralFeature="UMLOperation.52" type="X.67"/>
+                    <UML:Parameter xmi.id="UMLParameter.54" xmi.uuid="DCE:98864C87-8A33-44B2-9364-5D0B69B76504" name="return" visibility="public" isSpecification="false" kind="return" behavioralFeature="UMLOperation.52" type="X.65"/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Interface>
+            <UML:Abstraction xmi.id="UMLRealization.55" xmi.uuid="DCE:E6110D11-040A-4C38-A0B2-025D70128A97" name="" visibility="public" isSpecification="false" namespace="UMLPackage.5" client="UMLClass.6" supplier="UMLInterface.37"/>
+            <UML:Dependency xmi.id="UMLDependency.56" xmi.uuid="DCE:204B9F82-A2A1-4DC4-B4F8-C365D89E641C" name="" visibility="public" isSpecification="false" namespace="UMLPackage.5" client="UMLPackage.5"/>
+            <UML:Dependency xmi.id="UMLDependency.57" xmi.uuid="DCE:C57E0941-3F05-41C1-8516-EC5BE3E96912" name="" visibility="public" isSpecification="false" namespace="UMLPackage.5" client="UMLPackage.5"/>
+            <UML:Stereotype xmi.id="X.63" xmi.uuid="DCE:5B9A0C17-ADEA-445A-B82D-18040D1F2154" name="create" extendedElement="UMLOperation.9"/>
+            <UML:Stereotype xmi.id="X.70" xmi.uuid="DCE:10A4ABD2-4607-4C1E-B0B3-3F023C89D7F1" name="realize" extendedElement="UMLRealization.55"/>
+            <UML:Stereotype xmi.id="X.71" xmi.uuid="DCE:8BA80C45-7B01-4A7E-B416-B88253B9A8EF" name="import" extendedElement="UMLDependency.56 UMLDependency.57"/>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:Stereotype xmi.id="X.62" xmi.uuid="DCE:64E0FC90-2245-41EA-9EEE-E48693CBDE28" name="designModel" extendedElement="UMLModel.4"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.58" xmi.uuid="DCE:AFFD0C96-BC1A-483D-B446-D32614A62CD3" name="Implementation Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.72" xmi.uuid="DCE:BB3382BE-724D-4B43-B1F7-6542AD39C9F7" name="implementationModel" extendedElement="UMLModel.58"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.59" xmi.uuid="DCE:24C0E6EE-85E6-4CC2-81C5-989C21A7251A" name="Deployment Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.73" xmi.uuid="DCE:CFD2EE91-A2DD-4509-BC25-850B9A605060" name="deploymentModel" extendedElement="UMLModel.59"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:DataType xmi.id="X.64" xmi.uuid="DCE:46E526B5-B76E-48C8-B6DD-5D069FBB95B2" name="ICommDetlCdDAO" visibility="public" isSpecification="false" isRoot="false" isLeaf="false" isAbstract="false"/>
+    <UML:DataType xmi.id="X.65" xmi.uuid="DCE:9C23EB29-F0A5-4B71-912D-5DDF6587752B" name="List" visibility="public" isSpecification="false" isRoot="false" isLeaf="false" isAbstract="false"/>
+    <UML:DataType xmi.id="X.66" xmi.uuid="DCE:CC9B8DCA-EC6A-406B-9119-6783BAA618A6" name="PageVO" visibility="public" isSpecification="false" isRoot="false" isLeaf="false" isAbstract="false"/>
+    <UML:DataType xmi.id="X.67" xmi.uuid="DCE:DB0D9AF2-10AF-49B0-BC45-1F6E2EB2BEBD" name="CommDetlCdVO" visibility="public" isSpecification="false" isRoot="false" isLeaf="false" isAbstract="false"/>
+  </UML:Namespace.ownedElement>
+</UML:Model>
+<UML:TaggedValue xmi.id="X.68" xmi.uuid="DCE:6F607C8D-1702-4384-9027-08136B6B2025" tag="ordering" value="unordered" modelElement="UMLAttribute.7"/>
+<UML:TaggedValue xmi.id="X.69" xmi.uuid="DCE:666A31C6-871F-4D35-9692-2B144700074F" tag="ordering" value="unordered" modelElement="UMLAttribute.8"/>
+</XMI.content>
+</XMI>
