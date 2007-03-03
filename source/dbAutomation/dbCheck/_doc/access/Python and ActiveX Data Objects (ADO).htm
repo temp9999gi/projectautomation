@@ -1,0 +1,192 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><A 
+href="http://www.ecp.cc/pyado.html#8">http://www.ecp.cc/pyado.html#8</A></div>
+<DIV>&nbsp;</DIV>
+<DIV><SPAN class=BIG_TITLE>Python and ActiveX Data Objects (ADO)</SPAN> 
+<P><SPAN class=MAIN_TEXT>This is the 'sister' page to <A 
+href="http://starship.python.net/crew/bwilk/access.html"><U><FONT 
+color=#800080>Bill Wilkinson's</FONT></U></A> page on using Python with 
+Microsoft's Data Access Objects (DAO). It is intended to give the basics on 
+using <A href="http://www.python.org"><U><FONT 
+color=#0000ff>Python</FONT></U></A> to connect to an MS Access 2000 database via 
+Microsoft's ActiveX Data Objects (ADO). There are several reasons you might want 
+to do this. ADO is lighter and it tends to be a bit and faster than DAO, unlike 
+DAO it can easily be used with other databases (SQL Server, Oracle, MySQL, 
+etc.), it can be used with XML and text files and pretty much any data at all, 
+and Microsoft will be supporting it for a longer time than DAO.<BR>For this 
+article to make sense, you should be mildly familiar with Python, and you should 
+have installed the PythonWin IDE and Windows extensions. Probably having MS 
+Access would be useful as well. </SPAN>
+<HR>
+<SPAN class=SMALL_TITLE>Table of Contents</SPAN> 
+<P><SPAN class=MAIN_TEXT>
+<OL>
+  <LI><A href="#1"><U><FONT color=#0000ff>Running MakePy</FONT></U></A> 
+  <LI><A href="#2"><U><FONT color=#0000ff>DSN</FONT></U></A> 
+  <LI><A href="#3"><U><FONT color=#0000ff>Opening a Recordset</FONT></U></A> 
+  <LI><A href="#4"><U><FONT color=#0000ff>Looking at the 
+  Recordset</FONT></U></A> 
+  <LI><A href="#5"><U><FONT color=#0000ff>Adding new Records</FONT></U></A> 
+  <LI><A href="#6"><U><FONT color=#0000ff>Database Table 
+  Information</FONT></U></A> 
+  <LI><A href="#7"><U><FONT color=#0000ff>Closing Connections</FONT></U></A> 
+  <LI><A href="#8"><U><FONT color=#0000ff>Using SQL with ADO</FONT></U></A> 
+  <LI><A href="#9"><U><FONT color=#0000ff>Getting the RecordCount</FONT></U></A> 
+
+  <LI><A href="ado_examples.shtml"><U><FONT color=#0000ff>Common Questions and 
+  Answers about Python and ADO.</FONT></U></A> </LI></OL></SPAN>
+<HR>
+<SPAN class=MAIN_TEXT>
+<OL><A name=1></A>
+  <LI>The first thing to do is run the makepy utility. It isn't necessary, but 
+  it improves speed and makes life in the PythonWin IDE that much easier. To do 
+  this select <SPAN class=PY_STRING>COM Makepy Utility</SPAN> from the PythonWin 
+  tools menu, and then select <SPAN class=PY_STRING>Microsoft ActiveX Data 
+  Objects 2.5 Library</SPAN>. 
+  <P><A name=2></A></P>
+  <LI>Next you will need a <I>Data Source Name</I> [DSN] and a connection 
+  object. [I tend to use DSN-Less connection strings (as opposed to system DSNs 
+  as it improves performance and makes code portable)]<BR>For MS Access you can 
+  just copy the DSN below. For other databases, or for more advanced options 
+  like passwords and the like go to [<SPAN class=PY_STRING>Control Panel | 
+  Administrative Tools | Data Sources (ODBC)</SPAN>]. From there you can set up 
+  a system DSN. You can then either use it as a system DSN, or copy it (it is 
+  just a text file) into a string and make a DSN-Less connection string. You 
+  might also do a search for <A 
+  href="http://www.google.com/custom?q=dsn-less+connection+string&amp;cof=T%3A%23000000%3BLW%3A200%3BALC%3A%2300b6ff%3BL%3Ahttp%3A%2F%2Fwww.e-coli.net%2Fimages%2F0000_000.jpg%3BLC%3A%230000ff%3BLH%3A141%3BBGC%3A%23ffffff%3BAH%3ACenter%3BVLC%3A%2300b6ff%3BGALT%3A%23ff5000AWFID%3Ab8f6541d7ee14e4e%3B"><U><FONT 
+  color=#0000ff>DSN-Less connection strings</FONT></U></A> on the web. Better 
+  yet, here are some samples for <A 
+  href="http://www.able-consulting.com/ADO_Conn.htm"><U><FONT color=#0000ff>SQL 
+  Server, Access, FoxPro, Oracle</FONT></U></A> , <A 
+  href="http://members.tripod.com/mdameryk/OrclConnectionSamplesDSNlessADO.htm"><U><FONT 
+  color=#0000ff>Oracle</FONT></U></A>, <A 
+  href="http://www.mavweb.net/asp-samples/database-connection-strings.asp"><U><FONT 
+  color=#0000ff>Access, SQL Server</FONT></U></A>, and finally <A 
+  href="http://www.bitmechanic.com/mail-archives/mysql/current/0329.html"><U><FONT 
+  color=#0000ff>MySQL</FONT></U></A>. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; <SPAN class=PY_KEY>import</SPAN> win32com.client
+        &gt;&gt;&gt; conn = win32com.client.Dispatch(r<SPAN class=PY_STRING>'ADODB.Connection'</SPAN>)
+        &gt;&gt;&gt; DSN = <SPAN class=PY_STRING>'PROVIDER=Microsoft.Jet.OLEDB.4.0;DATA SOURCE=C:/MyDB.mdb;'</SPAN>
+        &gt;&gt;&gt; conn.Open(DSN)
+        </PRE><SPAN class=MAIN_TEXT>With these set up access to the database 
+  is fairly straight forward. 
+  <P><A name=3></A></P>
+  <LI>The next task is to open a Recordset. For fancy stuff like joins and 
+  whatnot, you can use SQL <SPAN class=PY_STRING>SELECT * FROM table_name</SPAN> 
+  type statements, or just use the table name surrounded by brackets <SPAN 
+  class=PY_STRING>[]</SPAN> </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; rs = win32com.client.Dispatch(r<SPAN class=PY_STRING>'ADODB.Recordset'</SPAN>)
+        &gt;&gt;&gt; rs_name = <SPAN class=PY_STRING>'MyRecordset'</SPAN>
+        &gt;&gt;&gt; rs.Open(<SPAN class=PY_STRING>'['</SPAN> + rs_name + <SPAN class=PY_STRING>']'</SPAN>, conn, 1, 3)
+        </PRE><SPAN class=MAIN_TEXT><I>[The <SPAN class=PY_NUMBER>1</SPAN> and 
+  the <SPAN class=PY_NUMBER>3</SPAN> are constants for <SPAN 
+  class=PY_NUMBER>adOpenKeyset</SPAN> and <SPAN 
+  class=PY_NUMBER>adLockOptimistic</SPAN> and are well beyond the scope of this 
+  tutorial. I typically use these settings as defaults, but your mileage may 
+  vary. Pick up a book on ADO for details.]</I> 
+  <P><A name=4></A></P>
+  <LI>With the recordset open you can examine the field names/indices like ... 
+  </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; flds_dict = {}
+        &gt;&gt;&gt; <SPAN class=PY_KEY>for</SPAN> x <SPAN class=PY_KEY>in</SPAN> range(rs.Fields.Count):
+        ...     flds_dict[x] = rs.Fields.Item(x).Name
+        </PRE><SPAN class=main_text>A field's type and size are returned by 
+  ... </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; <SPAN class=PY_KEY>print</SPAN> rs.Fields.Item(1).Type
+        <SPAN class=PY_NUMBER>202</SPAN> <SPAN class=PY_COMMENT># 202 is a text field</SPAN>
+        &gt;&gt;&gt; <SPAN class=PY_KEY>print</SPAN> rs.Fields.Item(1).DefinedSize
+        <SPAN class=PY_NUMBER>50</SPAN>  <SPAN class=PY_COMMENT># 50 Characters</SPAN>
+        </PRE>
+  <P><SPAN class=MAIN_TEXT><A name=5></A></P>
+  <LI>Actual work can be done as well. Adding new records to 
+  recordsets can be done both with INSERT INTO (see below) statements, or 
+  directly using the AddNew() and Update() methods. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; rs.AddNew()
+        &gt;&gt;&gt; rs.Fields.Item(1).Value = <SPAN class=PY_STRING>'data'</SPAN>
+        &gt;&gt;&gt; rs.Update()
+        </PRE><SPAN class=MAIN_TEXT>These values can be also be returned. 
+  </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; x = rs.Fields.Item(1).Value
+        &gt;&gt;&gt; <SPAN class=PY_KEY>print</SPAN> x
+        <SPAN class=PY_string>'data'</SPAN>
+        </PRE><SPAN class=main_text>So, if one wants to create a new Record, 
+  and know what number an AutoNumber field has generated for it without having 
+  to query the database ... </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; rs.AddNew()
+        &gt;&gt;&gt; x = rs.Fields.Item(<SPAN class=PY_STRING>'Auto_Number_Field_Name'</SPAN>).Value  
+        <SPAN class=PY_COMMENT># x contains the AutoNumber</SPAN>
+        &gt;&gt;&gt; rs.Fields.Item(<SPAN class=PY_STRING>'Field_Name'</SPAN>).Value = <SPAN class=PY_STRING>'data'</SPAN>
+        &gt;&gt;&gt; rs.Update()
+        </PRE><SPAN class=MAIN_TEXT>
+  <P><A name=6></A></P>
+  <LI>You can get a list of the Tables in a Database using ADO. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; oCat = win32com.client.Dispatch(r<SPAN class=PY_STRING>'ADOX.Catalog'</SPAN>)
+        &gt;&gt;&gt; oCat.ActiveConnection = conn
+        &gt;&gt;&gt; oTab = oCat.Tables
+        &gt;&gt;&gt; <SPAN class=PY_KEY>for</SPAN> x <SPAN class=PY_KEY>in</SPAN> oTab:
+        ...     <SPAN class=PY_KEY>if</SPAN> x.Type == <SPAN class=PY_STRING>'TABLE'</SPAN>:
+        ...         <SPAN class=PY_KEY>print</SPAN> x.Name
+        </PRE>
+  <P><SPAN class=MAIN_TEXT><A name=7></A></P>
+  <LI>Close the connection. Notice that to close this 
+  connection the 'C' is upper case, whereas to close a file opened with python 
+  the 'c' is lower case. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; conn.Close()
+        </PRE>
+  <P><SPAN class=MAIN_TEXT><A name=8></A></P>
+  <LI>To use SQL to INSERT or UPDATE data, use a Connection 
+  object directly. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; conn = win32com.client.Dispatch(r<SPAN class=PY_STRING>'ADODB.Connection'</SPAN>)
+        &gt;&gt;&gt; DSN = <SPAN class=PY_STRING>'PROVIDER=Microsoft.Jet.OLEDB.4.0;DATA SOURCE=C:/MyDB.mdb;'</SPAN>
+        &gt;&gt;&gt; sql_statement = <SPAN class=PY_STRING>"INSERT INTO [Table_Name] 
+                             ([Field_1], [Field_2]) VALUES ('data1', 'data2')"</SPAN>
+        &gt;&gt;&gt; conn.Open(DSN)
+        &gt;&gt;&gt; conn.Execute(sql_statement)
+        &gt;&gt;&gt; conn.Close()
+        </PRE><SPAN class=MAIN_TEXT>
+  <P><A name=9></A></P>
+  <LI>Here is a last example that often seems to be a sticking point with ADO. 
+  Generally, if one wants to get the RecordCount of a table, one must move 
+  through all of the records counting them along the way like ... </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; <SPAN class=PY_COMMENT># See example 3 above for the set-up to this </SPAN>
+        &gt;&gt;&gt; rs.MoveFirst()
+        &gt;&gt;&gt; count = <SPAN class=PY_NUMBER>0</SPAN>
+        &gt;&gt;&gt; <SPAN class=PY_KEY>while</SPAN> <SPAN class=PY_NUMBER>1</SPAN>:
+        ...     <SPAN class=PY_KEY>if</SPAN> rs.EOF:
+        ...         <SPAN class=PY_KEY>break</SPAN>
+        ...     <SPAN class=PY_KEY>else</SPAN>:
+        ...         count = count + <SPAN class=PY_NUMBER>1</SPAN>
+        ...         rs.MoveNext()
+        </PRE><SPAN class=MAIN_TEXT>Aside from being horribly inefficient, if 
+  the recordset is empty, moving to the first record will generate an error. ADO 
+  provides a way to correct this. Before opening the recordset, set the 
+  CursorLocation to 3. After opening the recordset, the recordcount will be 
+  available. </SPAN><PRE class=PY_TEXT>        &gt;&gt;&gt; rs.Cursorlocation = <SPAN class=PY_NUMBER>3</SPAN> <SPAN class=PY_COMMENT># don't use parenthesis here</SPAN>
+        &gt;&gt;&gt; rs.Open(<SPAN class=PY_STRING>'SELECT * FROM [Table_Name]'</SPAN>, conn) <SPAN class=PY_COMMENT># be sure conn is open</SPAN>
+        &gt;&gt;&gt; rs.RecordCount <SPAN class=PY_COMMENT># no parenthesis here either</SPAN>
+        <SPAN class=PY_NUMBER>186</SPAN>
+        </PRE><SPAN class=MAIN_TEXT><I>[Again, the <SPAN 
+  class=PY_NUMBER>3</SPAN> is a constant.]</I> </LI></OL>This really just 
+scratches the surface of ADO, but it should help getting connected from Python. 
+For anything more than just simple database scripting it is worth looking into 
+the object model. Here are some links that might be helpful.<BR><A 
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/ado270/htm/mdmscadoobjmod.asp"><FONT 
+color=#0000ff><U>http://msdn.microsoft.com/library/default.asp?url=/library/en-us/ado270/htm/mdmscadoobjmod.asp</U></FONT></A><BR><A 
+href="http://www.activeserverpages.ru/ADO/dadidx01_1.htm"><U><FONT 
+color=#0000ff>http://www.activeserverpages.ru/ADO/dadidx01_1.htm</FONT></U></A> 
+<P>Please <A href="./bin/contact/?sub=PY_ADO"><U><FONT 
+color=#0000ff>contact</FONT></U></A> me with questions or comments. I have 
+placed a number of old questions and replies <A 
+href="ado_examples.shtml"><U><FONT color=#0000ff>online</FONT></U></A>. Feel free to contact me with 
+questions, but I may use your question publicly. I will, of course, remove any 
+identifying information. </SPAN></P></DIV>
+</BODY></HTML>

@@ -1,0 +1,35 @@
+"Subject Area Name","Subject Area Author","Subject Area Date Created","Table/View Name","Table/View Comment","Table/View History Information","Physical Property Row Count","Physical Property Max Row","Physical Property Grow By","Physical Property Name"
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_DOMESTIC_PURPOSE,,"Created 2006-03-04 오후 6:55:26
+",,,,방문목적
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_DOMESTIC_SCDL_MGMT,,"Created 2005-10-20 오후 5:47:37
+",,,,국내일정관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_DOMESTIC_TRIP_MGMT,,"Created 2005-10-20 오후 5:27:38
+",,,,국내출장관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_DUTY_PFM_MGMT,,"Created 2005-10-20 오후 6:02:57
+",,,,업무수행관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_FONCTRS_SCDL_MGMT,,"Created 2005-10-20 오후 5:51:19
+",,,,해외일정관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_FONCTRS_TRIP_AMT_CTRL,,"Created 2005-11-14 오후 2:33:28
+",,,,해외출장여비통제
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_FONCTRS_TRIP_MGMT,,"Created 2005-10-20 오후 5:50:58
+",,,,해외출장관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_HMCM_RPT_MGMT,,"Created 2005-10-20 오후 5:52:10
+",,,,귀국보고서관리
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_MAJOR_PLC,,"Created 2006-03-04 오후 4:14:28
+",,,,"출장 주요방문기관"
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_MAJOR_TRAFFIC_COURSE,,"Created 2006-03-04 오후 4:16:11
+",,,,방문기관경유지
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_RAIL_NO,,"Created 2006-03-02 오후 10:31:52
+  Derived 2006-05-01 오전 12:16:50
+    Derived 2006-05-01 오전 12:16:51
+",,,,철도이용번호
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_RAIL_TEMP,,"Created 2006-03-02 오후 10:31:52
+",,,,철도이용프린터
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_SEASON_MGMT,,"Created 2006-07-13 오후 1:25:58
+",,,,"성수기 일자관리"
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_STAV_AMT_CALC_CNTNT,,"Created 2005-11-25 오전 9:52:19
+",,,,체재비계산내역
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_TRAFFIC_EXMN,,"Created 2005-11-14 오전 1:16:11
+",,,,교통비검토
+"<Main Subject Area>",,"Thu Oct 20 17:23:29 2005",TB_BTR_TRAFFIC_MGMT,,"Created 2005-12-06 오전 9:48:44
+",,,,교통비관리

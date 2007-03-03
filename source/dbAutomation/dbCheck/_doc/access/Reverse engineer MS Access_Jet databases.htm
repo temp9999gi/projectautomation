@@ -1,0 +1,325 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><A 
+href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/52267">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/52267</A></div>
+<DIV>
+<P><B>Title:</B>&nbsp;Reverse engineer MS Access/Jet databases 
+<BR><B>Submitter:</B>&nbsp;Matt Keranen (<A 
+href="/ASPN/Cookbook/Python?author=38288"><U><FONT color=#0000ff>other 
+recipes</FONT></U></A>) <BR><B>Last Updated:</B>&nbsp;2004/09/16 <BR><B>Version 
+no:</B>&nbsp;1.4 <BR><B>Category:</B> <A 
+href="/ASPN/Cookbook/Python?kwd=Databases"><U><FONT 
+color=#0000ff>Databases</FONT></U></A> </P></TD><TD align="right"><!-- show rating dtml -->
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  
+  <TR>
+    <TD class=lineColour>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+        
+        <TR>
+          <TD class=boxInner>
+            <FORM action=/ASPN/Cookbook/Python/Recipe/52267/add_rating 
+            method=post><SELECT name=rating:int> <OPTION value=0 
+              selected>--Rate--</OPTION> <OPTION value=5>5 - Excellent</OPTION> 
+              <OPTION value=4>4 - Very good</OPTION> <OPTION value=3>3 - 
+              Good</OPTION> <OPTION value=2>2 - Needs work</OPTION> <OPTION 
+              value=1>1 - Poor</OPTION></SELECT>&nbsp;<INPUT type=submit value=Rate name=submit> 
+            </FORM>
+            <P><IMG  src="__Reverse engineer MS Access_Jet databases\rating5.gif">&nbsp;9&nbsp;vote(s)
+            </P></TD></TR></TABLE></TD></TR></TABLE><!-- end of show rating dtml --><BR><!-- Approval? --><A 
+href="/ASPN/Cookbook/Python/approval_system"><IMG  src="__Reverse engineer MS Access_Jet databases\approved_button.gif" border=0></A> <!-- /Approval? --></TD></TR><TR><TD colSpan="2">
+<P>
+<P><B>Description:</B></P>
+<P>Reads the structure of a Jet (Microsoft Access .MDB) database file, and 
+creates the SQL DDL necessary to recreate the structure. <BR><BR>Originally 
+written to aid in migrating Jet databases to larger RDBMS systems, through E/R 
+design tools, when the supplied "import" routines missed objects like indexes 
+and FKs.<BR><BR>A first experiment in Python, that became an often used 
+tool.</P>
+<P><B>Source:</B>&nbsp;<A 
+href="/ASPN/Cookbook/Python/Recipe/52267/index_txt"><U><FONT color=#0000ff>Text 
+Source</FONT></U></A></P><PRE class=code><SPAN class=syntaxcomment># jet2sql.py - M.Keranen &lt;mksql@yahoo.com&gt; [07/12/2000]</SPAN>
+<SPAN class=syntaxcomment># --------------------------------------------------------------------</SPAN>
+<SPAN class=syntaxcomment># Creates ANSI SQL DDL from a MS Jet database file, useful for reverse</SPAN>
+<SPAN class=syntaxcomment># engineering database designs in E/R tools.</SPAN>
+<SPAN class=syntaxcomment>#</SPAN>
+<SPAN class=syntaxcomment># Requires DAO 3.6 library.</SPAN>
+<SPAN class=syntaxcomment># --------------------------------------------------------------------</SPAN>
+<SPAN class=syntaxcomment># Usage: python jet2sql.py infile.MDB outfile.SQL</SPAN>
+
+<SPAN class=syntaxkeyword>import</SPAN> sys, string, pythoncom, win32com.client
+
+const = win32com.client.constants
+daoEngine = win32com.client.Dispatch(<SPAN class=syntaxstring>'DAO.DBEngine.36'</SPAN>)
+
+<SPAN class=syntaxkeyword>class</SPAN> <SPAN class=syntaxname>jetReverse</SPAN>:
+    <SPAN class=syntaxkeyword>def</SPAN> __init__ (self, infile):
+
+        self.jetfilename=infile
+        self.dtbs = daoEngine.OpenDatabase(infile)
+
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> terminate(self):
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeTable(self, currTabl):
+        self.writeLine(<SPAN class=syntaxstring>'\ncreate table '</SPAN> + chr(34) + currTabl.Name + chr(34),<SPAN class=syntaxstring>""</SPAN>,1)
+        self.writeLine(<SPAN class=syntaxstring>'('</SPAN>,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write Columns</SPAN>
+        cn=0
+        <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> currTabl.Fields:
+            cn = cn +1
+            self.writeColumn(col.Name, col.Type, col.Size, col.Required, col.Attributes, col.DefaultValue, col.ValidationRule, currTabl.Fields.Count-cn)
+
+        <SPAN class=syntaxcomment># Validation Rule</SPAN>
+        tablRule = currTabl.ValidationRule
+        <SPAN class=syntaxkeyword>if</SPAN> tablRule &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+            tablRule = <SPAN class=syntaxstring>"    check("</SPAN> + tablRule + <SPAN class=syntaxstring>") "</SPAN>
+            self.writeLine(<SPAN class=syntaxstring>""</SPAN>,<SPAN class=syntaxstring>","</SPAN>,1) <SPAN class=syntaxcomment># add a comma and CR previous line</SPAN>
+            self.writeLine(tablRule,<SPAN class=syntaxstring>""</SPAN>,0)
+
+        <SPAN class=syntaxcomment># Primary Key</SPAN>
+        pk=self.getPrimaryKey(currTabl)
+        <SPAN class=syntaxkeyword>if</SPAN> pk &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+            self.writeLine(<SPAN class=syntaxstring>""</SPAN>,<SPAN class=syntaxstring>","</SPAN>,1) <SPAN class=syntaxcomment># add a comma and CR previous line</SPAN>
+            self.writeLine(pk,<SPAN class=syntaxstring>""</SPAN>,0)
+
+        <SPAN class=syntaxcomment># End of table</SPAN>
+        self.writeLine(<SPAN class=syntaxstring>""</SPAN>,<SPAN class=syntaxstring>""</SPAN>,1) <SPAN class=syntaxcomment># terminate previous line</SPAN>
+        self.writeLine(<SPAN class=syntaxstring>');'</SPAN>,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write table comment</SPAN>
+        <SPAN class=syntaxkeyword>try</SPAN>: sql = currTabl.Properties(<SPAN class=syntaxstring>"Description"</SPAN>).Value
+        <SPAN class=syntaxkeyword>except</SPAN> pythoncom.com_error: sql=<SPAN class=syntaxstring>""</SPAN>
+        <SPAN class=syntaxkeyword>if</SPAN> sql &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+           sql = <SPAN class=syntaxstring>"comment on table "</SPAN> + chr(34) + currTabl.Name + chr(34) + <SPAN class=syntaxstring>" is "</SPAN> + chr(34) + sql + chr(34) +<SPAN class=syntaxstring>";"</SPAN>
+           self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write column comments</SPAN>
+        <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> currTabl.Fields:
+            <SPAN class=syntaxkeyword>try</SPAN>: sql = col.Properties(<SPAN class=syntaxstring>"Description"</SPAN>).Value
+            <SPAN class=syntaxkeyword>except</SPAN> pythoncom.com_error: sql=<SPAN class=syntaxstring>""</SPAN>
+            <SPAN class=syntaxkeyword>if</SPAN> sql &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+               sql = <SPAN class=syntaxstring>"comment on column "</SPAN> + chr(34) + currTabl.Name + chr(34) + <SPAN class=syntaxstring>"."</SPAN> + chr(34) + col.Name + chr(34) + <SPAN class=syntaxstring>" is "</SPAN> + chr(34) + sql + chr(34) + <SPAN class=syntaxstring>";"</SPAN>
+               self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write Indexes</SPAN>
+        self.writeIndexes(currTabl)
+
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeColumn(self, colName, colType, length, requird, attributes, default, check, colRix):
+        <SPAN class=syntaxcomment># colRix: 0 based index of column from right side. 0 indicates rightmost column</SPAN>
+
+        <SPAN class=syntaxkeyword>if</SPAN> colType == const.dbByte: dataType = <SPAN class=syntaxstring>"Byte"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbInteger: dataType = <SPAN class=syntaxstring>"Integer"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbSingle: dataType = <SPAN class=syntaxstring>"Single"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbDouble: dataType = <SPAN class=syntaxstring>"Double"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbDate: dataType = <SPAN class=syntaxstring>"DateTime"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbLongBinary: dataType = <SPAN class=syntaxstring>"OLE"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbMemo: dataType = <SPAN class=syntaxstring>"Memo"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbCurrency: dataType = <SPAN class=syntaxstring>"Currency"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbLong:
+            <SPAN class=syntaxkeyword>if</SPAN>  (attributes &amp; const.dbAutoIncrField): dataType = <SPAN class=syntaxstring>"Counter"</SPAN>
+            <SPAN class=syntaxkeyword>else</SPAN>: dataType = <SPAN class=syntaxstring>"LongInteger"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbText:
+            <SPAN class=syntaxkeyword>if</SPAN> length == 0: dataType = <SPAN class=syntaxstring>"Text"</SPAN>
+            <SPAN class=syntaxkeyword>else</SPAN>: dataType = <SPAN class=syntaxstring>"char("</SPAN>+str(length)+<SPAN class=syntaxstring>")"</SPAN>
+        <SPAN class=syntaxkeyword>elif</SPAN> colType == const.dbBoolean:
+            dataType = <SPAN class=syntaxstring>"Bit"</SPAN>
+            <SPAN class=syntaxkeyword>if</SPAN> default == <SPAN class=syntaxstring>"Yes"</SPAN>: default = <SPAN class=syntaxstring>"1"</SPAN>
+            <SPAN class=syntaxkeyword>else</SPAN>: default = <SPAN class=syntaxstring>"0"</SPAN>
+        <SPAN class=syntaxkeyword>else</SPAN>:
+            <SPAN class=syntaxkeyword>if</SPAN> length == 0: dataType = <SPAN class=syntaxstring>"Text"</SPAN>
+            <SPAN class=syntaxkeyword>else</SPAN>: dataType = <SPAN class=syntaxstring>"Text("</SPAN>+str(length)+<SPAN class=syntaxstring>")"</SPAN>
+
+        <SPAN class=syntaxkeyword>if</SPAN> default &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+            defaultStr = <SPAN class=syntaxstring>"default "</SPAN> + default + <SPAN class=syntaxstring>" "</SPAN>
+        <SPAN class=syntaxkeyword>else</SPAN>: defaultStr = <SPAN class=syntaxstring>""</SPAN>
+
+        <SPAN class=syntaxkeyword>if</SPAN> check &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+            checkStr = <SPAN class=syntaxstring>"check("</SPAN> + check + <SPAN class=syntaxstring>") "</SPAN>
+        <SPAN class=syntaxkeyword>else</SPAN>:
+            checkStr = <SPAN class=syntaxstring>""</SPAN>
+
+        <SPAN class=syntaxkeyword>if</SPAN> requird <SPAN class=syntaxkeyword>or</SPAN> (attributes &amp; const.dbAutoIncrField):
+            mandatory = <SPAN class=syntaxstring>"not null "</SPAN>
+        <SPAN class=syntaxkeyword>else</SPAN>:
+            mandatory = <SPAN class=syntaxstring>""</SPAN>
+
+        sql = <SPAN class=syntaxstring>"    "</SPAN> + chr(34) + colName + chr(34) + <SPAN class=syntaxstring>" "</SPAN> + dataType + <SPAN class=syntaxstring>" "</SPAN> + defaultStr + checkStr + mandatory
+        <SPAN class=syntaxkeyword>if</SPAN> colRix &gt; 0:
+            self.writeLine(sql,<SPAN class=syntaxstring>","</SPAN>,1)
+        <SPAN class=syntaxkeyword>else</SPAN>:
+            self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,0)
+
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> getPrimaryKey(self, currTabl):
+
+        <SPAN class=syntaxcomment># Get primary key fields</SPAN>
+        sql = <SPAN class=syntaxstring>""</SPAN>
+        <SPAN class=syntaxkeyword>for</SPAN> idx <SPAN class=syntaxkeyword>in</SPAN> currTabl.Indexes:
+           <SPAN class=syntaxkeyword>if</SPAN> idx.Primary:
+              idxName = idx.Name
+              sql = <SPAN class=syntaxstring>"    primary key "</SPAN>
+              cn=0
+              <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> idx.Fields:
+                  cn=cn+1
+                  sql = sql + chr(34) + col.Name + chr(34)
+                  <SPAN class=syntaxkeyword>if</SPAN> idx.Fields.Count &gt; cn : sql = sql + <SPAN class=syntaxstring>","</SPAN>
+        <SPAN class=syntaxkeyword>return</SPAN> sql
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeIndexes(self, currTabl):
+
+        <SPAN class=syntaxcomment># Write index definition</SPAN>
+        nIdx = -1
+        <SPAN class=syntaxkeyword>for</SPAN> idx <SPAN class=syntaxkeyword>in</SPAN> currTabl.Indexes:
+            nIdx = nIdx + 1
+            idxName = idx.Name
+            tablName = currTabl.Name
+            <SPAN class=syntaxkeyword>if</SPAN> idx.Primary:
+                idxName = tablName + <SPAN class=syntaxstring>"_PK"</SPAN>
+            <SPAN class=syntaxkeyword>elif</SPAN> idxName[:9] == <SPAN class=syntaxstring>"REFERENCE"</SPAN>:
+               idxName = tablName + <SPAN class=syntaxstring>"_FK"</SPAN> + idxName[10:]
+            <SPAN class=syntaxkeyword>else</SPAN>:
+                idxName = tablName + <SPAN class=syntaxstring>"_IX"</SPAN> + str(nIdx)
+
+            sql = <SPAN class=syntaxstring>"create "</SPAN>
+            <SPAN class=syntaxkeyword>if</SPAN> idx.Unique: sql = sql + <SPAN class=syntaxstring>"unique "</SPAN>
+            <SPAN class=syntaxkeyword>if</SPAN> idx.Clustered: sql = sql + <SPAN class=syntaxstring>"clustered "</SPAN>
+            sql = sql + <SPAN class=syntaxstring>"index "</SPAN> + chr(34) + idxName + chr(34)
+            sql = sql + <SPAN class=syntaxstring>" on "</SPAN> + chr(34) + tablName + chr(34) + <SPAN class=syntaxstring>" ("</SPAN>
+
+            <SPAN class=syntaxcomment># Write Index Columns</SPAN>
+            cn=0
+            <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> idx.Fields:
+                cn = cn + 1
+                sql = sql + chr(34) + col.Name + chr(34)
+                <SPAN class=syntaxkeyword>if</SPAN> col.Attributes &amp; const.dbDescending:
+                    sql = sql + <SPAN class=syntaxstring>" desc"</SPAN>
+                <SPAN class=syntaxkeyword>else</SPAN>:
+                    sql = sql + <SPAN class=syntaxstring>" asc"</SPAN>
+                <SPAN class=syntaxkeyword>if</SPAN> idx.Fields.Count &gt; cn: sql = sql + <SPAN class=syntaxstring>","</SPAN>
+
+            sql=sql + <SPAN class=syntaxstring>" );"</SPAN>
+
+            self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeForeignKey(self, currRefr):
+
+        <SPAN class=syntaxcomment># Export foreign key</SPAN>
+        sql = <SPAN class=syntaxstring>"\nalter table "</SPAN> + chr(34) + currRefr.ForeignTable + chr(34)
+        self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        sql = <SPAN class=syntaxstring>"    add foreign key ("</SPAN>
+        cn = 0
+        <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> currRefr.Fields:
+            cn = cn + 1
+            sql = sql + chr(34) + col.ForeignName + chr(34)
+            <SPAN class=syntaxkeyword>if</SPAN> currRefr.Fields.Count &gt; cn: sql = sql + <SPAN class=syntaxstring>","</SPAN>
+            
+        sql = sql + <SPAN class=syntaxstring>")"</SPAN>
+        self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        sql = <SPAN class=syntaxstring>"    references "</SPAN> + chr(34) + currRefr.Table + chr(34) + <SPAN class=syntaxstring>" ("</SPAN>
+        cn = 0
+        <SPAN class=syntaxkeyword>for</SPAN> col <SPAN class=syntaxkeyword>in</SPAN> currRefr.Fields:
+            cn = cn + 1
+            sql = sql + chr(34) + col.Name + chr(34)
+            <SPAN class=syntaxkeyword>if</SPAN> currRefr.Fields.Count &gt; cn: sql = sql + <SPAN class=syntaxstring>","</SPAN>
+
+        sql = sql + <SPAN class=syntaxstring>")"</SPAN>
+        <SPAN class=syntaxkeyword>if</SPAN> (currRefr.Attributes &amp; const.dbRelationUpdateCascade) &lt;&gt; 0:
+           sql = sql + <SPAN class=syntaxstring>" on update cascade"</SPAN>
+        <SPAN class=syntaxkeyword>if</SPAN> (currRefr.Attributes &amp; const.dbRelationDeleteCascade) &lt;&gt; 0:
+           sql = sql + <SPAN class=syntaxstring>" on delete cascade"</SPAN>
+        sql=sql+<SPAN class=syntaxstring>";"</SPAN>
+        self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeQuery(self, currQry):
+
+        sql = <SPAN class=syntaxstring>"\ncreate view "</SPAN> + chr(34) + currQry.Name + chr(34) + <SPAN class=syntaxstring>" as"</SPAN>
+        self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write Query text</SPAN>
+        sql=string.replace(currQry.SQL,chr(13),<SPAN class=syntaxstring>""</SPAN>) <SPAN class=syntaxcomment># Get rid of extra linefeeds</SPAN>
+        self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+
+        <SPAN class=syntaxcomment># Write Query comment</SPAN>
+        <SPAN class=syntaxkeyword>try</SPAN>: sql = currQry.Properties(<SPAN class=syntaxstring>"Description"</SPAN>).Value
+        <SPAN class=syntaxkeyword>except</SPAN> pythoncom.com_error: sql=<SPAN class=syntaxstring>""</SPAN>
+        <SPAN class=syntaxkeyword>if</SPAN> sql &lt;&gt; <SPAN class=syntaxstring>""</SPAN>:
+            sql =  <SPAN class=syntaxstring>"comment on table "</SPAN> + chr(34) + currQry.Name + chr(34) + <SPAN class=syntaxstring>" is "</SPAN> + chr(34) + sql + chr(34)
+            self.writeLine(sql,<SPAN class=syntaxstring>""</SPAN>,1)
+            
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+    <SPAN class=syntaxkeyword>def</SPAN> writeLine(self,strLine, delimit, newline):
+        <SPAN class=syntaxcomment># Used for controlling where lines terminate with a comma or other continuation mark</SPAN>
+        sqlfile.write(strLine)
+        <SPAN class=syntaxkeyword>if</SPAN> delimit: sqlfile.write(delimit)
+        <SPAN class=syntaxkeyword>if</SPAN> newline: sqlfile.write(<SPAN class=syntaxstring>'\n'</SPAN>)
+        <SPAN class=syntaxkeyword>return</SPAN>
+
+
+<SPAN class=syntaxkeyword>if</SPAN> __name__ == <SPAN class=syntaxstring>'__main__'</SPAN>:
+    <SPAN class=syntaxkeyword>if</SPAN> len(sys.argv)&lt;2:
+        <SPAN class=syntaxkeyword>print</SPAN> <SPAN class=syntaxstring>"Usage: jet2sql.py infile.mdb outfile.sql"</SPAN>
+    <SPAN class=syntaxkeyword>else</SPAN>:
+        jetEng = jetReverse(sys.argv[1])
+        outfile = sys.argv[2]
+
+        sqlfile = open(outfile,<SPAN class=syntaxstring>'w'</SPAN>)
+
+        <SPAN class=syntaxkeyword>print</SPAN> <SPAN class=syntaxstring>"\nReverse engineering %s to %s"</SPAN> % (jetEng.jetfilename, outfile)
+
+        <SPAN class=syntaxcomment># Tables</SPAN>
+        sys.stdout.write(<SPAN class=syntaxstring>"\n   Tables"</SPAN>)
+        <SPAN class=syntaxkeyword>for</SPAN> tabl <SPAN class=syntaxkeyword>in</SPAN> jetEng.dtbs.TableDefs:
+            sys.stdout.write(<SPAN class=syntaxstring>"."</SPAN>)
+            <SPAN class=syntaxkeyword>if</SPAN> tabl.Name[:4] &lt;&gt; <SPAN class=syntaxstring>"MSys"</SPAN> <SPAN class=syntaxkeyword>and</SPAN> tabl.Name[:4] &lt;&gt; <SPAN class=syntaxstring>"~TMP"</SPAN>:
+                jetEng.writeTable(tabl)
+
+        <SPAN class=syntaxcomment># Relations / FKs</SPAN>
+        sys.stdout.write(<SPAN class=syntaxstring>"\n   Relations"</SPAN>)
+        <SPAN class=syntaxkeyword>for</SPAN> fk <SPAN class=syntaxkeyword>in</SPAN> jetEng.dtbs.Relations:
+            sys.stdout.write(<SPAN class=syntaxstring>"."</SPAN>)
+            jetEng.writeForeignKey(fk)
+
+        <SPAN class=syntaxcomment># Queries</SPAN>
+        sys.stdout.write(<SPAN class=syntaxstring>"\n   Queries"</SPAN>)
+        <SPAN class=syntaxkeyword>for</SPAN> qry <SPAN class=syntaxkeyword>in</SPAN> jetEng.dtbs.QueryDefs:
+            sys.stdout.write(<SPAN class=syntaxstring>"."</SPAN>)
+            jetEng.writeQuery(qry)
+
+        <SPAN class=syntaxkeyword>print</SPAN> <SPAN class=syntaxstring>"\n   Done\n"</SPAN>
+        
+        <SPAN class=syntaxcomment># Done</SPAN>
+        sqlfile.close()
+        jetEng.terminate()</PRE></DIV>
+</BODY></HTML>
