@@ -3,36 +3,32 @@ from ExcelHelper import *
 
 class WriterExcelMain(ExcelHelper):
 	def __init__(self):
-		pass
-	def run(self, voList):
-		inPath = sys.argv[0]
+		inPath = sys.argv[0] #메인프로그램
 		CONS.setConstant(inPath)
-		#inFile = CONS.INPUT_DATA_DIR / sys.argv[1]
-		#ExcelHelper1.__init__
 		self.setCons(CONS)
+		outputfile = CONS.OUTPUT_XLS_FILE		
+		self.openExcelSheet(outputfile)
 		
+	def writeSheetAtion(self, voList, columnTitle, inSheetName):
 		i = self.CONS.ATTRIBUTE_LIST_START_POSITION
 		self.setCurrentRow(i)
-
 		self.setVoList(voList)
 		#??????????????????????????????????????
-		fileName = CONS.INPUT_CLASS_ATTRIBUTE
-		
-		self.title = ('no1', 'columnKor', 'columnEng', 'colType', 'tableEng', 'tableKR', 'bizName')
-		
-		self.writeExcel(fileName)
+		self.setColumnTitle(columnTitle)
 
-	def initExcelSheet(self, outputfile):
-		self.openExcelSheet(outputfile)
-		self.deleteSheet(['input']) #templ
-		aTargetSheet = self.addSheet('templ', 'input')
-		return aTargetSheet
-
-	def writeExcel(self, outputfile):
-		aTargetSheet = self.initExcelSheet(outputfile)
+		self.deleteSheet([inSheetName]) #templ
+		aTargetSheet = self.addSheet('templ', inSheetName)
 		
-		# title
-		self.writeAttributeRecord(aTargetSheet, 1, self.title)
+		self.writeExcel(aTargetSheet)
+		#self.closeExcel()
+
+	def setColumnTitle(self, columnTitle):
+		self.columnTitle = columnTitle
+
+	def writeExcel(self, aTargetSheet):
+		
+		# columnTitle
+		self.writeAttributeRecord(aTargetSheet, 1, self.columnTitle)
 		
 		i = self.getCurrentRow()
 		for attr in self.voList:
