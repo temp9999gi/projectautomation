@@ -1,22 +1,10 @@
 ﻿# -*- coding: utf-8 -*-
-##import mx.ODBC.Windows as ODBC_Windows
-##from commUtil import *
-
-##DATASOURCE = 'dsnTableParse'   # put your alias here
-##USERID = 'Admin'	 # default for all access databases
-##PWD = ''			 # default for access databases
-
-
 import adodb
-
-
 #builds object layers on top of databases.
 class MyDao:
 	def __init__(self):
 		self.conn = adodb.NewADOConnection('access') # mxodbc required
 		self.connect()
-		
-		#self.name = 'tableInfo'
 		self.tableVoList=[]
 		self.columnVoList=[]
 
