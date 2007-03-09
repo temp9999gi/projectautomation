@@ -1,0 +1,1 @@
+checkDbDictionary.py input.xls
