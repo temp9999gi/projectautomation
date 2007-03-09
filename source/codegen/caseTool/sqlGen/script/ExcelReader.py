@@ -1,10 +1,11 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # start
 from CommonUtil import *
 from pyExcel.ReadExcel import *
 from Klass import *
 from Field import *
-from DbAndJavaTypeMapper import *
+from posdata.DbAndJavaTypeMapper import *
+# from DbAndJavaTypeMapper import *
 
 class ExcelReader:
 	def __init__(self, inFile, CONS):
