@@ -1,0 +1,13 @@
+Message	File Name	Line	Position
+Traceback			
+    run	C:\_tools\Python24\lib\bdb.py	366	
+    ?	C:\_projectautomation\source\dbAutomation\checkDbDictionary\script\checkDbDictionary.py	78	
+    writeAction	C:\_projectautomation\source\dbAutomation\checkDbDictionary\script\checkDbDictionary.py	47	
+    selectNameKorAndNull	C:\_projectautomation\source\dbAutomation\checkDbDictionary\script\myDao.py	87	
+    executeQuery	C:\_projectautomation\source\dbAutomation\checkDbDictionary\script\myDao.py	78	
+    Execute	C:\_tools\Python24\Lib\site-packages\adodb\adodb.py	274	
+    _query	C:\_tools\Python24\Lib\site-packages\adodb\adodb.py	265	
+"ProgrammingError: ('07001', -3010, '[Microsoft][ODBC Microsoft Access Driver] \xb8\xc5\xb0\xb3 \xba\xaf\xbc\xf6\xb0\xa1 \xb3\xca\xb9\xab \xc0\xfb\xbd\xc0\xb4\xcf\xb4\xd9. 1\xc0\xcc(\xb0\xa1) \xc7\xca\xbf\xe4\xc7\xd5\xb4\xcf\xb4\xd9.', 4612): SELECT elementWord.elementWordEng, IIf(IsNull([dataDictionary.nameKor]),""|"" & [elementWord.elementWordEng],[dataDictionary.nameKor]) AS nameKorAndNull, elementWord.columnEng, elementWord.seq, columnInfo.tableEng
+FROM columnInfo INNER JOIN (elementWord LEFT JOIN dataDictionary ON elementWord.elementWordEng=dataDictionary.nameEng) ON (columnInfo.columnEng=elementWord.columnEng) AND (columnInfo.tableEng=elementWord.tableEng)
+ORDER BY columnInfo.tableEng, elementWord.columnEng, elementWord.seq;
+		"			

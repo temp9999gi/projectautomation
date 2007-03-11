@@ -12,6 +12,7 @@ aCommonUtil = CommonUtil()
 class Klass:
 	def __init__(self):
 		self.fieldList = []
+		self.ColumnList = self.fieldList
 		self.operationList=[]
 		self.pkColumnList=[]
 		self.nonPkColumnList=[]		

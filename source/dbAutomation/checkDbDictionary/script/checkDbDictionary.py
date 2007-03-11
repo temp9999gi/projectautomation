@@ -17,10 +17,17 @@ from Constants import *
 from CommonUtil import *
 import ReaderAppEnv
 
-CONS = Constants()
+from myDao import MyDao
+from MyDao2 import MyDao2
 
-class SqlWriterApp:  
-	def writeSqlCore(self,aReaderAppEnv):
+CONS = Constants()
+def getList(cursor):
+	voList = []
+	for row in cursor:
+		voList.append(row)
+	return voList
+class WriterApp:
+	def writeAction(self,aReaderAppEnv):
 
 		inFile = CONS.INPUT_DATA_DIR / sys.argv[1]
 		aExcelReader = ExcelReader(inFile, CONS)
@@ -29,29 +36,32 @@ class SqlWriterApp:
 		xx = aExcelReader.getKlassListFromExcel()
 		self.aKlassInfoList.setKlassList(xx)
 		self.aKlassInfoList.setReaderAppEnv(aReaderAppEnv)
+		
+		# db에 저장한다.
+		aDao = MyDao()
+		tableList = self.aKlassInfoList.getKlassList()
+		aDao.deleteAllAction()
+		
+		aDao.setVo(tableList)
+		aDao.insertAction()
+		
+		#얘는 뭐하는 애냐면?
+		#영문칼럼.영문낱단어에 대응하는 용어사전.한글명과
+		#대응하는 한글명이 없는 경우 "|영문낱단어"를 가진 칼럼을 찾는다.
+		#테이블을 생성한다.
+		aMyDao2 = MyDao2()
+		sql=aMyDao2.selectNameKorAndNull()
+		voList = aMyDao2.selectAction(sql)
+		aDao.insertTbNameKorAndNullAction(voList)
 
-		aCommonUtil = CommonUtil()
-		for aKlass in self.aKlassInfoList.getKlassList():
-			aKlass.setInsertSqlAction(aKlass)
-			aKlass.setUpdateSqlAction(aKlass)
-			aKlass.setDeleteSqlAction(aKlass)
-			aKlass.setSelectSqlAction(aKlass)
-			aKlass.setSelectSqlTbAliasAction(aKlass)
-##			print 'aKlass.getInsertSql\n', aKlass.getUpdateSql()
-##			print 'aKlass.getInsertSql\n', aKlass.getInsertSql()
-			
- 			outSource = aCommonUtil.generateCode(aKlass, str(CONS.SQL_TEMPLATE))
- 			fileName = CONS.OUT_DIR / aKlass.name + '.txt'
- 			aCommonUtil.writeFile(fileName, outSource)
-			
-		log.info('---def writeSqlCore---')
+		log.info('---def writeAction---')
 		log.info("(MSG) Ok: write Sql")
-		print "(MSG)write Sql statement: Ok"
+		print "(MSG)write statement: Ok"
 
 
 if __name__ == '__main__':
  	if len(sys.argv) < 2:
- 		print "USAGE: SqlWriterApp.py input.xls"
+ 		print "USAGE: WriterApp.py input.xls"
  		sys.exit()
 
 	inPath = sys.argv[0]
@@ -69,11 +79,6 @@ if __name__ == '__main__':
 
 	aReaderAppEnv = ReaderAppEnv.ReaderAppEnv()
 	aReaderAppEnv.saveAppEnvInfo(CONS.INPUT_APP_ENV_XML)
-	aSqlWriterApp = SqlWriterApp()
-	aSqlWriterApp.writeSqlCore(aReaderAppEnv)
+	aWriterApp = WriterApp()
+	aWriterApp.writeAction(aReaderAppEnv)
 
-# 	if aReaderAppEnv.appEnvData["isUmlCaseInput"]=='True':
-# 		#deliverableType = 'Class'
-# 		aSqlWriterApp = SqlWriterApp()
-# 		aSqlWriterApp.writeSqlCore(aReaderAppEnv)
-		
