@@ -1,0 +1,37 @@
+아래와 같은 에러가 나면...
+일단 엑셀이 파일을 
+정상적인 엑셀을 열어라.......
+output 액셀이 정상적으로 메모리릴리즈 되지 않아 나타는 현상이다.
+
+
+해결방법을 찾아야 할텐데.....음.......
+close를 해주라...
+
+C:\_kldp\codegen\parseXmi\parseXmi>ParseXmiMain.py Party.xmi
+Traceback (most recent call last):
+  File "C:\_kldp\codegen\parseXmi\parseXmi\ParseXmiMain.py", line 43, in ?
+    ParseXmiMain().Run()
+  File "C:\_kldp\codegen\parseXmi\parseXmi\ParseXmiMain.py", line 37, in Run
+    aWriterExcel.writeExcel(aClassList)
+  File "C:\_kldp\codegen\parseXmi\parseXmi\WriterExcel.py", line 26, in writeExc
+el
+    shutil.copyfile(CONS.INPUT_TABLE_TEMPLATE , CONS.OUTPUT_TABLE_EXCEL )
+  File "C:\_tools\Python24\lib\shutil.py", line 48, in copyfile
+    fdst = open(dst, 'wb')
+IOError: [Errno 2] No such file or directory: path(u'C:\\_kldp\\codegen\\parseXm
+i\\parseXmi\\output\\outputTableDefinition.xls')
+
+C:\_kldp\codegen\parseXmi\parseXmi>
+
+
+아래와 같은 메시지는 뭐냐면.......시트이름이 동일할때 발생
+
+>>>>
+C:\_kldp\codegen\parseXmi\parseXmi>ParseXmiMain.py Party.xmi
+The Excel call failed with code -2147352567: 예외가 발생했습니다.
+The source of the error is Microsoft Office Excel
+The error message is 다른 시트, 참조된 개체 라이브러리, Visual Basic에서 참조하
+는 통합 문서 등에서 사용된 이름은 사용할 수 없습니다.
+More info can be found in C:\Program Files\Microsoft Office\OFFICE11\1042\xlmain
+11.chm (id=0)
+(MSG) Ok
