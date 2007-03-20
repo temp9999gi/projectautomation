@@ -1,1 +1,0 @@
-			xl.Worksheets(targetSheet).Activate() #Worksheets("Sheet1").Activate

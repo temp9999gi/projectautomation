@@ -1,1 +1,0 @@
-SqlGenMain.py input.xls

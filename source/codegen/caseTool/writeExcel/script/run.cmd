@@ -1,2 +1,0 @@
-REM WriterExcelMain.py outputClassForExport.xls
-WriterExcelMain.py outputClassForExport_IF.xls

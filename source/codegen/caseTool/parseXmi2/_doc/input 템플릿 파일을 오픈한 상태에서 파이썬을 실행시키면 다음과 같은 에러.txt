@@ -1,8 +1,0 @@
-input 템플릿 파일을 오픈한 상태에서 파이썬을 실행시키면 다음과 같은 에러가 간다.
-
-C:\_kldp\codegen\parseXmi\parseXmi>ExcelMain.py Party.xmi
-The Excel call failed with code -2147352567: 예외가 발생했습니다.
-The source of the error is Microsoft Office Excel
-The error message is Workbooks 클래스 중 Open 메서드에 오류가 있습니다.
-More info can be found in C:\Program Files\Microsoft Office\OFFICE11\1042\xlmain
-11.chm (id=0)
