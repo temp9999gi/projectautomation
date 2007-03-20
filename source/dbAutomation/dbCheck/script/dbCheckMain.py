@@ -93,6 +93,8 @@ def Run():
 	inSheetName='203'
 	writeAtion(aWriterExcelMain,voList,title,inSheetName)
 	
+	print "(MSG) OK"
+	
 if __name__ == '__main__':
 	# inXmlFile = './input/'+sys.argv[1]
 	Run()

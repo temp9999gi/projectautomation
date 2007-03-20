@@ -9,7 +9,12 @@ class MyDao:
 		self.columnVoList=[]
 
 	def connect(self):
-		dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=C:\\_kldp\\codegen\\dbAutomation\\dbCheck\\input\\mdb\\MyDB.mdb;"
+		dataSource ='C://_projectautomation/source/dbAutomation/dbCheck/db/MyDB.mdb'
+		#C:\\_kldp\\codegen\\dbAutomation\\dbCheck\\input\\mdb\\MyDB.mdb
+		#dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=C:\\_kldp\\codegen\\dbAutomation\\dbCheck\\input\\mdb\\MyDB.mdb;"
+		dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=%(dataSource)s;" \
+			% {'dataSource': dataSource}
+
 		self.conn.Connect(dsn)
 		return self.conn
 	

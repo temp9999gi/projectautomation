@@ -1,0 +1,478 @@
+"Table/View Name","Column Name","Column Datatype","Column Null Option","Column Is PK","Column Is FK","Attribute Name","Entity Name"
+GPJ17T,adv_doctor_rgno,CHAR(13),"NOT NULL",Yes,No,자문의사주민등록번호,자문의사_GPJ17T
+GPJ17T,adv_doctor_rgnodup,CHAR(1),"NOT NULL",Yes,No,자문의사주민중복구분,자문의사_GPJ17T
+GPJ17T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,자문의사_GPJ17T
+GPJ17T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,자문의사_GPJ17T
+GPJ17T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,자문의사_GPJ17T
+GPJ17T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,자문의사_GPJ17T
+GPJ17T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,자문의사_GPJ17T
+GPJ17T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,자문의사_GPJ17T
+GPJ17T,adv_doctor_cd,CHAR(4),"NOT NULL",No,No,자문의사코드,자문의사_GPJ17T
+GPJ17T,doctor_license_no,CHAR(10),NULL,No,No,의사면허번호,자문의사_GPJ17T
+GPJ17T,adv_doctor_nm,CHAR(20),NULL,No,No,자문의사성명,자문의사_GPJ17T
+GPJ17T,main_subject,CHAR(10),NULL,No,No,전문과목,자문의사_GPJ17T
+GPJ17T,mgn_br_cd,CHAR(4),NULL,No,No,관할지사,자문의사_GPJ17T
+GPJ17T,entrust_dt,DATE,"NOT NULL",No,No,위촉일자,자문의사_GPJ17T
+GPJ17T,entrust_term_fr,DATE,"NOT NULL",No,No,위촉기간_From,자문의사_GPJ17T
+GPJ17T,entrust_term_to,DATE,NULL,No,No,위촉기간_To,자문의사_GPJ17T
+GPJ17T,fst_entrust_dt,DATE,NULL,No,No,최초위촉일자,자문의사_GPJ17T
+GPJ17T,release_dt,DATE,NULL,No,No,해촉일자,자문의사_GPJ17T
+GPJ17T,belong_org_nm,CHAR(50),NULL,No,No,소속기관명,자문의사_GPJ17T
+GPJ17T,ph_no_loc,CHAR(4),NULL,No,No,전화번호_지역,자문의사_GPJ17T
+GPJ17T,ph_no_area,CHAR(4),NULL,No,No,전화번호_국,자문의사_GPJ17T
+GPJ17T,ph_no_seq,CHAR(4),NULL,No,No,전화번호_번호,자문의사_GPJ17T
+GPJ17T,zipcd,CHAR(6),NULL,No,No,우편번호,자문의사_GPJ17T
+GPJ17T,e_mail_id,CHAR(50),NULL,No,No,e_mail_id,자문의사_GPJ17T
+GPJ17T,addr,CHAR(120),NULL,No,No,주소,자문의사_GPJ17T
+GPJ17T,sub_subject,CHAR(3),NULL,No,No,전문과목_세부전문,자문의사_GPJ17T
+GPJ17T,hp_no_loc,CHAR(4),NULL,No,No,휴대전화번호_지역,자문의사_GPJ17T
+GPJ17T,hp_no_area,CHAR(4),NULL,No,No,휴대전화번호_국,자문의사_GPJ17T
+GPJ17T,hp_no_seq,CHAR(4),NULL,No,No,휴대전화번호_번호,자문의사_GPJ17T
+HPC01T,diag_hospital_cd,CHAR(7),"NOT NULL",Yes,No,의료기관코드,"장애진단 의료기관_HPC01T"
+HPC01T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"장애진단 의료기관_HPC01T"
+HPC01T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"장애진단 의료기관_HPC01T"
+HPC01T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"장애진단 의료기관_HPC01T"
+HPC01T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"장애진단 의료기관_HPC01T"
+HPC01T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,"장애진단 의료기관_HPC01T"
+HPC01T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,"장애진단 의료기관_HPC01T"
+HPC01T,hospital_nm,CHAR(50),"NOT NULL",No,No,의료기관명,"장애진단 의료기관_HPC01T"
+HPC01T,hospital_gb,CHAR(1),"NOT NULL",No,No,의료기관구분,"장애진단 의료기관_HPC01T"
+HPC01T,hospital_class,CHAR(2),"NOT NULL",No,No,종별,"장애진단 의료기관_HPC01T"
+HPC01T,establish_typ,CHAR(2),"NOT NULL",No,No,설립구분,"장애진단 의료기관_HPC01T"
+HPC01T,establish_dt,DATE,"NOT NULL",No,No,개설일자,"장애진단 의료기관_HPC01T"
+HPC01T,approval_bed_cnt,INTEGER,"NOT NULL",No,No,허가병상수,"장애진단 의료기관_HPC01T"
+HPC01T,area_gb,CHAR(1),"NOT NULL",No,No,시군부구분,"장애진단 의료기관_HPC01T"
+HPC01T,remarks_cnts,CHAR(100),NULL,No,No,비고사항,"장애진단 의료기관_HPC01T"
+HPC01T,zipcd_1,CHAR(3),NULL,No,No,우편번호_대구분,"장애진단 의료기관_HPC01T"
+HPC01T,zipcd_2,CHAR(3),NULL,No,No,우편번호_중구분,"장애진단 의료기관_HPC01T"
+HPC01T,addr,CHAR(120),NULL,No,No,주소,"장애진단 의료기관_HPC01T"
+HPC01T,ph_no_loc,CHAR(4),NULL,No,No,전화_지역,"장애진단 의료기관_HPC01T"
+HPC01T,ph_no_area,CHAR(4),NULL,No,No,전화_국,"장애진단 의료기관_HPC01T"
+HPC01T,ph_no_seq,CHAR(4),NULL,No,No,전화_번호,"장애진단 의료기관_HPC01T"
+HPC01T,fax_no_1,CHAR(4),NULL,No,No,팩스_지역,"장애진단 의료기관_HPC01T"
+HPC01T,fax_no_2,CHAR(4),NULL,No,No,팩스_국,"장애진단 의료기관_HPC01T"
+HPC01T,fax_no_3,CHAR(4),NULL,No,No,팩스_번호,"장애진단 의료기관_HPC01T"
+HPC01T,br_cd,CHAR(4),NULL,No,No,관할지사,"장애진단 의료기관_HPC01T"
+HPC02T,doc_cd,CHAR(2),"NOT NULL",Yes,No,서류코드,심사서류코드_HPC02T
+HPC02T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사서류코드_HPC02T
+HPC02T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사서류코드_HPC02T
+HPC02T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사서류코드_HPC02T
+HPC02T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사서류코드_HPC02T
+HPC02T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,심사서류코드_HPC02T
+HPC02T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,심사서류코드_HPC02T
+HPC02T,doc_nm,CHAR(100),"NOT NULL",No,No,서류명,심사서류코드_HPC02T
+HPC03T,lesion_kind,CHAR(2),"NOT NULL",Yes,No,장애유형대분류코드,장애유형_대분류_HPC03T
+HPC03T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애유형_대분류_HPC03T
+HPC03T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애유형_대분류_HPC03T
+HPC03T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애유형_대분류_HPC03T
+HPC03T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애유형_대분류_HPC03T
+HPC03T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애유형_대분류_HPC03T
+HPC03T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,장애유형_대분류_HPC03T
+HPC03T,lesion_kind_nm,CHAR(40),"NOT NULL",No,No,장애유형대분류명칭,장애유형_대분류_HPC03T
+HPC04T,lesion_typ,CHAR(2),"NOT NULL",Yes,No,장애유형,장애유형_HPC04T
+HPC04T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애유형_HPC04T
+HPC04T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애유형_HPC04T
+HPC04T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애유형_HPC04T
+HPC04T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애유형_HPC04T
+HPC04T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애유형_HPC04T
+HPC04T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,장애유형_HPC04T
+HPC04T,lesion_nm,CHAR(40),"NOT NULL",No,No,장애유형명칭,장애유형_HPC04T
+HPC04T,lesion_kind,CHAR(2),"NOT NULL",No,Yes,장애유형대분류코드,장애유형_HPC04T
+HPC05T,lesion_typ,CHAR(2),"NOT NULL",Yes,Yes,장애유형,"장애유형별 장애등급_HPC05T"
+HPC05T,lesion_grd,SMALLINT,"NOT NULL",Yes,No,장애등급_급,"장애유형별 장애등급_HPC05T"
+HPC05T,lesion_ho,SMALLINT,"NOT NULL",Yes,No,장애등급_호,"장애유형별 장애등급_HPC05T"
+HPC05T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"장애유형별 장애등급_HPC05T"
+HPC05T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"장애유형별 장애등급_HPC05T"
+HPC05T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"장애유형별 장애등급_HPC05T"
+HPC05T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"장애유형별 장애등급_HPC05T"
+HPC05T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,"장애유형별 장애등급_HPC05T"
+HPC05T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,"장애유형별 장애등급_HPC05T"
+HPC05T,lesion_nm,CHAR(20),"NOT NULL",No,No,장애등급명칭,"장애유형별 장애등급_HPC05T"
+HPC06T,lesion_part_cd,CHAR(4),"NOT NULL",Yes,No,장애부위코드,장애부위_HPC06T
+HPC06T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애부위_HPC06T
+HPC06T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애부위_HPC06T
+HPC06T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애부위_HPC06T
+HPC06T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애부위_HPC06T
+HPC06T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애부위_HPC06T
+HPC06T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,장애부위_HPC06T
+HPC06T,lesion_part_nm,CHAR(50),"NOT NULL",No,No,장애부위명칭,장애부위_HPC06T
+HPC07T,disease_cd,CHAR(5),"NOT NULL",Yes,No,상병코드,상병_HPC07T
+HPC07T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,상병_HPC07T
+HPC07T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,상병_HPC07T
+HPC07T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,상병_HPC07T
+HPC07T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,상병_HPC07T
+HPC07T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,상병_HPC07T
+HPC07T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,상병_HPC07T
+HPC07T,disease_cnts,VARCHAR(250),"NOT NULL",No,No,상병내용,상병_HPC07T
+HPC08T,main_subject_cd,CHAR(2),"NOT NULL",Yes,No,전문과목코드,전문과목_HPC08T
+HPC08T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,전문과목_HPC08T
+HPC08T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,전문과목_HPC08T
+HPC08T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,전문과목_HPC08T
+HPC08T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,전문과목_HPC08T
+HPC08T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,전문과목_HPC08T
+HPC08T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,전문과목_HPC08T
+HPC08T,main_subject_nm,CHAR(40),"NOT NULL",No,No,전문과목명칭,전문과목_HPC08T
+HPC09T,lesion_typ,CHAR(2),"NOT NULL",Yes,Yes,장애유형,"장애유형별 장애등급기준_HPC09T"
+HPC09T,lesion_grd,SMALLINT,"NOT NULL",Yes,Yes,장애등급_급,"장애유형별 장애등급기준_HPC09T"
+HPC09T,lesion_ho,SMALLINT,"NOT NULL",Yes,Yes,장애등급_호,"장애유형별 장애등급기준_HPC09T"
+HPC09T,grd_std_cd,CHAR(2),"NOT NULL",Yes,No,등급기준기호,"장애유형별 장애등급기준_HPC09T"
+HPC09T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"장애유형별 장애등급기준_HPC09T"
+HPC09T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"장애유형별 장애등급기준_HPC09T"
+HPC09T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"장애유형별 장애등급기준_HPC09T"
+HPC09T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"장애유형별 장애등급기준_HPC09T"
+HPC09T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,"장애유형별 장애등급기준_HPC09T"
+HPC09T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,"장애유형별 장애등급기준_HPC09T"
+HPC09T,grd_std_nm,VARCHAR(600),"NOT NULL",No,No,등급기준명칭,"장애유형별 장애등급기준_HPC09T"
+HPC10T,asort_cd,CHAR(3),"NOT NULL",Yes,No,분류코드,공통코드분류_HPC10T
+HPC10T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,공통코드분류_HPC10T
+HPC10T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,공통코드분류_HPC10T
+HPC10T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,공통코드분류_HPC10T
+HPC10T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,공통코드분류_HPC10T
+HPC10T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,공통코드분류_HPC10T
+HPC10T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,공통코드분류_HPC10T
+HPC10T,asort_nm,CHAR(50),"NOT NULL",No,No,분류코드명,공통코드분류_HPC10T
+HPC11T,asort_cd,CHAR(3),"NOT NULL",Yes,Yes,분류코드,공통코드_HPC11T
+HPC11T,sub_cd,CHAR(6),"NOT NULL",Yes,No,코드,공통코드_HPC11T
+HPC11T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,공통코드_HPC11T
+HPC11T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,공통코드_HPC11T
+HPC11T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,공통코드_HPC11T
+HPC11T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,공통코드_HPC11T
+HPC11T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,공통코드_HPC11T
+HPC11T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,공통코드_HPC11T
+HPC11T,code_cnts,CHAR(100),"NOT NULL",No,No,코드명칭,공통코드_HPC11T
+HPC12T,lesion_part_cd,CHAR(4),"NOT NULL",Yes,Yes,장애부위코드,장애부위_상병_HPC12T
+HPC12T,disease_cd,CHAR(5),"NOT NULL",Yes,Yes,상병코드,장애부위_상병_HPC12T
+HPC12T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애부위_상병_HPC12T
+HPC12T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애부위_상병_HPC12T
+HPC12T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애부위_상병_HPC12T
+HPC12T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애부위_상병_HPC12T
+HPC12T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애부위_상병_HPC12T
+HPC14T,lesion_grd1,SMALLINT,"NOT NULL",Yes,No,"주된 장애등급","중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,lesion_grd2,SMALLINT,"NOT NULL",Yes,No,"차상위 장애등급","중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPC14T,adjustment_grd,SMALLINT,"NOT NULL",No,No,상향조정등급,"중복장애 합산시 장애등급 상향조정표_HPC14T"
+HPJ01T,insp_no,CHAR(14),"NOT NULL",Yes,No,심사번호,장애심사접수내역_HPJ01T
+HPJ01T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애심사접수내역_HPJ01T
+HPJ01T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애심사접수내역_HPJ01T
+HPJ01T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애심사접수내역_HPJ01T
+HPJ01T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애심사접수내역_HPJ01T
+HPJ01T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애심사접수내역_HPJ01T
+HPJ01T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,장애심사접수내역_HPJ01T
+HPJ01T,rgno,CHAR(13),"NOT NULL",No,Yes,주민등록번호,장애심사접수내역_HPJ01T
+HPJ01T,rgnodup,CHAR(1),"NOT NULL",No,Yes,주민번호중복구분,장애심사접수내역_HPJ01T
+HPJ01T,req_nm,CHAR(20),"NOT NULL",No,No,성명,장애심사접수내역_HPJ01T
+HPJ01T,sex_typ,CHAR(1),"NOT NULL",No,No,성별,장애심사접수내역_HPJ01T
+HPJ01T,zipcd_1,CHAR(3),"NOT NULL",No,No,우편번호_대구분,장애심사접수내역_HPJ01T
+HPJ01T,zipcd_2,CHAR(3),"NOT NULL",No,No,우편번호_중구분,장애심사접수내역_HPJ01T
+HPJ01T,ad_org_cd,CHAR(10),"NOT NULL",No,No,행정동주소코드,장애심사접수내역_HPJ01T
+HPJ01T,lg_addr_cd,CHAR(10),"NOT NULL",No,No,법정동주소코드,장애심사접수내역_HPJ01T
+HPJ01T,addr_mt_flg,CHAR(1),"NOT NULL",No,No,주소_산여부,장애심사접수내역_HPJ01T
+HPJ01T,addr_bunji,CHAR(4),NULL,No,No,주소_번지,장애심사접수내역_HPJ01T
+HPJ01T,addr_ho,CHAR(4),NULL,No,No,주소_호,장애심사접수내역_HPJ01T
+HPJ01T,addr_tong,CHAR(2),NULL,No,No,주소_통,장애심사접수내역_HPJ01T
+HPJ01T,addr_ban,CHAR(2),NULL,No,No,주소_반,장애심사접수내역_HPJ01T
+HPJ01T,block_addr,CHAR(50),NULL,No,No,블록주소,장애심사접수내역_HPJ01T
+HPJ01T,sp_addr,CHAR(50),NULL,No,No,특수주소,장애심사접수내역_HPJ01T
+HPJ01T,sp_dong,CHAR(8),NULL,No,No,특수주소_동,장애심사접수내역_HPJ01T
+HPJ01T,sp_ho,CHAR(8),NULL,No,No,특수주소_호,장애심사접수내역_HPJ01T
+HPJ01T,house_ph_no_loc,CHAR(4),NULL,No,No,자택전화_지역,장애심사접수내역_HPJ01T
+HPJ01T,house_ph_no_area,CHAR(4),NULL,No,No,자택전화_국,장애심사접수내역_HPJ01T
+HPJ01T,house_ph_no_seq,CHAR(4),NULL,No,No,자택전화_번호,장애심사접수내역_HPJ01T
+HPJ01T,hp_no_loc,CHAR(4),NULL,No,No,휴대폰_구분,장애심사접수내역_HPJ01T
+HPJ01T,hp_no_area,CHAR(4),NULL,No,No,휴대폰_국,장애심사접수내역_HPJ01T
+HPJ01T,hp_no_seq,CHAR(4),NULL,No,No,휴대폰_번호,장애심사접수내역_HPJ01T
+HPJ01T,town_ad_org_cd,CHAR(10),"NOT NULL",No,No,"시군구 행정동주소코드",장애심사접수내역_HPJ01T
+HPJ01T,town_adm_nm,CHAR(20),NULL,No,No,"시군구 담당자명",장애심사접수내역_HPJ01T
+HPJ01T,adm_ph_no_loc,CHAR(4),NULL,No,No,"시군구담당자 전화_지역",장애심사접수내역_HPJ01T
+HPJ01T,adm_ph_no_area,CHAR(4),NULL,No,No,"시군구담당자 전화_국",장애심사접수내역_HPJ01T
+HPJ01T,adm_ph_no_seq,CHAR(4),NULL,No,No,"시군구담당자 전화_번호",장애심사접수내역_HPJ01T
+HPJ01T,adm_hp_no_loc,CHAR(4),NULL,No,No,"시군구담당자 휴대폰_구분",장애심사접수내역_HPJ01T
+HPJ01T,adm_hp_no_area,CHAR(4),NULL,No,No,"시군구담당자 휴대폰_국",장애심사접수내역_HPJ01T
+HPJ01T,adm_hp_no_seq,CHAR(4),NULL,No,No,"시군구담당자 휴대폰_번호",장애심사접수내역_HPJ01T
+HPJ01T,adm_fax_no_1,CHAR(4),NULL,No,No,"시군구담당자 팩스_지역",장애심사접수내역_HPJ01T
+HPJ01T,adm_fax_no_2,CHAR(4),NULL,No,No,"시군구담당자 팩스_국",장애심사접수내역_HPJ01T
+HPJ01T,adm_fax_no_3,CHAR(4),NULL,No,No,"시군구담당자 팩스_번호",장애심사접수내역_HPJ01T
+HPJ01T,diag_lesion_typ,CHAR(2),"NOT NULL",No,No,"진단 장애유형",장애심사접수내역_HPJ01T
+HPJ01T,diag_lesion_grd,SMALLINT,"NOT NULL",No,No,"진단 장애등급_급",장애심사접수내역_HPJ01T
+HPJ01T,diag_lesion_ho,SMALLINT,NULL,No,No,"진단 장애등급_호",장애심사접수내역_HPJ01T
+HPJ01T,diag_dr_nm,CHAR(20),NULL,No,No,"진단의사 성명",장애심사접수내역_HPJ01T
+HPJ01T,diag_dr_license_no,CHAR(10),NULL,No,No,"진단의사 면허번호",장애심사접수내역_HPJ01T
+HPJ01T,diag_hospital_cd,CHAR(7),"NOT NULL",No,Yes,"진단 의료기관코드",장애심사접수내역_HPJ01T
+HPJ01T,lesion_diag_dt,DATE,"NOT NULL",No,No,장애진단일자,장애심사접수내역_HPJ01T
+HPJ01T,lesion_rediag_dt,DATE,"NOT NULL",No,No,장애재판정일자,장애심사접수내역_HPJ01T
+HPJ01T,diag_submit_dt,DATE,"NOT NULL",No,No,"장애진단서 제출일자",장애심사접수내역_HPJ01T
+HPJ01T,lesion_reg_dt,DATE,"NOT NULL",No,No,"장애인등록 신청일자",장애심사접수내역_HPJ01T
+HPJ01T,insp_kind,CHAR(1),"NOT NULL",No,No,심사유형,장애심사접수내역_HPJ01T
+HPJ01T,rcpt_br_cd,CHAR(4),"NOT NULL",No,No,접수지사코드,장애심사접수내역_HPJ01T
+HPJ01T,br_rcpt_dt,DATE,"NOT NULL",No,No,지사접수일자,장애심사접수내역_HPJ01T
+HPJ01T,simsa_loc_gb,CHAR(1),"NOT NULL",No,No,심사지구분,장애심사접수내역_HPJ01T
+HPJ01T,simsa_br_cd,CHAR(4),"NOT NULL",No,No,심사지사코드,장애심사접수내역_HPJ01T
+HPJ01T,charger_empno,CHAR(7),NULL,No,No,"심사담당자 사번",장애심사접수내역_HPJ01T
+HPJ01T,simsa_req_flg,CHAR(1),"NOT NULL",No,No,심사지심사요청여부,장애심사접수내역_HPJ01T
+HPJ01T,simsa_req_dt,DATE,"NOT NULL",No,No,심사지심사요청일자,장애심사접수내역_HPJ01T
+HPJ01T,simsa_rcpt_dt,DATE,"NOT NULL",No,No,심사지접수일자,장애심사접수내역_HPJ01T
+HPJ01T,proc_fin_plan_dt,DATE,"NOT NULL",No,No,처리완료예정일자,장애심사접수내역_HPJ01T
+HPJ01T,proc_fin_dt,DATE,"NOT NULL",No,No,처리완료일자,장애심사접수내역_HPJ01T
+HPJ01T,insp_prog_stat,CHAR(1),"NOT NULL",No,No,심사진행상태,장애심사접수내역_HPJ01T
+HPJ01T,prog_stat_dt,DATE,"NOT NULL",No,No,진행상태변경일자,장애심사접수내역_HPJ01T
+HPJ01T,doc_ent_flg,CHAR(1),"NOT NULL",No,No,서류등록여부,장애심사접수내역_HPJ01T
+HPJ01T,town_rcpt_dt,DATE,NULL,No,Yes,수신일자,장애심사접수내역_HPJ01T
+HPJ01T,town_rcpt_seq,INTEGER,NULL,No,Yes,수신일련번호,장애심사접수내역_HPJ01T
+HPJ01T,town_doc_no,CHAR(14),NULL,No,No,"시군구 민원접수번호",장애심사접수내역_HPJ01T
+HPJ02T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,심사지변경_HPJ02T
+HPJ02T,simsa_alt_seq,SMALLINT,"NOT NULL",Yes,No,심사지변경일련번호,심사지변경_HPJ02T
+HPJ02T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사지변경_HPJ02T
+HPJ02T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사지변경_HPJ02T
+HPJ02T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사지변경_HPJ02T
+HPJ02T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사지변경_HPJ02T
+HPJ02T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,심사지변경_HPJ02T
+HPJ02T,bef_simsa_loc_gb,CHAR(1),"NOT NULL",No,No,"변경전 심사지구분",심사지변경_HPJ02T
+HPJ02T,bef_simsa_br_cd,CHAR(4),"NOT NULL",No,No,"변경전 심사지사코드",심사지변경_HPJ02T
+HPJ02T,bef_charger_empno,CHAR(7),"NOT NULL",No,No,"변경전 심사담당자 사번",심사지변경_HPJ02T
+HPJ02T,bef_simsa_req_flg,CHAR(1),"NOT NULL",No,No,"변경전 심사지심사요청여부",심사지변경_HPJ02T
+HPJ02T,bef_simsa_req_dt,DATE,"NOT NULL",No,No,"변경전 심사지심사요청일자",심사지변경_HPJ02T
+HPJ02T,bef_simsa_rcpt_dt,DATE,"NOT NULL",No,No,"변경전 심사지접수일자",심사지변경_HPJ02T
+HPJ02T,bef_insp_prog_stat,CHAR(1),"NOT NULL",No,No,"변경전 심사진행상태",심사지변경_HPJ02T
+HPJ02T,bef_prog_stat_dt,DATE,"NOT NULL",No,No,"변경전 진행상태변경일자",심사지변경_HPJ02T
+HPJ02T,aft_simsa_loc_gb,CHAR(1),"NOT NULL",No,No,"변경후 심사지구분",심사지변경_HPJ02T
+HPJ02T,aft_simsa_br_cd,CHAR(4),"NOT NULL",No,No,"변경후 심사지사코드",심사지변경_HPJ02T
+HPJ02T,simsa_alt_flg,CHAR(1),"NOT NULL",No,No,"심사지 변경여부",심사지변경_HPJ02T
+HPJ02T,simsa_alt_dt,DATE,"NOT NULL",No,No,"심사지 변경일자",심사지변경_HPJ02T
+HPJ02T,simsa_alt_cd,CHAR(2),"NOT NULL",No,No,"심사지 변경사유코드",심사지변경_HPJ02T
+HPJ02T,simsa_alt_cnts,CHAR(80),"NOT NULL",No,No,"심사지 변경사유",심사지변경_HPJ02T
+HPJ02T,simsa_alt_detail_c,CHAR(120),NULL,No,No,"심사지 변경상세사유",심사지변경_HPJ02T
+HPJ03T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,심사반려내역_HPJ03T
+HPJ03T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사반려내역_HPJ03T
+HPJ03T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사반려내역_HPJ03T
+HPJ03T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사반려내역_HPJ03T
+HPJ03T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사반려내역_HPJ03T
+HPJ03T,givebk_rsn_cd,CHAR(2),"NOT NULL",No,No,반려사유코드,심사반려내역_HPJ03T
+HPJ03T,givebk_cnts,CHAR(80),"NOT NULL",No,No,반려사유내용,심사반려내역_HPJ03T
+HPJ03T,givebk_req_br_cd,CHAR(4),"NOT NULL",No,No,"반려 요청지사코드",심사반려내역_HPJ03T
+HPJ03T,givebk_chrg_br_cd,CHAR(4),"NOT NULL",No,No,"반려 담당지사코드",심사반려내역_HPJ03T
+HPJ03T,br_send_flg,CHAR(1),"NOT NULL",No,No,지사전송여부,심사반려내역_HPJ03T
+HPJ03T,br_send_dt,DATE,"NOT NULL",No,No,지사전송일자,심사반려내역_HPJ03T
+HPJ03T,town_ntfy_flg,CHAR(1),"NOT NULL",No,No,시군구통보여부,심사반려내역_HPJ03T
+HPJ03T,town_ntfy_dt,DATE,"NOT NULL",No,No,시군구통보일자,심사반려내역_HPJ03T
+HPJ03T,doc_rtn_gb,CHAR(1),NULL,No,No,서류반환포함여부,심사반려내역_HPJ03T
+HPJ04T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,자료보완내역_HPJ04T
+HPJ04T,supplmnt_req_times,SMALLINT,"NOT NULL",Yes,No,보완요청회차,자료보완내역_HPJ04T
+HPJ04T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,자료보완내역_HPJ04T
+HPJ04T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,자료보완내역_HPJ04T
+HPJ04T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,자료보완내역_HPJ04T
+HPJ04T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,자료보완내역_HPJ04T
+HPJ04T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,자료보완내역_HPJ04T
+HPJ04T,insp_supplmnt_gb,CHAR(1),"NOT NULL",No,No,자료보완시점구분,자료보완내역_HPJ04T
+HPJ04T,present_due_dt,DATE,"NOT NULL",No,No,제출기한일자,자료보완내역_HPJ04T
+HPJ04T,req_br_cd,CHAR(4),"NOT NULL",No,No,"자료보완 요청지사코드",자료보완내역_HPJ04T
+HPJ04T,charge_br_cd,CHAR(4),"NOT NULL",No,No,"자료보완 담당지사코드",자료보완내역_HPJ04T
+HPJ04T,br_send_flg,CHAR(1),"NOT NULL",No,No,지사전송여부,자료보완내역_HPJ04T
+HPJ04T,br_send_dt,DATE,"NOT NULL",No,No,지사전송일자,자료보완내역_HPJ04T
+HPJ04T,town_ntfy_flg,CHAR(1),"NOT NULL",No,No,시군구통보대상여부,자료보완내역_HPJ04T
+HPJ04T,disab_ntfy_flg,CHAR(1),"NOT NULL",No,No,장애인통보대상여부,자료보완내역_HPJ04T
+HPJ04T,supplmnt_ntfy_dt,DATE,"NOT NULL",No,No,"자료보완요청 통보일자",자료보완내역_HPJ04T
+HPJ04T,supplmnt_rcpt_dt,DATE,"NOT NULL",No,No,보완자료접수일자,자료보완내역_HPJ04T
+HPJ04T,adv_meeting_seqno,CHAR(14),NULL,No,Yes,자문회의번호,자료보완내역_HPJ04T
+HPJ04T,doc_ent_seqno,SMALLINT,NULL,No,No,서류등록회차,자료보완내역_HPJ04T
+HPJ04T,insp_supplmnt_cnts,VARCHAR(1200),"NOT NULL",No,No,자료보완내용,자료보완내역_HPJ04T
+HPJ05T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_ent_seqno,SMALLINT,"NOT NULL",Yes,No,서류등록회차,심사관련서류등록내역_HPJ05T
+HPJ05T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사관련서류등록내역_HPJ05T
+HPJ05T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사관련서류등록내역_HPJ05T
+HPJ05T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사관련서류등록내역_HPJ05T
+HPJ05T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사관련서류등록내역_HPJ05T
+HPJ05T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_ent_typ,CHAR(2),"NOT NULL",No,No,서류유형,심사관련서류등록내역_HPJ05T
+HPJ05T,special_cnts,CHAR(100),NULL,No,No,특이사항,심사관련서류등록내역_HPJ05T
+HPJ05T,other_doc,CHAR(100),NULL,No,No,기타서류,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_ent_dt,DATE,"NOT NULL",No,No,서류등록일자,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_ent_br_cd,CHAR(4),"NOT NULL",No,No,서류등록지사코드,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_send_flg,CHAR(1),"NOT NULL",No,No,서류전송여부,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_send_dt,DATE,"NOT NULL",No,No,서류전송일자,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_rcpt_dt,DATE,"NOT NULL",No,No,서류접수일자,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_rcpt_br_cd,CHAR(4),NULL,No,No,서류접수지사코드,심사관련서류등록내역_HPJ05T
+HPJ05T,doc_rcpt_id,CHAR(7),NULL,No,No,서류접수담당사번,심사관련서류등록내역_HPJ05T
+HPJ06T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,심사관련서류등록상세내역_HPJ06T
+HPJ06T,doc_ent_seqno,SMALLINT,"NOT NULL",Yes,Yes,서류등록회차,심사관련서류등록상세내역_HPJ06T
+HPJ06T,doc_cd,CHAR(2),"NOT NULL",Yes,Yes,서류코드,심사관련서류등록상세내역_HPJ06T
+HPJ06T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사관련서류등록상세내역_HPJ06T
+HPJ06T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사관련서류등록상세내역_HPJ06T
+HPJ06T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사관련서류등록상세내역_HPJ06T
+HPJ06T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사관련서류등록상세내역_HPJ06T
+HPJ06T,ent_qty,SMALLINT,NULL,No,No,등록수량,심사관련서류등록상세내역_HPJ06T
+HPJ06T,rcpt_qty,SMALLINT,NULL,No,No,접수수량,심사관련서류등록상세내역_HPJ06T
+HPJ07T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,직접진단내역_HPJ07T
+HPJ07T,direct_req_seqno,SMALLINT,"NOT NULL",Yes,No,직접진단요청회차,직접진단내역_HPJ07T
+HPJ07T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,직접진단내역_HPJ07T
+HPJ07T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,직접진단내역_HPJ07T
+HPJ07T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,직접진단내역_HPJ07T
+HPJ07T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,직접진단내역_HPJ07T
+HPJ07T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,직접진단내역_HPJ07T
+HPJ07T,diag_rsn_cd,CHAR(1),"NOT NULL",No,No,직접진단사유코드,직접진단내역_HPJ07T
+HPJ07T,diag_rsn_cnts,CHAR(50),"NOT NULL",No,No,직접진단사유내용,직접진단내역_HPJ07T
+HPJ07T,insp_region_cd,CHAR(2),"NOT NULL",No,No,직접진단부위코드,직접진단내역_HPJ07T
+HPJ07T,insp_region_cnts,CHAR(80),"NOT NULL",No,No,심사부위내용,직접진단내역_HPJ07T
+HPJ07T,x_ray_flg,CHAR(1),"NOT NULL",No,No,XRay여부,직접진단내역_HPJ07T
+HPJ07T,adv_meeting_seqno,CHAR(14),"NOT NULL",No,Yes,자문회의번호,직접진단내역_HPJ07T
+HPJ07T,req_br_cd,CHAR(4),"NOT NULL",No,No,"직접진단 요청지사코드",직접진단내역_HPJ07T
+HPJ07T,charge_br_cd,CHAR(4),"NOT NULL",No,No,"직접진단 담당지사코드",직접진단내역_HPJ07T
+HPJ07T,br_send_flg,CHAR(1),"NOT NULL",No,No,지사전송여부,직접진단내역_HPJ07T
+HPJ07T,br_send_dt,DATE,"NOT NULL",No,No,지사전송일자,직접진단내역_HPJ07T
+HPJ07T,town_ntfy_flg,CHAR(1),"NOT NULL",No,No,시군구통보대상여부,직접진단내역_HPJ07T
+HPJ07T,disab_ntfy_flg,CHAR(1),"NOT NULL",No,No,장애인통보대상여부,직접진단내역_HPJ07T
+HPJ07T,req_ntfy_dt,DATE,"NOT NULL",No,No,"직접진단요청 통보일자",직접진단내역_HPJ07T
+HPJ07T,diag_doctor_rgno,CHAR(13),"NOT NULL",No,No,진단의사주민등록번호,직접진단내역_HPJ07T
+HPJ07T,diag_doctor_rgnodu,CHAR(1),"NOT NULL",No,No,진단의사주민중복구분,직접진단내역_HPJ07T
+HPJ07T,diag_hospital_nm,CHAR(50),NULL,No,No,진단의료기관명,직접진단내역_HPJ07T
+HPJ07T,disab_desease_nm,CHAR(80),"NOT NULL",No,No,장애상병명_상세,직접진단내역_HPJ07T
+HPJ07T,present_due_dt,DATE,NULL,No,No,제출기한일자,직접진단내역_HPJ07T
+HPJ07T,rslt_rcpt_dt,DATE,NULL,No,No,진단결과접수일자,직접진단내역_HPJ07T
+HPJ07T,primary_cfm_cnts,VARCHAR(500),"NOT NULL",No,No,중점확인사항,직접진단내역_HPJ07T
+HPJ08T,adv_meeting_seqno,CHAR(14),"NOT NULL",Yes,No,자문회의번호,자문회의_HPJ08T
+HPJ08T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,자문회의_HPJ08T
+HPJ08T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,자문회의_HPJ08T
+HPJ08T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,자문회의_HPJ08T
+HPJ08T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,자문회의_HPJ08T
+HPJ08T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,자문회의_HPJ08T
+HPJ08T,adv_br_cd,CHAR(4),"NOT NULL",No,No,자문회의지사,자문회의_HPJ08T
+HPJ08T,adv_meeting_kind,CHAR(1),"NOT NULL",No,No,자문회의방법,자문회의_HPJ08T
+HPJ08T,main_subject_cd,CHAR(2),"NOT NULL",No,No,전문과목코드,자문회의_HPJ08T
+HPJ08T,adv_meeting_dt,DATE,"NOT NULL",No,No,자문회의일자,자문회의_HPJ08T
+HPJ09T,adv_meeting_seqno,CHAR(14),"NOT NULL",Yes,Yes,자문회의번호,"자문회의 자문의사_HPJ09T"
+HPJ09T,adv_doctor_rgno,CHAR(13),"NOT NULL",Yes,Yes,자문의사주민등록번호,"자문회의 자문의사_HPJ09T"
+HPJ09T,adv_doctor_rgnodup,CHAR(1),"NOT NULL",Yes,Yes,자문의사주민중복구분,"자문회의 자문의사_HPJ09T"
+HPJ09T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"자문회의 자문의사_HPJ09T"
+HPJ09T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"자문회의 자문의사_HPJ09T"
+HPJ09T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"자문회의 자문의사_HPJ09T"
+HPJ09T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"자문회의 자문의사_HPJ09T"
+HPJ10T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,adv_meeting_seqno,CHAR(14),"NOT NULL",Yes,Yes,자문회의번호,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,adv_rslt_gb,CHAR(1),NULL,No,No,자문결과구분,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,adv_lesion_typ,CHAR(2),NULL,No,No,장애유형,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,adv_lesion_grd,SMALLINT,NULL,No,No,결정등급_급,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,adv_lesion_ho,SMALLINT,NULL,No,No,결정등급_호,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,re_insp_flg,CHAR(1),"NOT NULL",No,No,재심여부,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,last_opnn_flg,CHAR(1),"NOT NULL",No,No,최종소견여부,"자문회의 장애심사내역_HPJ10T"
+HPJ10T,insp_opnn_cnts,VARCHAR(600),NULL,No,No,심사소견,"자문회의 장애심사내역_HPJ10T"
+HPJ11T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,장애심사세부내역_HPJ11T
+HPJ11T,adv_meeting_seqno,CHAR(14),"NOT NULL",Yes,Yes,자문회의번호,장애심사세부내역_HPJ11T
+HPJ11T,lesion_part_cd,CHAR(4),"NOT NULL",Yes,No,장애부위,장애심사세부내역_HPJ11T
+HPJ11T,disease_cd,CHAR(5),"NOT NULL",Yes,No,상병코드,장애심사세부내역_HPJ11T
+HPJ11T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애심사세부내역_HPJ11T
+HPJ11T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애심사세부내역_HPJ11T
+HPJ11T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애심사세부내역_HPJ11T
+HPJ11T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애심사세부내역_HPJ11T
+HPJ11T,disease_nm,CHAR(80),NULL,No,No,장애상병명_상세,장애심사세부내역_HPJ11T
+HPJ12T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,장애심사결정내역_HPJ12T
+HPJ12T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,장애심사결정내역_HPJ12T
+HPJ12T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,장애심사결정내역_HPJ12T
+HPJ12T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,장애심사결정내역_HPJ12T
+HPJ12T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,장애심사결정내역_HPJ12T
+HPJ12T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,장애심사결정내역_HPJ12T
+HPJ12T,lesion_gb,CHAR(1),"NOT NULL",No,No,장애구분,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_gb,CHAR(1),"NOT NULL",No,No,결정구분,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_lesion_grd,SMALLINT,NULL,No,No,결정등급_급,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_lesion_ho,SMALLINT,NULL,No,No,결정등급_호,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_grd_gb,CHAR(1),NULL,No,No,결정등급상하향구분,장애심사결정내역_HPJ12T
+HPJ12T,re_insp_flg,CHAR(1),"NOT NULL",No,No,재심여부,장애심사결정내역_HPJ12T
+HPJ12T,br_send_flg,CHAR(1),"NOT NULL",No,No,지사전송여부,장애심사결정내역_HPJ12T
+HPJ12T,br_send_dt,DATE,"NOT NULL",No,No,지사전송일자,장애심사결정내역_HPJ12T
+HPJ12T,town_ntfy_flg,CHAR(1),"NOT NULL",No,No,시군구통보여부,장애심사결정내역_HPJ12T
+HPJ12T,town_ntfy_dt,DATE,"NOT NULL",No,No,시군구통보일자,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_br_cd,CHAR(4),"NOT NULL",No,No,결정지사,장애심사결정내역_HPJ12T
+HPJ12T,fst_dcsn_dt,DATE,"NOT NULL",No,No,최초결정일자,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_ntfy_dt,DATE,"NOT NULL",No,No,최초결정통보일자,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_upd_dt,DATE,"NOT NULL",No,No,결정수정일자,장애심사결정내역_HPJ12T
+HPJ12T,dcsn_seqno,CHAR(8),"NOT NULL",No,No,결정회차,장애심사결정내역_HPJ12T
+HPJ13T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,adv_meeting_seqno,CHAR(14),"NOT NULL",Yes,Yes,자문회의번호,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,grd_std_cd,CHAR(2),"NOT NULL",Yes,No,등급기준기호,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,"자문회의 등급결정기준_HPJ13T"
+HPJ13T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,"자문회의 등급결정기준_HPJ13T"
+HPJ14T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,심사결정내역변경이력_HPJ14T
+HPJ14T,alt_proc_dt,DATE,"NOT NULL",Yes,No,변동처리일자,심사결정내역변경이력_HPJ14T
+HPJ14T,insp_dcsn_alt_cd,CHAR(2),"NOT NULL",Yes,No,심사결정변경코드,심사결정내역변경이력_HPJ14T
+HPJ14T,seqno,SMALLINT,"NOT NULL",Yes,No,일련번호,심사결정내역변경이력_HPJ14T
+HPJ14T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,심사결정내역변경이력_HPJ14T
+HPJ14T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,심사결정내역변경이력_HPJ14T
+HPJ14T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,심사결정내역변경이력_HPJ14T
+HPJ14T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,심사결정내역변경이력_HPJ14T
+HPJ14T,proc_br_cd,CHAR(4),"NOT NULL",No,No,처리지사코드,심사결정내역변경이력_HPJ14T
+HPJ14T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,심사결정내역변경이력_HPJ14T
+HPJ14T,bef_cnts,CHAR(120),"NOT NULL",No,No,변경전내용,심사결정내역변경이력_HPJ14T
+HPJ14T,aft_cnts,CHAR(120),"NOT NULL",No,No,변경후내용,심사결정내역변경이력_HPJ14T
+HPJ15T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,서류반환내역_HPJ15T
+HPJ15T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,서류반환내역_HPJ15T
+HPJ15T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,서류반환내역_HPJ15T
+HPJ15T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,서류반환내역_HPJ15T
+HPJ15T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,서류반환내역_HPJ15T
+HPJ15T,req_br_cd,CHAR(4),"NOT NULL",No,No,"반환 요청지사코드",서류반환내역_HPJ15T
+HPJ15T,charge_br_cd,CHAR(4),"NOT NULL",No,No,"반환 담당지사코드",서류반환내역_HPJ15T
+HPJ15T,rtn_rsn_cd,CHAR(1),"NOT NULL",No,No,반환사유코드,서류반환내역_HPJ15T
+HPJ15T,br_send_flg,CHAR(1),"NOT NULL",No,No,지사전송여부,서류반환내역_HPJ15T
+HPJ15T,br_send_dt,DATE,"NOT NULL",No,No,지사전송일자,서류반환내역_HPJ15T
+HPJ15T,town_ntfy_flg,CHAR(1),"NOT NULL",No,No,시군구통보여부,서류반환내역_HPJ15T
+HPJ15T,town_ntfy_dt,DATE,"NOT NULL",No,No,시군구통보일자,서류반환내역_HPJ15T
+HPJ16T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,지연보고내역_HPJ16T
+HPJ16T,doc_ent_seqno,SMALLINT,"NOT NULL",Yes,No,지연보고회차,지연보고내역_HPJ16T
+HPJ16T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,지연보고내역_HPJ16T
+HPJ16T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,지연보고내역_HPJ16T
+HPJ16T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,지연보고내역_HPJ16T
+HPJ16T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,지연보고내역_HPJ16T
+HPJ16T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,지연보고내역_HPJ16T
+HPJ16T,send_br_cd,CHAR(4),"NOT NULL",No,No,지연보고지사코드,지연보고내역_HPJ16T
+HPJ16T,delay_rsn_cd,CHAR(2),"NOT NULL",No,No,지연사유코드,지연보고내역_HPJ16T
+HPJ16T,other_delay_rsn,CHAR(50),NULL,No,No,기타지연사유,지연보고내역_HPJ16T
+HPJ16T,delay_detail_rsn,CHAR(100),NULL,No,No,지연사유상세내용,지연보고내역_HPJ16T
+HPJ16T,br_send_flg,CHAR(1),"NOT NULL",No,No,지연보고여부,지연보고내역_HPJ16T
+HPJ16T,br_send_dt,DATE,"NOT NULL",No,No,지연보고일자,지연보고내역_HPJ16T
+HPJ16T,rcpt_dt,DATE,"NOT NULL",No,No,보고접수일자,지연보고내역_HPJ16T
+HPJ16T,rcpt_br_cd,CHAR(4),NULL,No,No,보고접수지사코드,지연보고내역_HPJ16T
+HPJ16T,rcpt_id,CHAR(7),NULL,No,No,보고접수담당사번,지연보고내역_HPJ16T
+HPR01T,town_rcpt_dt,DATE,"NOT NULL",Yes,No,수신일자,"시군구 수신내역_HPR01T"
+HPR01T,town_rcpt_seq,INTEGER,"NOT NULL",Yes,No,수신일련번호,"시군구 수신내역_HPR01T"
+HPR01T,town_doc_no,CHAR(14),NULL,No,No,"시군구 민원접수번호","시군구 수신내역_HPR01T"
+HPR01T,rcv_typ,CHAR(4),"NOT NULL",No,No,수신자료유형,"시군구 수신내역_HPR01T"
+HPR01T,rcv_cnts,CHAR(255),NULL,No,No,수신내용,"시군구 수신내역_HPR01T"
+HPR01T,br_rcpt_flg,CHAR(1),NULL,No,No,지사접수여부,"시군구 수신내역_HPR01T"
+HPR02T,town_send_dt,DATE,"NOT NULL",Yes,No,송신일자,"시군구 송신내역_HPR02T"
+HPR02T,town_send_seq,INTEGER,"NOT NULL",Yes,No,송신일련번호,"시군구 송신내역_HPR02T"
+HPR02T,town_doc_no,CHAR(14),NULL,No,No,"시군구 민원접수번호","시군구 송신내역_HPR02T"
+HPR02T,insp_no,CHAR(14),"NOT NULL",No,Yes,심사번호,"시군구 송신내역_HPR02T"
+HPR02T,send_typ,CHAR(4),"NOT NULL",No,No,송신자료유형,"시군구 송신내역_HPR02T"
+HPR02T,send_cnts,CHAR(255),NULL,No,No,송신내용,"시군구 송신내역_HPR02T"
+HPR02T,town_send_flg,CHAR(1),"NOT NULL",No,No,송신처리여부,"시군구 송신내역_HPR02T"
+HPR03T,insp_no,CHAR(14),"NOT NULL",Yes,Yes,심사번호,반려요청내역_HPR03T
+HPR03T,create_tms,TIMESTAMP,"NOT NULL",No,No,최초등록일시,반려요청내역_HPR03T
+HPR03T,create_id,CHAR(7),"NOT NULL",No,No,최초등록자ID,반려요청내역_HPR03T
+HPR03T,last_upd_tms,TIMESTAMP,"NOT NULL",No,No,최종수정일시,반려요청내역_HPR03T
+HPR03T,last_upd_id,CHAR(7),"NOT NULL",No,No,최종수정자ID,반려요청내역_HPR03T
+HPR03T,can_flg,CHAR(1),"NOT NULL",No,No,취소여부,반려요청내역_HPR03T
+HPR03T,rcv_br_cd,CHAR(4),"NOT NULL",No,No,접수지사,반려요청내역_HPR03T
+HPR03T,req_rsn_cd,CHAR(2),"NOT NULL",No,No,반려요청사유코드,반려요청내역_HPR03T
+HPR03T,other_rsn_cnts,CHAR(100),NULL,No,No,반려기타사유,반려요청내역_HPR03T
+HPR03T,br_rcpt_dt,DATE,"NOT NULL",No,No,지사접수일자,반려요청내역_HPR03T
+HPR03T,br_send_flg,CHAR(1),"NOT NULL",No,No,심사지반려요청여부,반려요청내역_HPR03T
+HPR03T,br_send_dt,DATE,"NOT NULL",No,No,심사지반려요청일자,반려요청내역_HPR03T
+HPR03T,charge_br_cd,CHAR(4),"NOT NULL",No,No,심사지사코드,반려요청내역_HPR03T
+HPR03T,charge_rcpt_dt,DATE,"NOT NULL",No,No,심사지접수일자,반려요청내역_HPR03T
+HPR03T,charge_rcpt_id,CHAR(7),NULL,No,No,심사지접수담당사번,반려요청내역_HPR03T
+HPR03T,town_rcpt_dt,DATE,NULL,No,Yes,수신일자,반려요청내역_HPR03T
+HPR03T,town_rcpt_seq,INTEGER,NULL,No,Yes,수신일련번호,반려요청내역_HPR03T
+HPR03T,town_doc_no,CHAR(14),NULL,No,No,"시군구 민원접수번호",반려요청내역_HPR03T
+KNP01T,rgno,CHAR(13),"NOT NULL",Yes,No,주민등록번호,국민연금관리대상자_KNP01T
+KNP01T,rgnodup,CHAR(1),"NOT NULL",Yes,No,주민번호중복구분,국민연금관리대상자_KNP01T
+KNP01T,kor_nm,CHAR(20),"NOT NULL",No,No,한글성명,국민연금관리대상자_KNP01T
+KNP01T,sex_typ,CHAR(1),"NOT NULL",No,No,성별,국민연금관리대상자_KNP01T
