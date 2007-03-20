@@ -1,0 +1,6 @@
+*.pyc
+*.class
+*.xmi
+*.sql
+psql.log
+school/

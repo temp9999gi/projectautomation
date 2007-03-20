@@ -1,0 +1,6 @@
+NCBI Example
+
+Requires: BioPython
+
+pubmed-test.py allows you to search PubMed and then saves them in a
+local postgresql database.

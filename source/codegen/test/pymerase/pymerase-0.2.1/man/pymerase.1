@@ -1,0 +1,63 @@
+.\" Pymerase Man Page
+.\" Author: Brandon King
+.\" Last Modified: $Date: 2006/12/18 15:54:02 $
+.\" Revision: $Revision: 1.1 $
+.\"
+.\" groff -man -Tascii pymerase.1
+.\"
+.TH pymerase 1 "$Date: 2006/12/18 15:54:02 $" Linux "Pymerase Manual"
+.SH NAME
+pymerase \- Command line interface to Pymerase
+.SH SYNOPSIS
+.B pymerase -s 
+.I source
+.B -i 
+.I inputModule
+.B -d
+.I destination
+.B -o
+.I outputModule
+.PP
+.BI "pymerase --source=" "source " "--inputModule=" "inputModule "
+.BI "--destination=" "destination " "--outputModule=" "outputModule "
+.SH DESCRIPTION
+Pymerase is a tool intended to generate a python object model,
+relational database, and an object-relational model connecting the
+two. However it has been extended to also output GUIs and UML like
+plots, and can be easily extended to output whatever else you might
+like.
+.PP
+Note that if you would like to supply more than one output module at
+once, it's recommended that you use
+.B pymerase --gui.
+.SH OPTIONS
+.TP
+-s, --source={string}
+Location of input file or directory
+.TP
+-i, --inputModule={string}
+Name of Pymerase input module
+.TP
+-o, --outputModule={string}
+Name of Pymerase output module
+.TP
+-d, --destination={string}
+Location of output file or directory
+.PP
+.TP
+-g, --gui
+GUI Interface to Pymerase
+.PP
+.TP
+-t, --translators
+Displays more info about translators
+.TP
+-v, --version
+Displays version numbers
+.TP
+-h, --help
+Displays a help page with available translators listed.
+.SH AUTHORS
+Diane Trout <diane@caltech.edu>
+.PP
+Brandon King <kingb@caltech.edu>

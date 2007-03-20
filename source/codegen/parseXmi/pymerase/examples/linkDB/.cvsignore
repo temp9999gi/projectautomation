@@ -1,0 +1,7 @@
+*.pyc
+*.class
+*.sql
+*.dot
+*.ps
+*.bak
+*.xmi

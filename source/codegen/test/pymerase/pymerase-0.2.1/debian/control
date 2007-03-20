@@ -1,0 +1,24 @@
+Source: pymerase
+Section: python
+Priority: optional
+Maintainer: Diane Trout <diane@caltech.edu>
+Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.5.9
+
+Package: pymerase-examples
+Architecture: all
+Description: illustrate the various ways to use pymerase
+ * Pymerase provides a set of tools for constructing the glue code to
+   serialize python objects into a relational database. 
+ .
+ * This package contains examples we've written for testing pymerase
+
+Package: python2.3-pymerase
+Architecture: all
+Depends: python, python2.3 (>= 2.2.2), python2.3-egenix-mxdatetime, python2.3-psycopg 
+Recommends: smw
+Description: Pymerase helps construct object-relational bridges 
+ * Pymerase provides a set of tools for constructing the glue code to
+   serialize python objects into a relational database. 
+ .
+ * It also has tools to create GUIs to interact with those objects as well.

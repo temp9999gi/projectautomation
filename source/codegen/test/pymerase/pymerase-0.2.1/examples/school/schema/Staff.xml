@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE table SYSTEM "file:table.dtd">
+<table name="Staff"
+      comment=""
+      inherits_from="Employees"> 
+  <column name="JobDescription"
+          full_name="description"
+          type="text"
+          comment=""/>
+  <!-- primary_key column_id="professor_pk"/ -->
+</table>

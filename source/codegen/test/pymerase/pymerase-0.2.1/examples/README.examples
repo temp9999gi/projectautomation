@@ -1,0 +1,83 @@
+* Example descriptions
+----------------------
+linkDB/ - Any example which includes command line program for replacing
+          words in an html file with a link stored in the database.
+	  It's good example to get started with as it has a fairly
+	  simple design.
+
+dvd/ -	Super simple database with two tables and one link between them.
+	You can also catalog your home dvd collection! =o)
+
+school/ - the first and simplest test case of some of the relationships 
+          between students, dorms, teachers, and staff members at a
+          school. This example is using the table.dtd xml representation.
+
+xmiSchool/ - as above but using an xmi file created by argoUML.
+             To obtain the xmi file for import either do 
+                make 
+             in the directory (or just run unzip school.zargo school.xmi)
+    
+             To run xmiSchool pyXMI (available seperatly will also
+             need to be added to your PYTHONPATH variable
+  
+             NOTE: as of 2002-Aug-07, the xmi import module is still 
+             being implemented
+
+varTypes/ - An example which uses the data types available in UML. Used 
+            for data type testing for output modules.
+
+inheritance/ - Designed to test out the inheritance in pymerase
+
+selfRefObj/ - Designed to test out self referential objects in pymerase
+
+manyToMany/ - Designed to test out many-to-many links without linking
+	      table.
+
+manyToMany2/ - Designed to test out many-to-many links using a user
+	       added linking table.
+
+
+* Extracting .xmi files from ArgoUML files (.zargo)
+---------------------------------------------------
+Many examples use the .xmi file that's located in the .zargo file in
+each example directory. You can either run make to extract the .xmi
+files, or you can manually run the commands in the Makefile of each
+example.
+
+
+* Preparing the environment
+---------------------------
+
+In order to run the examples you need to either have a PostgreSQL
+database running on localhost or change the hostname variable in the
+Test<Package>.py script to point to a postgresql database that you
+have access to.
+
+Additionally your PYTHONPATH must include the directory containing the
+pymerase.py program. 
+
+If running a bourn compatible shell, while in the directory containing
+pymerase.py type the following commands: 
+
+  PYTHONPATH=$PYTHONPATH:`pwd`
+  export PYTHONPATH
+
+* Running the examples
+----------------------
+
+In each of the example subdirectories there are many driver
+programs for running pymerase.
+
+The most complex version is Test*.py, (Where * is replaced by a
+reasonable modification of the example name). The Test module will
+generate an api, a database if appropriate, instantiate objects and
+verify that objects are loaded correctly.
+
+The other three are createapi.py, createsql.py, and createint.py. 
+
+ file name         action
+ ------------      ------------
+ createapi.py      Creates the python object model
+ createsql.py      Creates the sql needed to construct the example database
+ createint.py      Creates an interpreter session connected to the 
+                   pymerase parsed objects. (also known as a debugging tool).

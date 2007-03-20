@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+ 
+<!DOCTYPE userlist [ 
+    <!ELEMENT userlist (user*)> 
+    <!ELEMENT user (name, email)> 
+    <!ATTLIST user sex (male|female) "male"> 
+    <!ELEMENT name (#PCDATA)> 
+    <!ELEMENT email (#PCDATA)> 
+]> 
+     
+<userlist>  
+    <user sex="male"> 
+        <name>gslee</name>  
+        <email>gslee@mail.gwu.ac.kr</email>  
+    </user>  
+    <user sex="don't know">  
+        <name>spam</name>  
+        <email>spam@mail.gwu.ac.kr</email>  
+    </user>  
+</userlist> 

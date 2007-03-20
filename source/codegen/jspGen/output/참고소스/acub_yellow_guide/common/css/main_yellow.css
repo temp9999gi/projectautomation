@@ -1,0 +1,462 @@
+/********************************************************************************/
+/*										*/
+/*  SamsnugSDS Kim MIn A..이영주수정 		*/
+/*  Date : 2004-04-17					*/
+/*      								*/
+/*										*/
+/********************************************************************************/
+
+/* Black 텍스트 Hyperlink Style */
+A:link { font-size:9pt; font-family:돋움;color:#000000; text-decoration:none; }
+A:visited { font-size:9pt; font-family:돋움;color:#000000; text-decoration:none;  }
+A:active { font-size:9pt; font-family:돋움;color:#FF6000; text-decoration:none; }
+A:hover { font-size:9pt; font-family:돋움;color:#FF6000;text-decoration:none; }
+
+ /*.CB_list_over {background-color:#F6F6F6}
+ /*.CB_list_out {background-color:#ffffff}
+
+
+/* Gray 텍스트 Hyperlink Style */
+A.gr:link { font-size:9pt; font-family:돋움;color:#58595B; text-decoration:none; }
+A.gr:visited { font-size:9pt; font-family:돋움;color:#58595B; text-decoration:none; }
+A.gr:active { font-size:9pt; font-family:돋움;color:#FF6000; text-decoration:none; }
+A.gr:hover { font-size:9pt; font-family:돋움;color:#FF6000;text-decoration:none;}
+
+
+/* Black 텍스트 Hyperlink Style_언더라인 */
+A.underline:link { font-size:9pt; font-family:돋움;color:#000000; text-decoration:underline; }
+A.underline:visited { font-size:9pt; font-family:돋움;color:#000000; text-decoration:underline; }
+A.underline:active { font-size:9pt; font-family:돋움;color:#FF6000; text-decoration:underline; }
+A.underline:hover { font-size:9pt; font-family:돋움;color:#FF6000;text-decoration:underline;}
+
+
+/****************************************** 카렌다   ************************************************************/
+
+/*카렌다 요일 제목 중앙정력*/
+.calendar_title_center { 
+ FONT-SIZE: 9pt; COLOR: #656565;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#F0F9F3; Text-align: center ; vertical-align: middle 
+ }
+
+
+.calendar_title_center_b { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; font-weight: bold ;
+ BACKGROUND-COLOR:#F0F9F3; Text-align: center ; vertical-align: middle 
+ }
+
+ 
+ /*카렌다테이블_토요일_중앙정렬*/
+.calendar_blue_center {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 25px; 
+ BACKGROUND-COLOR:#EBF4F8; Text-align: center ; vertical-align: middle
+}
+
+
+/*카렌다테이블_토요일_중앙정렬_볼드*/
+.calendar_blue_center_b {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 25px; font-weight: bold ;
+ BACKGROUND-COLOR:#EBF4F8; Text-align: center ; vertical-align: middle
+}
+
+/*카렌다테이블_날짜_토요일_오른쪽정렬*/
+.calendar_blue_date {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 25px; line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#F9F9FA; Text-align: center ;vertical-align: top
+}
+
+/*카렌다 작은 테이블_날짜_토요일_가운데정렬*/
+.calendar_blue_date_s {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 30px; line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#F9F9FA; Text-align: center ;vertical-align: middle
+}
+
+/*카렌다테이블_토요일_일정_왼쪽정렬*/
+.calendar_blue_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 50px;  line-height:150%;
+ padding-left:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#F9F9FA; Text-align:left 
+ }
+
+/*카렌다테이블_평일_중앙정렬_볼드*/
+.calendar_center_b {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 50px; font-weight: bold ;
+ BACKGROUND-COLOR:#F0F9F3; Text-align: center ; vertical-align: middle
+}
+
+
+/*카렌다테이블_날짜_평일_오른쪽정렬*/
+.calendar_date {
+ FONT-SIZE: 9pt; COLOR: #656565;FONT-FAMILY: 돋움; HEIGHT: 25px;  line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#ffffff; Text-align: center ;vertical-align: top
+}
+
+/*카렌다 작은테이블_날짜_평일_가운데정렬*/
+.calendar_date_s {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 30px;  line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#Ffffff; Text-align: center ;vertical-align: middle
+}
+
+ /*카렌다테이블_평일_일정_왼쪽정렬*/
+.calendar_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 50px;  line-height:150%;
+ padding-left:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#ffffff; Text-align:left 
+ }
+
+
+/*카렌다테이블_일요일_중앙정렬*/
+.calendar_red_center {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 25px; 
+ BACKGROUND-COLOR:#F8F1EE; Text-align: center ; vertical-align: middle
+}
+
+/*카렌다테이블_일요일_중앙정렬_볼드*/
+.calendar_red_center_b {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 25px; font-weight: bold ;
+ BACKGROUND-COLOR:#F8F1EE; Text-align: center ; vertical-align: middle
+}
+
+/*카렌다테이블_날짜_일요일_오른쪽정렬*/
+.calendar_red_date {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 25px;  line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#FAFAFA; Text-align: center ;vertical-align: top
+}
+
+/*카렌다 작은테이블_날짜_일요일_가운데정렬*/
+.calendar_red_date_s {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 30px;  line-height:120%;
+ padding-right:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#FAFAFA; Text-align: center ;vertical-align: middle
+}
+
+/*카렌다테이블__일요일_일정_왼쪽정렬*/
+.calendar_red_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 50px;  line-height:150%;
+ padding-left:3px;  padding-top:3px;
+ BACKGROUND-COLOR:#FAFAFA; Text-align:left 
+ }
+
+
+
+
+/****************************************** 텍스트   ************************************************************/
+
+
+/* 로케이션_텍스트 */
+.location{ font-family:"돋움"; font-size:8pt; color:#6d6d6d ;padding-top:1px; padding-left:3px; 
+           vertical-align: middle}
+
+
+/* 회색 텍스트_왼쪽정렬 */
+.text_gr{ font-family:"돋움"; font-size:9pt; color:#58595B ; 
+          line-height:150%; }
+
+/* 회색 텍스트_볼드_왼쪽정렬 */
+.text_gr_b{ font-familY:"돋움"; font-size:9pt; color:#58595B ; 
+            font-weight: bold ; vertical-align: middle  }
+
+
+/* 기본 텍스트_블랙_중앙정렬 */
+.text_center{ font-family:"돋움"; font-size:9pt; color:#000000;
+              Text-align:center ; vertical-align: middle }
+
+
+/* 기본 텍스트_블랙_왼쪽정렬 */
+.text_left{ font-family:"돋움"; font-size:9pt; color:#000000 ;
+            Text-align:left ; vertical-align: middle ; 
+			 }
+
+/* 회색 텍스트_왼쪽정렬 */
+.text_red{ font-family:"돋움"; font-size:9pt; color:#aa0000 ; 
+          line-height:150%}
+
+
+/* 기본 텍스트_블랙_오른쪽정렬 */
+.text_right{ font-family:"돋움"; font-size:9pt; color:#000000;
+              Text-align:right ; vertical-align: middle}
+
+
+/* 타이틀_볼드 */
+.title{ font-family:"돋움"; font-size:9pt; color:#000000 ; 
+        font-weight: bold ;  vertical-align: middle}
+        
+/* 팝업_타이틀_볼드 */
+.title_wh{ font-family:"돋움"; font-size:9pt; color:#ffffff ; 
+           font-weight: bold ; vertical-align: middle}
+
+
+/****************************************** 테이블 & 텍스트   ************************************************************/
+
+
+/*리스트테이블 내용_중앙정렬 - 2004.04.29 수정*/
+.ltb_center {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: "돋움"; HEIGHT: 26px; 
+ BORDER-BOTTOM: #CBCBCB 1px solid; Text-align: center ; vertical-align: middle
+}
+
+
+
+/*리스트테이블 내용_중앙정렬_bottom*/
+.ltb_center_bottom {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BORDER-BOTTOM: #5CBD86 1px solid; BACKGROUND-COLOR: #ffffff ;
+ Text-align: center ; vertical-align: middle
+}
+
+/*리스트테이블 내용_중앙정렬_좀연한회색*/
+.ltb_center_color {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BORDER-BOTTOM: #5CBD86 1px solid; BACKGROUND-COLOR: #ffffff ;
+ Text-align: center ; vertical-align: middle
+}
+
+/* 리스트테이블 내용_중앙정렬_bottom_좀 연한보더 */
+.ltb_center_bottom_light {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BORDER-BOTTOM: #CEE3C3 1px solid; BACKGROUND-COLOR: #F7F7F7 ;
+ Text-align: center ; vertical-align: middle
+}
+
+
+/*리스트테이블 내용_중앙정렬_세로선*/
+.ltb_center_line {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BORDER-BOTTOM: #E0E0E0 1px solid; BORDER-right: #E0E0E0 1px solid; BACKGROUND-COLOR: #F7F7F7 ;
+ Text-align: center ; vertical-align: middle
+}
+
+/*리스트테이블 내용_중앙정렬_세로선_bottom*/
+.ltb_center_line_bottom {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BORDER-BOTTOM: #A3A3A3 1px solid; BORDER-right: #E0E0E0 1px solid; BACKGROUND-COLOR: #F7F7F7 ;
+ Text-align: center ; vertical-align: middle
+}
+
+/*리스트테이블 head*/
+.ltb_head {
+ FONT-SIZE: 9pt; COLOR: #000000; font-family:"돋움"; HEIGHT: 28px;
+ BORDER-TOP: #C7AE5C 1px solid;
+ BORDER-BOTTOM: #C7AE5C 1px solid;  BACKGROUND-COLOR: #F9F0D3 ;
+ Text-align: center ; vertical-align: middle; }
+
+/* 리스트테이블 head_좀 연한보더 */
+.ltb_head_light {
+ FONT-SIZE: 9pt; COLOR: #000000; font-family:"돋움"; HEIGHT: 28px;
+ BORDER-TOP: #3B900E 1px solid;
+ BORDER-BOTTOM: #3B900E 1px solid;  BACKGROUND-COLOR: #CFEAC0;
+ Text-align: center ; vertical-align: middle; }
+
+/*리스트테이블 내용_왼쪽정렬*/
+.ltb_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #CBCBCB 1px solid;  Text-align: left ; vertical-align: middle;
+}
+
+/*리스트테이블 내용_왼쪽정렬_bottom*/
+.ltb_left_bottom {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #5CBD86 1px solid; BACKGROUND-COLOR: #ffffff ; line-height:140% ;
+ Text-align: left ; vertical-align: middle
+}
+
+
+/*리스트테이블 내용_왼쪽정렬_좀 연한회색*/
+.ltb_left_color {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #5CBD86 1px solid; BACKGROUND-COLOR: #ffffff; ;line-height:140% ;
+ Text-align: left ; vertical-align: middle;
+}
+
+/*리스트테이블 내용_오른쪽정렬*/
+.ltb_right {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #E0E0E0 1px solid; BACKGROUND-COLOR: #F7F7F7 ; line-height:140% ;
+ Text-align: right ; vertical-align: middle;
+}
+
+/*리스트테이블 내용_오른쪽정렬_bottom*/
+.ltb_right_bottom {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #A3A3A3 1px solid; BACKGROUND-COLOR: #F7F7F7 ; line-height:140% ;
+ Text-align: right ; vertical-align: middle
+}
+
+
+/*리스트테이블 내용_오른쪽정렬_좀 연한회색*/
+.ltb_right_color {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #E0E0E0 1px solid; BACKGROUND-COLOR: #E8E8E8 ; ;line-height:140% ;
+ Text-align: right ; vertical-align: middle;
+}
+
+/* 리스트테이블 내용_왼쪽정렬_bottom_좀 연한보더 */
+.ltb_left_bottom_light {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BORDER-BOTTOM: #CEE3C3 1px solid; BACKGROUND-COLOR: #F7F7F7 ;
+ Text-align: left ; vertical-align: middle
+}
+
+/*리스트테이블_읽지않은 내용_왼쪽정렬*/
+.ltb_new_left {
+ FONT-SIZE: 9pt; COLOR: #58595B; FONT-FAMILY: 돋움; HEIGHT: 26px; font-weight:bold;padding-left:3px;
+ BORDER-BOTTOM: #E0E0E0 1px solid; BACKGROUND-COLOR: #ffffff ;
+ Text-align: left ; vertical-align: middle; 
+}
+
+/*리스트테이블_읽지않은 내용_오른쪽정렬*/
+.ltb_new_right {
+ FONT-SIZE: 9pt; COLOR: #58595B; FONT-FAMILY: 돋움; HEIGHT: 26px; font-weight:bold;padding-left:3px;
+ BORDER-BOTTOM: #E0E0E0 1px solid; BACKGROUND-COLOR: #F7F7F7 ;
+ Text-align: right ; vertical-align: middle; 
+}
+
+/*테이블 내용_중앙정렬*/
+.tb_center {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#ffffff; Text-align: center ; vertical-align: middle  bgcolor=""
+}
+
+/*테이블 내용_왼쪽정렬*/
+.tb_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px; padding-right:3px;
+ BACKGROUND-COLOR:#ffffff; Text-align: left ; vertical-align: middle ;line-height:150%
+}
+
+/*테이블 내용_왼쪽정렬_양쪽 패팅 들어간것*/
+.tb_padding {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px; padding-right:3px;
+ Text-align: left ; vertical-align: middle
+}
+
+
+/* 2004.04.27 테이블 제목_중앙정렬*/
+.tb_tit_center { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#FFFBED; Text-align: center ; vertical-align: middle 
+ }
+
+
+/* 2004.04.27 테이블 제목_왼쪽정렬*/
+.tb_tit_left {
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px;
+ BACKGROUND-COLOR:#DFF2E6; Text-align: left ; vertical-align: middle
+}
+
+
+
+/****************************************************************************************************/
+/*										                                                            */
+/*  SamsnugSDS Kim MIn A..이영주수정 		                                                            */
+/*  Date : 2004-04-27					                                                            */
+/*  여기부터 기존 class 외에 신규 class 생성    				                     	     			*/
+/*										                                                            */
+/****************************************************************************************************/
+
+/* 2004.04.27 테이블 회색배경*/
+.tb_bg_gr {
+ BACKGROUND-COLOR:#5CBD86;
+}
+
+.tb_bg_bgr {
+ BACKGROUND-COLOR:#C7AE5C;
+}
+
+/* 2004.04.27 탭 배경*/
+.tab_bg {
+ BACKGROUND-COLOR:#CBCBCB;
+}
+
+
+/* 2004.04.27 td안에 들어가는 table bgcolor */
+.table_bg { background:#CBCBCB; }
+
+
+/*우편번호_필수입력사항이 readonly가 아닐 때*/
+
+.required {font-family:"돋움"; COLOR: #000000; font-size:9pt; Text-align:left ; vertical-align: middle ; 
+ border:1px solid #C7C7C7; background:#FAFAFA; background-image:url(../images/required.gif); 
+ background-position:top right; background-repeat:no-repeat; padding:3 0 0 3;
+}
+
+/*우편번호_필수입력사항이 readonly일 때*/
+
+.required_on {font-family:"돋움"; COLOR: #000000; font-size:9pt; Text-align:left ; vertical-align: middle ; 
+ border:1px solid #C7C7C7; background:#EEF1F7; background-image:url(../images/required.gif); 
+ background-position:top right; background-repeat:no-repeat; padding:3 0 0 3;
+}
+
+
+/*iframe 페이지의 scrollbar*/
+.scrollbar {
+scrollbar-face-color: "#FFFFFF";
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-3dlight-color: #C0BEBE;
+scrollbar-shadow-color: #C0BEBE;
+scrollbar-darkshadow-color: #FFFFFF;
+scrollbar-track-color: #FFFFFF;
+scrollbar-arrow-color: #9F9E9E} 
+
+
+/* 2004.04.27 input type */
+.td_input{ font-family:"돋움"; font-size:9pt; color:#000000 ;
+ border:1px solid #C7C7C7; background:#FAFAFA; Text-align:left ; 
+ padding:3 0 0 3; vertical-align: middle ; 
+			 }
+/* 2004.04.27 input type에 배경색이 들어가는 경우 */
+.td_input_bg{ font-family:"돋움"; font-size:9pt; color:#000000 ;
+ border:1px solid #C7C7C7; background:#EEF1F7; Text-align:left ; 
+ padding:3 0 0 3; vertical-align: middle ; 
+			 }
+
+/* 2004.04.29 리스트 테이블에서 tr에 적용 */
+.list_over { background-color:#FFFBF0; }
+.list_out { background-color:#FFFFFF; }
+
+
+
+/************************************** 복지여성 관련 페이지 - 토글 적용 부분 *******************************************/
+/*테이블 내용 제목_중앙정렬*/
+.d_tb_tit_center { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; Text-align: center ; vertical-align: middle 
+ }
+
+ /*테이블 내용_왼쪽정렬*/
+.d_tb_left {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; Text-align: center ; vertical-align: middle 
+}
+
+ /*테이블 내용_오른쪽정렬*/
+.d_text_right {
+ FONT-SIZE: 9pt; COLOR: #58595B;FONT-FAMILY: 돋움; HEIGHT: 26px; padding-left:3px; padding-right:3px;
+ Text-align: right ; vertical-align: middle ;
+}
+
+
+
+/************************************** 복지여성 관련 페이지 - 토글 미적용 부분 *******************************************/
+/*테이블 내용 1step 제목_중앙정렬*/
+.d_tit_b_center { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#EEEEEE; Text-align: center ; vertical-align: middle 
+ }
+
+/*테이블 내용 2step 제목_중앙정렬*/
+.d_tit_m_center { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#F4F4F4; Text-align: center ; vertical-align: middle 
+ }
+
+/*테이블 내용 3step 제목_중앙정렬*/
+.d_tit_s_center { 
+ FONT-SIZE: 9pt; COLOR: #000000;FONT-FAMILY: 돋움; HEIGHT: 26px; 
+ BACKGROUND-COLOR:#F9F9F9; Text-align: center ; vertical-align: middle 
+ }
+
+
+
+

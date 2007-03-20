@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>  
+<userlist>  
+    <user sex="male"> 
+        <name>gslee</name>  
+        <email>gslee@mail.kw.ac.kr</email>  
+    </user>  
+    <user sex="female">  
+        <name>spam</name>  
+        <email>spam@mail.kw.ac.kr</email>  
+    </user>  
+    <user sex="male">  
+        <name>HongGilDong</name>  
+        <email>home@mail.kw.ac.kr</email>  
+    </user>  
+    <user sex="female">  
+        <name>Sunny</name>  
+        <email>sunny@mail.kw.ac.kr</email>  
+    </user>  
+</userlist>

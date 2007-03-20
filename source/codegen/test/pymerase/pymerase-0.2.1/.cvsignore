@@ -1,0 +1,6 @@
+*.pyc
+*.class
+MANIFEST
+build
+build-stamp
+configure-stamp

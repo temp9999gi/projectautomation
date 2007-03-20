@@ -1,0 +1,5 @@
+*.pyc
+*.class 
+*.log 
+*.zip
+*.db

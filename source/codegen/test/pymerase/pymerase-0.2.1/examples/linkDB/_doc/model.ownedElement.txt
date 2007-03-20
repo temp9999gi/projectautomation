@@ -1,0 +1,192 @@
+C:\_kldp\codegen\test\pymerase\pymerase-0.2.1\examples\linkDB>createjava.py
+I Logger       Local time is Mon, 01 Jan 2007 10:29
+D XMIStreamer  Begin parsing XMI document...
+D XMIStreamer  Begin extracting model...
+I XMIStreamer  XMI metamodel 1.3 infered from XMI version 1.1
+I XMIStreamer  XMI header found: metamodel UML version 13
+I XMIStreamer  XMI root content found: extracting UML:Model
+D XMIStreamer  Model extraction completed.
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00F60E90>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00FA1468>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00FA4990>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00FA4328>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00FCCCD8>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.Model instance at 0x00EECAF8>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'asSet
+', 'behavior', 'binding', 'bindingArgument', 'classifierRole', 'clientDependency
+', 'collaboration', 'comment', 'constraint', 'elementImport', 'elementImportMode
+lElementElementImport', 'elementResidence', 'generalization', 'getAllParts', 'ge
+tMetamodel', 'getModule', 'getParent', 'importedElement', 'isAbstract', 'isLeaf'
+, 'isModule', 'isPart', 'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed',
+ 'isWellFormedRecursive', 'kind__Association', 'kind__Attribute', 'kind__Composi
+tion', 'modulestring', 'name', 'namespace', 'oclIsKindOf', 'ownedElement', 'part
+ition', 'presentation', 'setModule', 'sourceFlow', 'specialization', 'stereotype
+', 'supplierDependency', 'taggedValue', 'targetFlow', 'templateParameter', 'temp
+lateParameter2', 'templateParameter3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.DataType instance at 0x00FD1210>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'allFe
+atures', 'allMethods', 'allOperations', 'asSet', 'associationEnd', 'associationE
+ndSpecification', 'behavior', 'binding', 'bindingArgument', 'classifierInState',
+ 'classifierRole', 'clientDependency', 'collaboration', 'comment', 'constraint',
+ 'createAction', 'elementImport', 'elementImportModelElementElementImport', 'ele
+mentResidence', 'feature', 'generalization', 'getAllParts', 'getMetamodel', 'get
+Module', 'getParent', 'instance', 'isAbstract', 'isLeaf', 'isModule', 'isPart',
+'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed', 'isWellFormedRecursive'
+, 'kind__Association', 'kind__Attribute', 'kind__Composition', 'modulestring', '
+name', 'namespace', 'objectFlowState', 'oclIsKindOf', 'ownedElement', 'parameter
+', 'partition', 'powertypeRange', 'presentation', 'setModule', 'sourceFlow', 'sp
+ecialization', 'stereotype', 'structuralFeature', 'supplierDependency', 'taggedV
+alue', 'targetFlow', 'templateParameter', 'templateParameter2', 'templateParamet
+er3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.DataType instance at 0x00FC6DF0>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'allFe
+atures', 'allMethods', 'allOperations', 'asSet', 'associationEnd', 'associationE
+ndSpecification', 'behavior', 'binding', 'bindingArgument', 'classifierInState',
+ 'classifierRole', 'clientDependency', 'collaboration', 'comment', 'constraint',
+ 'createAction', 'elementImport', 'elementImportModelElementElementImport', 'ele
+mentResidence', 'feature', 'generalization', 'getAllParts', 'getMetamodel', 'get
+Module', 'getParent', 'instance', 'isAbstract', 'isLeaf', 'isModule', 'isPart',
+'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed', 'isWellFormedRecursive'
+, 'kind__Association', 'kind__Attribute', 'kind__Composition', 'modulestring', '
+name', 'namespace', 'objectFlowState', 'oclIsKindOf', 'ownedElement', 'parameter
+', 'partition', 'powertypeRange', 'presentation', 'setModule', 'sourceFlow', 'sp
+ecialization', 'stereotype', 'structuralFeature', 'supplierDependency', 'taggedV
+alue', 'targetFlow', 'templateParameter', 'templateParameter2', 'templateParamet
+er3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.DataType instance at 0x00FD4850>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'allFe
+atures', 'allMethods', 'allOperations', 'asSet', 'associationEnd', 'associationE
+ndSpecification', 'behavior', 'binding', 'bindingArgument', 'classifierInState',
+ 'classifierRole', 'clientDependency', 'collaboration', 'comment', 'constraint',
+ 'createAction', 'elementImport', 'elementImportModelElementElementImport', 'ele
+mentResidence', 'feature', 'generalization', 'getAllParts', 'getMetamodel', 'get
+Module', 'getParent', 'instance', 'isAbstract', 'isLeaf', 'isModule', 'isPart',
+'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed', 'isWellFormedRecursive'
+, 'kind__Association', 'kind__Attribute', 'kind__Composition', 'modulestring', '
+name', 'namespace', 'objectFlowState', 'oclIsKindOf', 'ownedElement', 'parameter
+', 'partition', 'powertypeRange', 'presentation', 'setModule', 'sourceFlow', 'sp
+ecialization', 'stereotype', 'structuralFeature', 'supplierDependency', 'taggedV
+alue', 'targetFlow', 'templateParameter', 'templateParameter2', 'templateParamet
+er3', 'update', 'visibility', 'xmiextension']
+model.ownedElement <smw.metamodel.UML13.DataType instance at 0x00FD7260>
+dir model.ownedElement ['Many', 'One', '__XMIid__', '__deepcopy__', '__doc__', '
+__gatherCL__', '__getstate__', '__init__', '__initattrs__', '__insert__', '__isD
+ead__', '__kill__', '__mm__', '__modelcopy1__', '__modelcopy2__', '__module__',
+'__name__', '__register__', '__registercreation__', '__resetattrs__', '__revive_
+_', '__setattr__', '__setclass__', '__setstate__', '__subclasses__', '__timestam
+p__', '__uniqueID__', '__userWellFormedRule__', '__whereIsAttrDefined__', 'allFe
+atures', 'allMethods', 'allOperations', 'asSet', 'associationEnd', 'associationE
+ndSpecification', 'behavior', 'binding', 'bindingArgument', 'classifierInState',
+ 'classifierRole', 'clientDependency', 'collaboration', 'comment', 'constraint',
+ 'createAction', 'elementImport', 'elementImportModelElementElementImport', 'ele
+mentResidence', 'feature', 'generalization', 'getAllParts', 'getMetamodel', 'get
+Module', 'getParent', 'instance', 'isAbstract', 'isLeaf', 'isModule', 'isPart',
+'isRoot', 'isSpecification', 'isTypeOf', 'isWellFormed', 'isWellFormedRecursive'
+, 'kind__Association', 'kind__Attribute', 'kind__Composition', 'modulestring', '
+name', 'namespace', 'objectFlowState', 'oclIsKindOf', 'ownedElement', 'parameter
+', 'partition', 'powertypeRange', 'presentation', 'setModule', 'sourceFlow', 'sp
+ecialization', 'stereotype', 'structuralFeature', 'supplierDependency', 'taggedV
+alue', 'targetFlow', 'templateParameter', 'templateParameter2', 'templateParamet
+er3', 'update', 'visibility', 'xmiextension']
+
+C:\_kldp\codegen\test\pymerase\pymerase-0.2.1\examples\linkDB>

@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE table SYSTEM "file:table.dtd">
+<table name="Houses"
+      comment=""> 
+  <column name="house_pk"
+      full_name="House key"
+      type="serial"
+      comment=""/>
+  <column name="house_name"
+          full_name="House Name"
+          type="varchar(64)"
+          comment=""/>
+  <primary_key column_id="house_pk"/>
+</table>

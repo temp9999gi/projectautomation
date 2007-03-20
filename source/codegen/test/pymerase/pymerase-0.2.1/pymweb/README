@@ -1,0 +1,17 @@
+*Pymweb Installation
+---------------------
+
+Debian Only Instructions:
+
+1) add 'Include /etc/apache/conf/pymweb.conf' without the quotes to
+   your apache httpd.conf file.
+
+2) run 'make install' as root.
+
+3) restart apache with the command '/etc/init.d/apache restart' as root.
+
+Other Installation:
+
+You will need to modify the make file to have it put the files in the
+correct places. E-mail the pymerase-devel at lists.sourceforge.net
+mailing list for help.

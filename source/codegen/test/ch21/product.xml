@@ -1,0 +1,31 @@
+<?xml version="1.0"?> 
+<productList> 
+  <product name="Notebook"> 
+    <vendor name="Samsung"> 
+      <price model="S501">400</price> 
+      <price model="S502">450</price> 
+    </vendor> 
+    <vendor name="Daewoo"> 
+      <price model="D401">380</price> 
+      <price model="D402">420</price> 
+    </vendor> 
+    <vendor name="Hyundai"> 
+      <price model="H601">300</price> 
+      <price model="H602">510</price> 
+    </vendor> 
+  </product> 
+  <product name="DeskTop"> 
+    <vendor name="Samsung"> 
+      <price model="SD501">300</price> 
+      <price model="SD502">350</price> 
+    </vendor> 
+    <vendor name="Daewoo"> 
+      <price model="DD401">280</price> 
+      <price model="DD402">320</price> 
+    </vendor> 
+    <vendor name="Hyundai"> 
+      <price model="HD601">200</price> 
+      <price model="HD602">410</price> 
+    </vendor> 
+  </product> 
+</productList> 

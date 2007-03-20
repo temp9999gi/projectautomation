@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html;charset=EUC-KR" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="java.util.Properties" %>
+<%@ page import="javax.ejb.*" %>
+
+<%@ page import="uis.staff.session.StudentManagement.*" %>
+<%@ page import="uis.staff.datatype.*" %>
+<%@ page import="javax.rmi.PortableRemoteObject" %>
+<%!
+
+	StudentInfo info ;
+%>
+<%
+	try {
+		InitialContext ic = new InitialContext() ;
+	
+		Object refsm = ic.lookup("StudentManagement");
+	
+		StudentManagementHome homesm = (StudentManagementHome)
+			PortableRemoteObject.narrow(refsm,StudentManagementHome.class);
+		StudentManagement sm = homesm.create();
+		
+		String studentId = request.getParameter("studentId") ;
+		
+		
+		info = sm.retrieve(studentId) ;
+		
+%>
+<HTML>
+<HEAD>
+<TITLE>학생 정보 수정</TITLE>
+</HEAD>
+<BODY TOPMARGIN="50">
+<CENTER>
+<H3> 학생 정보 수정 </H3>
+<HR>
+<FORM METHOD="post" ACTION="StudentModificationProc.jsp">
+<TABLE BORDER="1">
+<TR>
+	<TD> 학번 </TD>
+	<TD> <%= info.id %> <INPUT TYPE="hidden" NAME="txtStudentId" VALUE="<%=info.id%>"> </TD>
+</TR>
+
+<TR>
+	<TD> 이름 </TD>
+	<TD> <INPUT TYPE="text" NAME="txtName" VALUE =  <%= info.name %> > </TD>
+</TR>
+
+<TR>
+	<TD> 학과 </TD>
+	<TD> <INPUT TYPE="text" NAME="txtDept" VALUE =  <%= info.dept %> > </TD>
+</TR>
+
+<TR>
+	<TD> 주민 등록 번호 </TD>
+	<TD> <INPUT TYPE="text" NAME="txtSSN" VALUE =  <%= info.SSN %> > </TD>
+</TR>	
+<TR>
+	<TD ALIGN="center" COLSPAN="2">
+		<INPUT TYPE="submit" VALUE="수정">
+		<INPUT TYPE="reset">
+	</TD>
+</TR>
+
+</TABLE>
+</FORM>
+</CENTER>
+
+</BODY>
+</HTML>
+<%	
+	}
+	catch ( Exception e ) {
+		e.printStackTrace() ;
+	}
+%>
+
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>  
+<userlist>  
+    <user sex="male"> 
+        <name>gslee</name>  
+        <email>gslee@mail.gwu.ac.kr</email>  
+    </user>  
+    <user sex="female">  
+        <name>spam</name>  
+        <email>spam@mail.gwu.ac.kr</email>  
+    </user>  
+</userlist> 

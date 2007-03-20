@@ -1,0 +1,23 @@
+
+<html>
+<head>
+<title><!--TITLE--></title>
+</head>
+<body>
+	<div align="center">
+		<h1><!--TITLE--></h1>
+		<strong>Key:</strong><font color="#FF0000"> Required Information </font>   |  Optional
+	</div>
+	<form action="<!--SCRIPTNAME-->" method="POST" enctype="multipart/form-data">
+		<!--INSERT_FORM_HERE-->
+		
+		<input value="Submit" type="submit"><input value="Reset" type="reset">
+		<input type="hidden" name="session" value="mysession">
+		<input type="hidden" name="handler" value="<!--INSERT_HANDLER-->">
+	</form>
+	<form action="./MainMenu.py" method="POST">
+		<input value="Return to Main Menu" type="submit">
+		<input type="hidden" name="session" value="mysession">
+	</form>
+</body>
+</html>

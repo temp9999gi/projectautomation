@@ -1,0 +1,33 @@
+<!-- Properties.xml -->
+<masterInfo fileName="form1" title='민원접수관리-민원신청서 등록' tableTitle="신청인 정보"
+        crudFlag='CRUD'>
+
+    <button name='등록'/>
+    <button name='취소'/>
+
+    <property name='순번'           type='text' line='1' />
+    <property name='접수번호'       type='text' line='1' />
+    <property name='접수일자'       type='text' line='2' />
+    <property name='민원명'         type='text' line='2' />
+    <property name='신청인'         type='text' line='3' />
+    <property name='신청인주소'     type='text' line='4' />
+
+    <listScreen column1isCheckbox="Y" />  
+
+    <listSample>
+        <data propertyName='순번'       dataValue='순번1'       />
+        <data propertyName='접수번호'   dataValue='접수번호1'   />
+        <data propertyName='접수일자'   dataValue='접수일자1'   />
+        <data propertyName='민원명'     dataValue='민원명1'     />
+        <data propertyName='신청인'     dataValue='신청인1'     />
+        <data propertyName='신청인주소' dataValue='신청인주소1' />
+    </listSample>
+    <listSample>
+        <data propertyName='순번'       dataValue='순번2'       />
+        <data propertyName='접수번호'   dataValue='접수번호1'   />
+        <data propertyName='접수일자'   dataValue='접수일자1'   />
+        <data propertyName='민원명'     dataValue='민원명1'     />
+        <data propertyName='신청인'     dataValue='신청인1'     />
+        <data propertyName='신청인주소' dataValue='신청인주소1' />
+    </listSample>
+</masterInfo>

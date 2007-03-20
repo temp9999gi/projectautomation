@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE pgml SYSTEM "pgml.dtd">
+<pgml description="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram|127-0-0-1-6090ee:f3babb34a2:-8000"
+      name="class diagram 1"
+>
+  <group name="Fig0"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[344, 96, 72, 74]"
+       href="127-0-0-1-6090ee:f3babb34a2:-7fff"
+       fill="1"
+       fillcolor="-1"
+       stroke="1"
+       strokecolor="-16777216"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig0.0"
+      x="344"
+      y="96"
+      width="72"
+      height="74"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+    />
+    <text name="Fig0.1"
+      x="344"
+      y="96"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+      font="dialog"
+      textsize="9"
+    ></text>
+    <text name="Fig0.2"
+      x="344"
+      y="96"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+      font="dialog"
+      textsize="9"
+    >NameLinkPair</text>
+    <rectangle name="Fig0.3"
+      x="345"
+      y="114"
+      width="70"
+      height="2"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-1"
+    />
+    <group name="Fig0.4"
+         description="org.tigris.gef.presentation.FigGroup[344, 116, 72, 36]"
+         fill="1"
+         fillcolor="-1"
+         stroke="1"
+         strokecolor="-16777216"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig0.4.0"
+        x="344"
+        y="116"
+        width="72"
+        height="36"
+        fill="1"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+      />
+      <text name="Fig0.4.1"
+        x="345"
+        y="117"
+        fill="0"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+        font="dialog"
+        textsize="9"
+      >+name: String</text>
+      <text name="Fig0.4.2"
+        x="345"
+        y="134"
+        fill="0"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+        font="dialog"
+        textsize="9"
+      >+url: String</text>
+    </group>
+    <group name="Fig0.5"
+         description="org.tigris.gef.presentation.FigGroup[344, 151, 72, 19]"
+         fill="1"
+         fillcolor="-1"
+         stroke="1"
+         strokecolor="-16777216"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig0.5.0"
+        x="344"
+        y="151"
+        width="72"
+        height="19"
+        fill="1"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+      />
+    </group>
+  </group>
+  <group name="Fig1"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[88, 96, 72, 57]"
+       href="127-0-0-1-6090ee:f3babb34a2:-7ffc"
+       fill="1"
+       fillcolor="-1"
+       stroke="1"
+       strokecolor="-16777216"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig1.0"
+      x="88"
+      y="96"
+      width="72"
+      height="57"
+      fill="1"
+      fillcolor="-16711681"
+      stroke="1"
+      strokecolor="-16711681"
+    />
+    <text name="Fig1.1"
+      x="88"
+      y="96"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+      font="dialog"
+      textsize="9"
+    ></text>
+    <text name="Fig1.2"
+      x="88"
+      y="96"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+      font="dialog"
+      textsize="9"
+    >Group</text>
+    <rectangle name="Fig1.3"
+      x="89"
+      y="114"
+      width="70"
+      height="2"
+      fill="1"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-1"
+    />
+    <group name="Fig1.4"
+         description="org.tigris.gef.presentation.FigGroup[88, 116, 72, 19]"
+         fill="1"
+         fillcolor="-1"
+         stroke="1"
+         strokecolor="-16777216"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig1.4.0"
+        x="88"
+        y="116"
+        width="72"
+        height="19"
+        fill="1"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+      />
+      <text name="Fig1.4.1"
+        x="89"
+        y="117"
+        fill="0"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+        font="dialog"
+        textsize="9"
+      >+name: String</text>
+    </group>
+    <group name="Fig1.5"
+         description="org.tigris.gef.presentation.FigGroup[88, 134, 72, 19]"
+         fill="1"
+         fillcolor="-1"
+         stroke="1"
+         strokecolor="-16777216"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig1.5.0"
+        x="88"
+        y="134"
+        width="72"
+        height="19"
+        fill="1"
+        fillcolor="-1"
+        stroke="1"
+        strokecolor="-16777216"
+      />
+    </group>
+  </group>
+  <group name="Fig2"
+       description="org.argouml.uml.diagram.ui.FigAssociation"
+       href="127-0-0-1-6090ee:f3babb34a2:-7ffb"
+       stroke="1"
+       strokecolor="-16777216"
+  >
+    <private>
+      sourcePortFig="Fig1.0"
+      destPortFig="Fig0.0"
+      sourceFigNode="Fig1"
+      destFigNode="Fig0"
+    </private>
+    <path name="Fig2.1"
+      description="org.tigris.gef.presentation.FigPoly"
+      fill="0"
+      fillcolor="-1"
+      stroke="1"
+      strokecolor="-16777216"
+    >
+      <moveto x="160"
+              y="128" />
+      <lineto x="344"
+              y="128" />
+    </path>
+  </group>
+</pgml>

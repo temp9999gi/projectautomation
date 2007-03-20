@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<XMI xmi.version = "1.1" xmlns:UML="href://org.omg/UML/1.3">
+<XMI.header>
+  <XMI.documentation>
+    <XMI.owner></XMI.owner>
+    <XMI.contact></XMI.contact>
+    <XMI.exporter>StarUML.XMI-Addin</XMI.exporter>
+    <XMI.exporterVersion>1.0</XMI.exporterVersion>
+    <XMI.notice></XMI.notice>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = "UML" xmi.version = "1.3"/>
+ </XMI.header>
+<XMI.content>
+<UML:Model xmi.id="UMLProject.1" xmi.uuid="DCE:52230F1F-1138-4C5C-B6E1-8F1AF40EC83A">
+  <UML:Namespace.ownedElement>
+    <UML:Model xmi.id="UMLModel.2" xmi.uuid="DCE:E4CD37E8-487F-43CC-ABD6-7FD8B4EA12F3" name="Use Case Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.11" xmi.uuid="DCE:072D032B-938C-41AC-84CB-5722EAC14364" name="useCaseModel" extendedElement="UMLModel.2"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.3" xmi.uuid="DCE:FEA1135A-EE3D-4A51-BAE0-65769A01A0ED" name="Analysis Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.12" xmi.uuid="DCE:3A3FB9CF-F6D7-477D-90EA-7E0D2D181547" name="analysisModel" extendedElement="UMLModel.3"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.4" xmi.uuid="DCE:2DD49D34-B796-47B2-A755-DE3FED146B60" name="Design Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Class xmi.id="UMLClass.5" xmi.uuid="DCE:0AF02FC5-8F20-4488-847F-3C8CE571A83B" name="Party" visibility="public" isSpecification="false" namespace="UMLModel.4" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="UMLAttribute.6" xmi.uuid="DCE:F6A54386-B261-418E-A3B1-E106478B0041" name="name" visibility="public" isSpecification="false" ownerScope="instance" changeability="changeable" targetScope="instance" type="" owner="UMLClass.5"/>
+            <UML:Operation xmi.id="UMLOperation.7" xmi.uuid="DCE:430ABDA9-66AA-4E27-B95B-EA546977B8C5" name="insert" visibility="public" isSpecification="false" ownerScope="instance" isQuery="false" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" specification="" owner="UMLClass.5"/>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <UML:Stereotype xmi.id="X.13" xmi.uuid="DCE:E40207BE-E3A5-4950-8CBF-B0F496C19B04" name="designModel" extendedElement="UMLModel.4"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.8" xmi.uuid="DCE:2F1B0FC6-C118-4CCE-BBCC-49AAFBBE2DB3" name="Implementation Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.15" xmi.uuid="DCE:F664D9DD-F39D-4A6A-8ACC-A7C8C7D89133" name="implementationModel" extendedElement="UMLModel.8"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.9" xmi.uuid="DCE:FD017C27-7D70-4A2D-90BE-8506ABC389FE" name="Deployment Model" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.16" xmi.uuid="DCE:45162084-B739-49B0-9971-9FBD2F090C84" name="deploymentModel" extendedElement="UMLModel.9"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <UML:Model xmi.id="UMLModel.10" xmi.uuid="DCE:3AD3A0BE-F7D3-4502-B7F1-8D20D834B244" name="Design Model1" visibility="public" isSpecification="false" namespace="UMLProject.1" isRoot="false" isLeaf="false" isAbstract="false">
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id="X.17" xmi.uuid="DCE:FC6DA11E-4C51-4592-B699-C6F529EA60DD" name="designModel" extendedElement="UMLModel.10"/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </UML:Namespace.ownedElement>
+</UML:Model>
+<UML:TaggedValue xmi.id="X.14" xmi.uuid="DCE:425E26A6-D097-44AE-9AEA-0048959D1350" tag="ordering" value="unordered" modelElement="UMLAttribute.6"/>
+</XMI.content>
+</XMI>

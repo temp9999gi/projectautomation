@@ -1,0 +1,15 @@
+
+
+		#얘가 실질적인 XMIContent를 추출한다.
+		def extractXMIContent(self,node):
+
+	#원본 classes = filter(lambda c: isinstance(c, umlClass), model.ownedElement)
+	classes = filter(lambda c: isinstance(c, umlClass), model.getAllParts())
+	#print classes
+	#print 'model.getAllParts()',model.getAllParts()
+
+
+		try:
+			featureType = feature.type
+		except AttributeError:
+			featureType = ''

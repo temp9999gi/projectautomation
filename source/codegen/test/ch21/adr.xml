@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<directory 
+  xmlns="http://catwoman.pineapplesoft.com/directory/1.0" 
+  xmlns:adr="http://catwoman.pineapplesoft.com/address/1.0"> 
+  <adr:address> 
+    <adr:name>John Doe</adr:name> 
+    <adr:street>34 Fountain Square Plaza</adr:street> 
+    <adr:tel>123-456-7890</adr:tel> 
+    <adr:email>someone@mail.net</adr:email> 
+  </adr:address> 
+</directory> 

@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE table SYSTEM "file:table.dtd">
+<table name="Classes"
+      type="&linking_table;"
+      comment=""> 
+  <column name="class_pk"
+      full_name="Class key"
+      type="serial"
+      comment=""/>
+  <column name="students_fk"
+          full_name="students_fk"
+          type="int4"
+          not_null="true"
+          comment=""/>
+  <foreign_key column_id="students_fk"
+        foreign_table      ="People"
+        foreign_table_pkey ="people_pk"
+        fkey_type          ="&fkey_oto;"
+        foreign_association_name="Students"/>
+  <column name="courses_fk"
+          full_name="courses_fk"
+          type="int4"
+          not_null="true"
+          comment=""/>
+  <foreign_key column_id="courses_fk"
+        foreign_table      ="Courses"
+        foreign_table_pkey ="course_pk"
+        fkey_type          ="&fkey_oto;"/>
+  <column name="grade"
+          full_name="grade"
+          type="float"
+          comment=""/>
+  <column name="term"
+          full_name="Term"
+          type="datetime"
+          comment=""/>
+  <primary_key column_id="class_pk"/>
+</table>

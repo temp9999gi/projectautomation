@@ -1,0 +1,179 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><A 
+href="http://www.python.or.kr/pykug/XML_bf_a1_bc_ad_20_c7_d1_b1_db_20_c3_b3_b8_ae_c7_cf_b1_e2">http://www.python.or.kr/pykug/XML_bf_a1_bc_ad_20_c7_d1_b1_db_20_c3_b3_b8_ae_c7_cf_b1_e2</A></div>
+<DIV>&nbsp;</DIV>
+<DIV>
+<TABLE class=wiki cellSpacing=0 cellPadding=3 border=1>
+  
+  <TR class=wiki>
+    <TD class=wiki>
+      <OL>
+        <LI><A href="#line3"><U><FONT color=#0000ff>한글 파일 코드 변환</FONT></U></A> 
+        <LI><A href="#line12"><U><FONT color=#0000ff>SAX 예제</FONT></U></A> 
+        <LI><A href="#line118"><U><FONT color=#0000ff>DOM 
+      예제</FONT></U></A></LI></OL></TD></TR></TABLE>
+<P><U><FONT color=#0000ff></FONT></U><A name=line3></P>
+<H3>한글 파일 코드 변환 </H3>
+<P>XML 파서는 euc-kr 한글 코드를 처리해주지 못하나, 유니코드로 변환된 한글은 별 무리없이 처리한다. <BR>따라서 euc-kr 
+문자열을 utf-8등으로 파일 코드를 변환한 후에 SAX나 DOM을 적용한다. <BR>euc-kr 문자열 s를 utf-8 문자열 u로 변환하는 
+방법은 다음과 같다. <BR></P><PRE class=code>u = unicode(s, 'euc-kr').encode('utf-8')  # euc-kr ---&gt; utf-8 
+</PRE>
+<P><A name=line12></P>
+<H3>SAX 예제 </H3>euc-kr 문서를 읽고 utf-8로 변환해서 처리한다. <BR><B>주의 : <TT 
+class=wiki>print</TT>할 때는 다시 <TT class=wiki>euc-kr</TT>로 변환해야 한다.</B> 
+<P>샘플 파일(<TT class=wiki>names2.xml</TT>)이 다음과 같이 주어져 있다고 하자. <BR>
+<P></P><PRE class=code>&lt;names&gt; 
+&lt;name sex="male"&gt; 
+이강성 
+&lt;/name&gt; 
+&lt;name sex="female"&gt; 
+정인숙 
+&lt;/name&gt; 
+&lt;name sex="male"&gt; 
+한학신 
+&lt;/name&gt; 
+&lt;/names&gt; 
+</PRE>
+<P>프로그램 예를 보인다. <BR>
+<P></P><PRE class=code>from xml.sax import handler, parseString 
+ 
+class MyHandler(handler.ContentHandler): 
+    def startDocument(self):  # 문서의 시작에서 호출된다 
+        print 'Start of Document' 
+    def endDocument(self):    # 문서의 끝에서 호출된다 
+        print 'End of Document' 
+    def startElement(self, name, attrs): # 새로운 태그를 만날 때 호출된다 
+        print 'Start Tag:', name.encode('euc-kr') 
+        # attrs : AttributesImpl instance 
+        for name in attrs.getNames():    # 속성 정보를 출력한다 (속성 이름, 속성 값) 
+            print '\t', name, attrs.getValue(name) 
+    def endElement(self, name):   # 태그가 끝날 때 호출된다 
+        print 'End Tag:', name.encode('euc-kr') 
+    def characters(self, content):  # 텍스트가 읽혀질 때 호출된다. 텍스트의 위치와 내용을 출력한다. 
+        print 'Location : (%s, %s)' % (self.locator.getLineNumber(), self.locator.getColumnNumber()) 
+        print '\tText :', content.replace('\n', '\\n').encode('euc-kr') 
+    def setDocumentLocator(self, locator):  # 전달되는 Locator 객체를 저장해둔다. 
+        self.locator = locator 
+ 
+h = MyHandler() 
+s = open('names2.xml').read() 
+u = unicode(s, 'euc-kr').encode('utf-8') 
+parseString(u, h) 
+</PRE>
+<P>출력결과 <BR></P><PRE class=code>Start of Document 
+Start Tag: names 
+Location : (1, 7) 
+        Text : 
+Location : (1, 8) 
+        Text : \n 
+Start Tag: name 
+        sex male 
+Location : (2, 17) 
+        Text : 
+Location : (2, 18) 
+        Text : \n 
+Location : (3, 0) 
+        Text : 이강성 
+Location : (3, 4) 
+        Text : \n 
+End Tag: name 
+Location : (4, 7) 
+        Text : 
+Location : (4, 8) 
+        Text : \n 
+Start Tag: name 
+        sex female 
+Location : (5, 19) 
+        Text : 
+Location : (5, 20) 
+        Text : \n 
+Location : (6, 0) 
+        Text : 정인숙 
+Location : (6, 4) 
+        Text : \n 
+End Tag: name 
+Location : (7, 7) 
+        Text : 
+Location : (7, 8) 
+        Text : \n 
+Start Tag: name 
+        sex male 
+Location : (8, 17) 
+        Text : 
+Location : (8, 18) 
+        Text : \n 
+Location : (9, 0) 
+        Text : 한학신 
+Location : (9, 4) 
+        Text : \n 
+End Tag: name 
+Location : (10, 7) 
+        Text : 
+Location : (10, 8) 
+        Text : \n 
+End Tag: names 
+End of Document 
+</PRE>
+<P><A name=line118></P>
+<H3>DOM 예제 </H3>
+<P>euc-kr을 utf-8로 변환하여 처리하면 잘 된다. <BR>
+<P>'names2.xml' 파일이 utf-8 코드 파일인 경우, <BR>
+<P></P><PRE class=code>from xml.dom.minidom import * 
+ 
+dom = parse('names3.xml')   # 파일을 파싱 
+print dom.toxml()  
+dom.unlink()  
+</PRE>
+<P>'names2.xml' 파일이 euc-kr 파일인 경우, <BR>
+<P></P><PRE class=code>from xml.dom.minidom import * 
+ 
+s = open('names2.xml').read()  # 전체 문자열을 읽어낸다. 
+s = unicode(s, 'euc-kr').encode('utf-8')  # euc-kr ---&gt; utf-8 변환 
+dom = parseString(s)         # 문자열을 이용한 파싱 
+ 
+result = dom.toxml() 
+print result.encode('euc-kr')  # 다시 euc-kr로 
+dom.unlink() 
+</PRE>
+<P>실행 결과 <BR>
+<P></P><PRE class=code>&lt;?xml version="1.0" ?&gt; 
+&lt;names&gt; 
+&lt;name sex="male"&gt; 
+이강성 
+&lt;/name&gt; 
+&lt;name sex="female"&gt; 
+정인숙 
+&lt;/name&gt; 
+&lt;name sex="male"&gt; 
+한학신 
+&lt;/name&gt; 
+&lt;/names&gt; 
+</PRE>
+<P>이강성 2001/11/9, 2002/11/2 수정 <BR>
+<P>
+<HR>
+See Also <BR>
+<P><A href="/pykug/XML"><U><FONT color=#0000ff>XML</FONT></U></A> <BR><A 
+href="/pykug/_c6_c4_c0_cc_bd_e3_ba_d0_b7_f9"><U><FONT 
+color=#0000ff>파이썬분류</FONT></U></A> <BR></P></DIV>
+</BODY></HTML>
