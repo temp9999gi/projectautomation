@@ -1,0 +1,33 @@
+package com.ibatis.jpetstore.persistence.iface;
+
+import com.ibatis.jpetstore.domain.${className};
+
+public interface ${className}Dao {
+
+  ${className} get${className}(${pkString});
+
+  ${className} get${className}(String username, String password);
+
+  void insert${className}(${className} ${lowerClassName});
+
+  void update${className}(${className} ${lowerClassName});
+
+}
+
+
+--------------
+package com.ibatis.jpetstore.persistence.iface;
+
+import com.ibatis.jpetstore.domain.Account;
+
+public interface AccountDao {
+
+  Account getAccount(String username);
+
+  Account getAccount(String username, String password);
+
+  void insertAccount(Account account);
+
+  void updateAccount(Account account);
+
+}

@@ -1,0 +1,17 @@
+<!ELEMENT class (name,fields,primary-table,join-tables?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT fields (field+)>
+<!ELEMENT field (database-field,class-field,type,insert-col?,update-col?,primary-key?)>
+<!ELEMENT database-field (#PCDATA)>
+<!ELEMENT class-field (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT insert-col EMPTY>
+<!ELEMENT update-col EMPTY>
+<!ELEMENT primary-key EMPTY>
+<!ELEMENT primary-table (#PCDATA)>
+<!ELEMENT join-tables (join-table+)>
+<!ELEMENT join-table (join-name,clause,left-outer?)>
+<!ELEMENT join-name (#PCDATA)>
+<!ELEMENT clause (#PCDATA)>
+<!ELEMENT left-outer EMPTY>
+

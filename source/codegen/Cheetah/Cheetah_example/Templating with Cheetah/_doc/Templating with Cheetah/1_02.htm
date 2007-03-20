@@ -1,0 +1,80 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><SPAN class=contentpagetitle><B>Templating with Cheetah 
+- Basic Templating</B></SPAN> <BR>(Page 2 of 4 )<BR><BR>
+<P></P>
+<P>Let's start off with a basic template with which to test out Cheetah. A 
+simple counter will work fine. Create a file named counter.tmpl:</P>
+<P><FONT face=Courier>Hello, This page has been viewed $counter 
+times.</FONT></P>
+<P>In the above example, we will obviously want to substitute the 
+<I>$counter</I> variable for the number of times the particular page has been 
+viewed. It's pretty easy to turn our template into a real, working page in just 
+a few lines of Python. We'll use a text file to store the count for simplicity's 
+sake:</P>
+<P><FONT face=Courier>import <A class=iAs 
+style="PADDING-BOTTOM: 1px; COLOR: blue; BORDER-BOTTOM: blue 0.07em solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>os</A>.path<BR>from Cheetah.Template import 
+Template</FONT></P>
+<P><FONT face=Courier># Update the count<BR>if os.path.exists ( 'count.txt' 
+):<BR>&nbsp;&nbsp; count = int ( file ( 'count.txt' ).read() )<BR>&nbsp;&nbsp; 
+count = count + 1<BR>else:<BR>&nbsp;&nbsp; count = 1<BR>file ( 'count.txt', 'r' 
+).write ( str ( count ) )</FONT></P>
+<P><FONT face=Courier><A class=iAs 
+style="PADDING-BOTTOM: 1px; COLOR: blue; BORDER-BOTTOM: blue 0.07em solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>print</A> Template ( file = 'counter.tmpl', searchList 
+=<BR>[{ 'counter': str ( count ) }] )</FONT></P>
+<P>After updating the count, we simply pass the file we wish to parse and a 
+dictionary containing the replacement value. Cheetah then does the rest and 
+returns the result, which is printed.</P>
+<P>It's also possible to pass objects to Cheetah. Take a look at this template, 
+contact.tmpl, which display's a particular person's contact information:</P>
+<P><FONT face=Courier>&lt;b&gt;Name:&lt;/b&gt; $profile.name&lt;br 
+/&gt;<BR>&lt;b&gt;E-Mail:&lt;/b&gt; $profile.email&lt;br 
+/&gt;<BR>&lt;b&gt;Phone:&lt;/b&gt; $profile.phone&lt;br 
+/&gt;<BR>&lt;b&gt;MSN:&lt;/b&gt; $profile.msn&lt;br 
+/&gt;<BR>&lt;b&gt;AIM:&lt;/b&gt; $profile.aim&lt;br 
+/&gt;<BR>&lt;b&gt;ICQ:&lt;/b&gt; $profile.icq&lt;br 
+/&gt;<BR>&lt;b&gt;YIM:&lt;/b&gt; $profile.yim</FONT></P>
+<P>All we need to do is create an object with the above properties and pass it 
+under the <I>profile</I> key:</P>
+<P><FONT face=Courier>from Cheetah.Template import Template</FONT></P>
+<P><FONT face=Courier>class Profile:<BR>&nbsp;&nbsp; def __init__ ( self, name, 
+email, phone, msn, aim, icq, yim ):<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.name 
+= name<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.email = 
+email<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.phone = 
+phone<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.msn = 
+msn<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.aim = 
+aim<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.icq = 
+icq<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.yim = yim</FONT></P>
+<P><FONT face=Courier>johnDoe = Profile ( 'John Doe', 'jdoe@google.com', '(555) 
+555-<BR>5555', 'jdoe@google.com', 'JDoe', '0123456789', 'JDoe' )<BR>print 
+Template ( file = 'contact.tmpl', searchList = <BR>[{ 'profile': johnDoe }] 
+)</FONT></P>
+<P>Cheetah then substitutes the appropriate attributes.</P>
+<P>
+<DIV class=pagenavbar align=center>
+<DIV align=center><A 
+href="http://www.devshed.com/c/a/Python/Templating-with-Cheetah/2/" 
+rel=nofollow><FONT color=#0000ff size=4><U>Next: Compiling Templates 
+&gt;&gt;</U></FONT></A></DIV></DIV></div>
+</BODY></HTML>

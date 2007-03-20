@@ -1,0 +1,25 @@
+#include "cubic.h"
+
+class GradeProfileExecutorTest: void testSetsFirstGradePercentInProfile_Time::Runner {
+    return x;
+}
+
+
+
+void testSetsSecondGradePercent_Time()
+void testSetsGradePercent_WithInitialTime()
+void testReturnsFalseAtEndOfGradeProfile_Time()
+void testExecutorEndsWithFinalGradeValue()
+void testClearsStateAtEndOfProfile_Time()
+void testSetsFirstGradePercentInProfile_Distance()
+void testSetsLaterGradePercent_Distance()
+void testSetsLaterGradePercentStartingPartWayThroughProfile_Distance()
+void testSetsLaterGradePercentWhenInitialDistanceNotZero_Distance()
+void testSetsLaterGradePercentWhenInitialDistanceNotZero_DistanceResetInMiddle()
+void testEndsWhenMaxDistanceInProfileIsReached()
+void testConstructorThatTakesProfile()
+void testClearsInternalStateWhenFinished()
+void testProfileLoopsOnceWhenSetToRepeat_Distance()
+void testProfileLoopsOnceWhenSetToRepeat_Time()
+void testProfileLoopsManyTimesWhenSetToRepeat_Time()
+void testEmptyProfile()

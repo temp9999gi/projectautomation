@@ -1,0 +1,12 @@
+package ${packagePath}.persistence.iface;
+
+import ${packagePath}.domain.Account;
+
+public interface ${className}Dao {
+
+#for $m in $methodInfoList
+  ${m.methodReturnType} ${m.methodName}(${m.methodArgument});
+
+#end for
+}
+

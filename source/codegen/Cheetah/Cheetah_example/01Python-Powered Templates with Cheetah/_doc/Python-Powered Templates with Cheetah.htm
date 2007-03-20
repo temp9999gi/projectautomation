@@ -1,0 +1,488 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div>
+<H2>Python-Powered Templates with Cheetah</H2>by <A href="/pub/au/1425"><U><FONT 
+color=#0000ff>Andrew Glover</FONT></U></A><BR>01/13/2005 
+<P><A class=iAs 
+style="COLOR: darkgreen; BORDER-BOTTOM: darkgreen 1px solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>XML</A> transformation via XSL Transformations (XSLT) is 
+quite popular and indeed powerful. Well-constructed XSL can produce HTML, PDF, 
+XML, and just about any other text format imaginable. XSLT, however, requires 
+that the subject data be a well-structured XML document, which often is not the 
+case. Consequently, developers often transform native data structures (that is, 
+business objects) into XML so as to use XSLT. This process, unfortunately, can 
+increase code complexity and development time for a problem that has an easier 
+solution: a <EM>template engine</EM>.</P>
+<TABLE class=adtag cellSpacing=0 cellPadding=8 width=336 align=right border=0>
+  
+  <TR>
+    <TD><!-- dy --><!-- begin ad tag -->//<![CDATA[
+var ord = (ord != null ? ord : Math.random()*10000000000000000 );
+document.write('<script language="JavaScript" src="http://ad.doubleclick.net/adj/onlamp.ds/pythonart;sz=336x280;tile=2;ord=' + ord + '?" type="text/javascript">&lt;\/script&gt;'); 
+      //]]&gt; </SCRIPT></SCRIPT><A 
+      href="http://ad.doubleclick.net/click;h=v6|3401|0|0|%2a|c;32503746;2-0;0;12453998;4252-336|280;16153839|16171734|2;;~fdr=25171877;0-0;0;6554195;4252-336|280;13990008|14007904|1;;~sscs=%3fhttp://seeker.dice.com/jobsearch/gentwo/index.jsp" 
+      target=_top><IMG  src="__1_02\1-Dice_Testimonial_336x280_b-85.gif"
+      border=0></A><NOSCRIPT><A 
+      href="http://ad.doubleclick.net/jump/onlamp.ds/pythonart;sz=336x280;tile=2;ord=2240026283?" 
+      target=_blank><IMG height=280 alt=""  src="__1_02\pythonart;sz=336x280;ord=123456789"
+      width=336 border=0></A></NOSCRIPT> <!-- End ad tag --></TD></TR></TABLE><!-- me -->
+<P>Template engines facilitate the construction of various formatted documents 
+by allowing a static template to contain placeholders for dynamic output. Hence, 
+there is no temporary format such as XML.</P>
+<P>If the desired output is an HTML document, a template engine will operate on 
+an HTML template that contains placeholders for values substituted at runtime. 
+Using a template engine's transformation process is as simple as reading the 
+template and providing a mapping of runtime values. The output of the 
+transformation is the native format of the template--in this case, an HTML 
+document. Similar to XSLT, template engines can produce any format possible, 
+such as XML, HTML, and SQL; additionally, one can even use template engines as 
+code generators. Template engines additionally facilitate the Model View 
+Controller architecture by embodying the view component in templates.</P>
+<H3>Introducing Cheetah</H3>
+<P><A href="http://www.cheetahtemplate.org/"><U><FONT 
+color=#800080>Cheetah</FONT></U></A> is an extremely effective <A 
+href="http://www.python.org/"><U><FONT 
+color=#0000ff>Python</FONT></U></A>-powered template engine that can generate 
+any text-based format. Cheetah's impressive yet simple template language (based 
+on Python) can yield the most complex of documents; moreover, Cheetah's 
+object-oriented representation of documents creates plenty of opportunities for 
+the reuse of code. Cheetah also possesses an impressive caching mechanism that 
+fits a variety of performance scenarios.</P><!-- sidebar begins --><!-- don't move sidebars --><!-- sidebar ends -->
+<P>Cheetah is surprisingly simple to use, as it essentially has two language 
+constructs: <EM>placeholders</EM> and <EM>directives</EM>. Placeholders are 
+values to substitute at runtime, and directives in effect are commands to 
+execute at runtime. Placeholders are signified by <CODE>$</CODE> signs and 
+directives by <CODE>#</CODE> signs.</P>
+<H3>Is It Really That Easy?</H3>
+<P>With placeholders and directives in mind, the code below demonstrates a 
+simple Cheetah template for generating <A 
+href="http://pyunit.sourceforge.net/"><U><FONT 
+color=#0000ff>PyUnit</FONT></U></A> test cases.</P><PRE><CODE>1  import unittest
+2
+3  class ${classundertest}_test(unittest.TestCase):
+4    def setUp(self):
+5      pass
+6    def tearDown(self):
+7      pass
+8  #for $testcase in $testcases
+9   def test${testcase}(self):
+10     pass
+11 #end for</CODE></PRE>
+<P>Cheetah will substitute the placeholder <CODE>$clssundertst</CODE> at runtime 
+to create a string, such as <CODE>query_test</CODE>, that will form the test 
+case's class name. Additionally, notice the directive, which in this case is a 
+<CODE>for</CODE> loop, which iterates over a collection of 
+<CODE>testcases</CODE> to create a series of class methods with names starting 
+with <CODE>test</CODE>.</P>
+<H3>More on <CODE>$Placeholders</CODE></H3>
+<P>To make ambiguous placeholders less ambiguous, you can surround them with 
+<CODE>{</CODE>s, <CODE>(</CODE>s, <CODE>[</CODE>s, or nothing at all. 
+Placeholders, furthermore, can be complex objects, which Cheetah can navigate 
+quite easily through <EM>autocalling</EM>.</P><PRE><CODE>1 &lt;person&gt;
+2   &lt;firstname&gt;$fname&lt;/firstname&gt;
+3   &lt;middleinitial&gt;$(mi)&lt;/middleinitial&gt;
+4   &lt;lastname&gt;${lname}&lt;/lastname&gt;
+5   &lt;dateofbirth&gt;$p.dob&lt;/dateofbirth&gt;
+6 &lt;/person&gt;</CODE></PRE>
+<P>As demonstrated in the above example, Cheetah is quite flexible when it comes 
+to syntax. Notice that <CODE>p.dob</CODE> actually calls the <CODE>dob</CODE> 
+attribute of the <CODE>p</CODE> object. Autocalling is quite flexible; you can 
+use dictionaries as well as lists. Here's an example of autocalling with a 
+dictionary:</P><PRE><CODE>1 &lt;person&gt;
+2  &lt;firstname&gt;$dict.fname&lt;/firstname&gt;
+3  &lt;middleinitial&gt;$dict['mi']&lt;/middleinitial&gt;
+4  &lt;lastname&gt;$dict.lname&lt;/lastname&gt;
+5  &lt;dateofbirth&gt;$dict.dob&lt;/dateofbirth&gt;
+6 &lt;/person&gt;</CODE></PRE>
+<P>In the code above, <CODE>$dict</CODE> is a dictionary object defined 
+something like this:</P><PRE><CODE>1 mp = {"fname":"Emily", "mi":"M", \
+2  "lname":"Smith", "dob":"04/21/74"}
+3 inputmap = {"dict":mp}</CODE></PRE>
+<P>The <CODE>$dict</CODE> placeholder maps to a dictionary, <CODE>mp</CODE>, 
+which contains the keys accessed in the previous code.</P>
+<H3>Directives</H3>
+<P>Directives are constructs that control the flow of template logic. With 
+directives, templates can contain <CODE>if/else</CODE> logic blocks as well as 
+looping constructs. What's more, it's possible to define Python functions 
+through directives and call them throughout a template.</P>
+<P>Using conditional logic is straightforward, as the syntax is Python.</P><PRE><CODE>1 #if $status == 'rejected'
+2 &lt;b&gt;Don't call us, we'll call you&lt;/b&gt;
+3 #elif $status == 'passed'
+4 We'll be calling you soon.
+5 #end if</CODE></PRE>
+<P>Looping constructs, like the <CODE>for</CODE> loop, are just as simple.</P><PRE><CODE>1 #for $person in $people
+2 &lt;TR&gt;
+3   &lt;TD&gt;$person.name&lt;/TD&gt;
+5   &lt;TD&gt;$person.weight&lt;/TD&gt;
+6   &lt;TD&gt;$person.height&lt;/TD&gt;
+7 &lt;/TR&gt;
+8 #end for</CODE></PRE>
+<P>In the above example, a list named <CODE>people</CODE> contains a collection 
+of objects having attributes of <CODE>name</CODE>, <CODE>weight</CODE>, and 
+<CODE>height</CODE>.</P>
+<P>If you need repetition, use the <CODE>repeat</CODE> directive:</P><PRE><CODE>1 &lt;p&gt;
+2 Remember, your proposal was: &lt;br/&gt;
+3 #repeat $times
+4 $status &lt;br/&gt;
+5 #end repeat
+6 &lt;/p&gt;</CODE></PRE>
+<P>Notice how the <CODE>#repeat</CODE> directive takes a placeholder, in this 
+case <CODE>$times</CODE>, which represents the number of times to repeat the 
+text in the directive's body.</P>
+<P>Occasionally, templates may need additional logic defined in a function. 
+Strict Model-View-Controller design tries to avoid putting too much logic in a 
+view, but you can define functions in templates and call them throughout the 
+template at runtime.</P>
+<P>The following example defines a function named <CODE>caps</CODE> switches the 
+case of the passed-in parameter. Line 8 shows how to reference the directive and 
+pass in placeholders.</P><PRE><CODE>1 #def caps($var)
+2 $var.swapcase() #slurp
+3 #end def
+4
+5 &lt;html&gt;
+6 &lt;body&gt;
+7 &lt;p&gt;
+8 Your proposal was &lt;b&gt; $caps($status) &lt;/b&gt;
+9 &lt;/p&gt;</CODE></PRE>
+<P>The <CODE>#slurp</CODE> declaration in the code above consumes the newline so 
+the resulting output is:</P><PRE><CODE>1 &lt;html&gt;
+2 &lt;body&gt;
+3 &lt;p&gt;
+4 Your proposal was &lt;b&gt; REJECTED &lt;/b&gt;
+5 &lt;/p&gt;</CODE></PRE>
+<H3>Caching</H3>
+<P>As mentioned earlier, Cheetah possesses a powerful caching mechanism for use 
+in templates. As with everything else found in Cheetah, putting it to work is 
+easy.</P>
+<P>In performance-intensive scenarios, caching placeholders can increase a 
+template's rendering speed. To cache a placeholder indefinitely (or as long as 
+the template resides in memory), use the <CODE>*</CODE> syntax.</P><PRE><CODE>1 &lt;p&gt;
+2 Submissions will be accepted
+3 for $*days calendar days so please keep
+4 trying until then.
+5 &lt;/p&gt;</CODE></PRE>
+<P>In the above example, Cheetah caches the <CODE>days</CODE> placeholder as 
+long as the template resides in memory.</P>
+<P>If a template has more sophisticated caching requirements, you can cache 
+placeholders for time intervals or even cache entire template regions. To cache 
+for a specific time limit, add the desired value in terms of seconds, minutes, 
+hours, days, or weeks.</P><PRE><CODE>1 &lt;p&gt;
+2 After that, our $*4d*judges judges will
+3 annouce the winners!
+4 &lt;/p&gt;</CODE></PRE>
+<P>The above example caches the placeholder, <CODE>judges</CODE>, for four days. 
+For seconds, use an <CODE>s</CODE>, minutes an <CODE>m</CODE>, hours an 
+<CODE>h</CODE>, and weeks a <CODE>w</CODE>.</P>
+<P>Caching an entire region is as simple as wrapping the region with a 
+<CODE>#cache</CODE> directive.</P><PRE><CODE>1 #cache
+2 &lt;p&gt;
+3 Thanks again, &lt;br/&gt;
+4 $staff
+5 &lt;/p&gt;
+6 #end cache</CODE></PRE>
+<P>Incidentally, you can also fine-tune the <CODE>#cache</CODE> directive with 
+time intervals. See the <A 
+href="http://www.cheetahtemplate.org/learn.html"><U><FONT color=#800080>Cheetah 
+documentation</FONT></U></A> for more details.</P>
+<H3>Using Templates</H3>
+<P>There are a few different ways to use templates. One of the easiest is to 
+define the template in a file (commonly ending with a <EM>.tmpl</EM> suffix). To 
+use it, read the template at runtime and supply it with a list of placeholder 
+values. The list of placeholder values is a simple map, where the key should 
+match the actual placeholder name. See the code below for an example.</P><PRE><CODE>1 tcs = ['runquery', 'executequery', 'deletequery']
+2 mp = {"classundertest":"query_runner", "testcases":tcs}
+3
+4 from Cheetah.Template import Template
+5 t = Template(file="default_pyunit.tmpl", searchList=[mp])</CODE></PRE>
+<P>As demonstrated above, Cheetah performs placeholder mappings at template 
+instantiation; hence, you create a template and retrieve its associated output 
+in two lines of code (lines 4 and 5). Notice the map defined in line 2 contains 
+keys, which presumably match placeholders found in the template, 
+<EM>default_pyunit.tmpl</EM>, as shown in the code from the first example.</P>
+<P>Cheetah treats templates as objects; moreover, these template objects are 
+quite flexible and offer a few other usage strategies. To use templates as 
+objects (accessing attributes, functions, and so on), you must compile them with 
+Cheetah's <CODE>compile</CODE> command. For more information regarding compiling 
+Cheetah templates, see the sidebar below.</P>
+<P>A compiled template's placeholders become attributes, which can be set at 
+runtime. Directives become executable Python code. As shown below, using a 
+compiled template is as simple as importing it and setting the object's 
+associated attributes.</P><PRE><CODE>1 from default_pyunit import default_pyunit
+2
+3 tmpl = default_pyunit()
+4 tmpl.classundertest = "query_runner"
+5 tmpl.testcases = ['runquery', 'executequery']
+6
+7 print tmpl</CODE></PRE>
+<H3>Putting It All Together</H3>
+<P>Armed with a basic knowledge of how to tap Cheetah's <A class=iAs 
+style="COLOR: darkgreen; BORDER-BOTTOM: darkgreen 1px solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>power</A>, you can quickly build dynamic applications and 
+have a good time of it! Imagine a scenario where a development team, using a 
+bug-tracking system (such as <A href="http://www.bugzilla.org/"><U><FONT 
+color=#0000ff>Bugzilla</FONT></U></A>), would like a weekly email report (in 
+HTML, of course) that summarized all new bugs. The desired viewable information 
+for a bug is the bug's ID number, the project containing the bug, the developer 
+to whom the bug has been assigned, and a short description of the bug.</P>
+<P>The template for this reporting application, as it turns out, is quite easy. 
+Given a list of <CODE>bug</CODE> objects, a <CODE>for</CODE> loop directive will 
+iterate over the list, creating a row in an HTML table with the corresponding 
+ID, project name, owner, and description. In addition, some logic will determine 
+whether the collection is empty so as to display an alternate message (perhaps 
+congratulating the team for not creating any bugs for the week!).</P>
+<P>With the view (the template) and the model (a <CODE>bug</CODE> object) 
+defined, the controller becomes quite simple. First, query the bug <A class=iAs 
+style="COLOR: darkgreen; BORDER-BOTTOM: darkgreen 1px solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>database</A>, then fill the template, and finally send 
+the corresponding HTML email report via SMTP.</P><PRE><CODE>1  def runreport():
+2  """
+3  main method to run the report
+4  """
+5
+6  import com.vanward.roach.template.template_engine as teng
+7  import com.vanward.roach.email.email_engine as eeng
+8
+9  buglist = _getbuglist(7)
+10 bmap = {"bugs":buglist, "numbugs":len(buglist), "numdays":7}
+11 message = teng.getcontent(bmap)
+12
+13 email = _getemail(message)
+14
+15 eeng.sendemail(email)</CODE></PRE>
+<P>In the code above, the <CODE>runreport()</CODE> function does a few things. 
+Line 9 retrieves a list of bugs from the <CODE>_getbuglist()</CODE> function, 
+which queries a database for bugs by time. Line 10 places the returned list of 
+bugs in a map, along with the number of bugs, the length of 
+<CODE>buglist</CODE>, and the number of days on which the query performed a 
+search. Line 11 retrieves the content of the report from the <CODE>teng</CODE> 
+object (see below) and then passes it to an email engine, which sends the 
+resulting report.</P><PRE><CODE>1  def getcontent(mapvls):
+2    from Cheetah.Template import Template
+3    t = Template(file=_templatename(), searchList=[mapvls])
+4    return t.respond()
+5
+6  def _templatename():
+7    import com.vanward.roach.util.properties as prop
+8    tmpl = prop.templateproperties
+9    return tmpl["tmpl"]</CODE></PRE>
+<P>The above code demonstrates a simple template engine that, when given a map 
+of values, will instantiate a template and return the resulting body. Lines 6 
+through 9 define a function that returns the template's fully qualified name, 
+such as <CODE>$/var/tmp/bug_report.tmpl</CODE>.</P><PRE><CODE>1  #include "header.txt"
+2  &lt;span&gt;Bugzilla Weekly Summary&lt;/span&gt;
+3  #if $numbugs &gt; 0
+4  &lt;p&gt;Over the past $numdays days, the following bugs were created.
+5  Click on the bug id to view the actual bugzilla bug report page.&lt;/p&gt;
+6  &lt;br/&gt;
+7  &lt;table border="0" width="400" valign="top"&gt;
+8  &lt;TR&gt;
+9    &lt;TD&gt;Bug Id&lt;/TD&gt;
+10   &lt;TD&gt;Project&lt;/TD&gt;
+11   &lt;TD&gt;Assigned To&lt;/TD&gt;
+12   &lt;TD&gt;Short Description&lt;/TD&gt;
+13  &lt;/TR&gt;
+14  #for $bug in $bugs
+15  &lt;TR&gt;
+16    &lt;TD&gt;&lt;A HREF="http://acme.org/show_bug.cgi?id=$bug.id"&gt;$bug.id&lt;/A&gt;&lt;/TD&gt;
+17    &lt;TD&gt;$bug.product&lt;/TD&gt;
+18    &lt;TD&gt;$bug.assignedto&lt;/TD&gt;
+19    &lt;TD&gt;$bug.shortdescrpt&lt;/TD&gt;
+20  &lt;/TR&gt;
+21  #end for
+22  &lt;/table&gt;
+23  #else
+24  &lt;p&gt;No bugs were created in bugzilla this week. &lt;/p&gt;
+25  #end if
+26  #include "footer.txt"</CODE></PRE>
+<P>The code above shows the resulting HTML bug report template. Line 1 and 26 
+demonstrate the <CODE>#include</CODE> directive, which as you have probably 
+guessed by now includes text from outside a template. In this case, the report 
+includes header and footer files, each containing a bit of static HTML. Line 3 
+demonstrates a simple <CODE>#if</CODE> directive, which will print some summary 
+information if there are any bugs. The trailing <CODE>#else</CODE> and 
+<CODE>#end if</CODE> are found on lines 23 and 25, respectively. Lines 14 
+through 21 use a <CODE>#for</CODE> directive to iterate over a list of 
+<CODE>bug</CODE>s, creating an HTML table row for each one. Figure 1 shows the 
+results of the Cheetah bug-reporting application.</P>
+<P><IMG height=339  src="__1_02\cheetah_result.gif"
+width=500 border=0><BR><EM>Figure 1. Output of the bug-reporting 
+application.</EM></P><!-- sidebar begins -->
+<TABLE cellSpacing=8 cellPadding=4 width=220 align=right border=0>
+  
+  <TR>
+    <TD vAlign=top width=220 bgColor=#efefef>
+      <DIV class=secondary>
+      <P>Cheetah offers the ability to compile template files into Python 
+      modules containing a class representing the template. These classes are 
+      easy to extend or agument. To compile a template, run the 
+      <CODE>cheetah</CODE> command with the <CODE>compile</CODE> option on the 
+      desired template:</P><PRE><CODE>$ cheetah compile default_pyunit.tmpl</CODE></PRE>
+      <P>This yields a Python module with the same name as the template (in this 
+      case called <EM>default_pyunit.py</EM>); additionally, the module will 
+      contain a class also having the name of the template:</P><PRE><CODE>class default_pyunit(Template)</CODE></PRE>
+      <P>The class extends Cheetah's Template class, which is the default base 
+      class for all templates.</P></DIV></TD></TR></TABLE><!-- sidebar ends -->
+<H3>Conclusion</H3>
+<P>The Cheetah template engine's simple language constructs and ease of use make 
+data transformations a snap in terms of development time and complexity. What's 
+more, Cheetah does not prevent architectures from using an MVC pattern, and 
+Cheetah's built-in caching mechanism and object-oriented representation of 
+templates yield an impressive alternative to XML transformations.</P>
+<P>The next time you have the task of building an application with a "view," 
+consider putting Cheetah to the test.</P>
+<H3>Resources</H3>
+<UL>
+  <LI><A href="http://www.cheetahtemplate.org/"><U><FONT color=#800080>Cheetah's 
+  home</FONT></U></A> 
+  <LI><A href="http://www.cheetahtemplate.org/docs/users_guide_html/"><U><FONT 
+  color=#800080>Cheetah User Guide</FONT></U></A> 
+  <LI><A href="http://jakarta.apache.org/velocity/"><U><FONT 
+  color=#0000ff>Velocity--a Java alternative</FONT></U></A> 
+  <LI><A href="http://freemarker.sourceforge.net/"><U><FONT 
+  color=#0000ff>FreeMarker--another Java alternative</FONT></U></A> 
+  <LI><A href="http://www.bugzilla.org/"><U><FONT color=#0000ff>Bugzilla's 
+  home</FONT></U></A> </LI></UL><!-- article_sidebar2.view begins -->
+<DIV align=center>
+<DIV 
+style="PADDING-RIGHT: 0px; BORDER-TOP: #8d8d8d 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.5em; MARGIN: 0.5em 0px; WIDTH: 70%; PADDING-TOP: 0.5em; BORDER-BOTTOM: #8d8d8d 1px solid">
+<TABLE cellSpacing=0 cellPadding=0 width="70%" align=center border=0>
+  
+  <TR>
+    <TD vAlign=top align=middle width="50%"><A 
+      href="http://www.oreilly.com/catalog/pythonxml/index.html?CMP=ILL-4GV796923290"><IMG  src="__1_02\pythonxml.s.gif"
+      border=0></A> </TD>
+    <TD vAlign=top width="50%">
+      <P class=headline>Related Reading</P>
+      <P class=medlist><SPAN class=title><A 
+      href="http://www.oreilly.com/catalog/pythonxml/index.html?CMP=ILL-4GV796923290"><U><FONT 
+      color=#0000ff>Python &amp; XML</FONT></U></A></SPAN><BR><STRONG>By 
+      </STRONG><A 
+      href="http://www.oreillynet.com/cs/catalog/view/au/718?x-t=book.view&amp;CMP=IL7015"><U><FONT 
+      color=#0000ff>Christopher A.&nbsp;Jones</FONT></U></A><STRONG>, 
+      </STRONG><A 
+      href="http://www.oreillynet.com/cs/catalog/view/au/719?x-t=book.view&amp;CMP=IL7015"><U><FONT 
+      color=#0000ff>Fred L.&nbsp;Drake, Jr.</FONT></U></A> </P>
+      <DIV class=secondary><!-- builds links to list in sidebar --><A 
+      href="http://www.oreilly.com/catalog/pythonxml/toc.html?CMP=ILL-4GV796923290"><U><FONT 
+      color=#0000ff>Table of Contents</FONT></U></A><BR><A 
+      href="http://www.oreilly.com/catalog/pythonxml/inx.html?CMP=ILL-4GV796923290"><U><FONT 
+      color=#0000ff>Index</FONT></U></A><BR><A 
+      href="http://www.oreilly.com/catalog/pythonxml/chapter/index.html?CMP=ILL-4GV796923290"><U><FONT 
+      color=#0000ff>Sample Chapter</FONT></U></A><BR><BR><A 
+      href="http://safari.oreilly.com/0596001282"><U><FONT color=#0000ff>Read 
+      Online--Safari</FONT></U></A><BR><SPAN class=tiny>Search this book on 
+      Safari:</SPAN> 
+      <FORM action=http://safari.oreilly.com/JVXSL.asp method=post><INPUT 
+      type=hidden value=1 name=s><INPUT type=hidden value=1 name=b> <INPUT 
+      type=hidden value=1 name=t><INPUT type=hidden value=1 name=f> <INPUT 
+      type=hidden value=1 name=c><INPUT type=hidden value=1 name=l> <INPUT 
+      type=hidden value=section name=view> <INPUT tabIndex=1 size=15 
+      name=se_text lf="forms[1].se_text">&nbsp;<INPUT title="Execute the search" 
+      type=image height=17 alt=Go width=23 
+      src="http://www.oreillynet.com/images/safari_btn_go.gif" align=absMiddle 
+      border=0 name=go><BR><SELECT name=se_isbn lf="forms[1].se_isbn"> <OPTION 
+        value=0-596-00128-2 selected>Only This Book</OPTION> <OPTION 
+        value="">All of Safari</OPTION></SELECT><BR><INPUT type=checkbox value=1 
+      name=code lf="forms[1].code"><SPAN class=tiny>Code Fragments only</SPAN> 
+      </FORM></DIV></TD></TR></TABLE></DIV></DIV><!-- article_sidebar2.view ends -->
+<P><I><A href="/pub/au/1425"><U><FONT color=#0000ff>Andrew Glover</FONT></U></A> 
+is the founder and CTO of <A href="http://www.vanwardtechnologies.com"><U><FONT 
+color=#0000ff>Vanward Technologies</FONT></U></A>, a company specializing in 
+building automated testing frameworks. </I></P>
+<HR noShade SIZE=1>
+
+<P>Return to the <A href="http://www.onlamp.com/python"><U><FONT 
+color=#0000ff>Python 
+DevCenter</FONT></U></A>.</P></SPAN><!-- end content --><IMG height=1  src="__1_02\trans.gif" width=490><BR><A name=thread></A>
+<DIV class=feedback>
+<DIV class=rbox><!-- closed in cs_disc/thread_header.view -->
+<DIV class=rboxtop>
+<DIV></DIV></DIV>
+<DIV class=rbcontent><!-- closed in cs_disc/thread_header.view --><B 
+class=headline>Have you used Cheetah? Tell us about it here.</B><BR><SPAN 
+class=smalltext>You must be <A 
+href="http://www.oreillynet.com/cs/user/login?x-redirect=http://www.onlamp.com/pub/a/python/2005/01/13/cheetah.html"><U><FONT 
+color=#0000ff>logged in</FONT></U></A> to the O'Reilly Network to post a 
+talkback.</SPAN> 
+<DIV class=clear></DIV>
+<DIV class=tb_left><A 
+href="http://www.oreillynet.com/cs/user/create/cs_msg?x-lr=cs_disc/11580&amp;x-lr2=a/5541&amp;page="><IMG  height=20 src="__1_02\button_post.gif" width=118
+border=0></A></DIV><!-- thread_header.view -->
+<DIV class=tb_right><A 
+href="/pub/a/python/2005/01/13/cheetah.html?page=last&amp;x-maxdepth=0#thread"><IMG  src="__1_02\button_main_threads.gif" border=0></A> <A
+href="/pub/a/python/2005/01/13/cheetah.html?page=last&amp;x-order=date#thread"><IMG  src="__1_02\button_old.gif" border=0></A> </DIV><!--end .tb_right -->
+<DIV class=clear></DIV><!-- closing divs from a/print.view, et al --></DIV><!--end div.rbcontent -->
+<DIV class=rboxbot>
+<DIV></DIV></DIV></DIV><!--end div.rbox -->
+<P class=smalltext>Showing messages 1 through 3 of 3. </P>
+<UL>
+  <LI><A name=id_51465></A><SPAN class=headline>Cheetah difficulties</SPAN> 
+  <BR><SPAN class=smalltext>2005-01-31 03:57:32&nbsp;<!-- begin conditional display of username --> RSzefler <!-- end conditional display of username -->[<A class=smalltext 
+  title="Reply to this message" 
+  href="/cs/user/create/cs_msg?x-lr=cs_msg/51465&amp;x-lr2=a/5541"><U><FONT 
+  color=#0000ff>Reply</FONT></U></A> | <A class=smalltext 
+  href="/cs/user/view/cs_msg/51465"><U><FONT 
+  color=#0000ff>View</FONT></U></A>]</SPAN><BR><BR>Too bad the article doesn't 
+  mention significant difficulties using Cheetah. One obvious thing is that 
+  Cheetah puts a great lot of magic to resolving placeholder names, the kind of 
+  magic that often (in large projects) turns out counter-productive. Second 
+  thing is, unfortunately and partly due to inherent Python shortcomings, 
+  Cheetah's poor performance. The third and most significant problem is 
+  Cheetah's constant in-beta stage and a great mass of bugs. This is from 
+  someone who has been, since three months, using Cheetah - or rather constantly 
+  struggling to use - to develop commercial production web portal. It will 
+  surely take quite a bit of time and hard coding for this template engine to 
+  mature. </LI></UL>
+<UL>
+  <LI><A name=id_51463></A><SPAN class=headline>Cheetah != WYSIWYG</SPAN> 
+  <BR><SPAN class=smalltext>2005-01-31 02:35:46&nbsp;<!-- begin conditional display of username --> j.rebhan <!-- end conditional display of username -->[<A class=smalltext 
+  title="Reply to this message" 
+  href="/cs/user/create/cs_msg?x-lr=cs_msg/51463&amp;x-lr2=a/5541"><U><FONT 
+  color=#0000ff>Reply</FONT></U></A> | <A class=smalltext 
+  href="/cs/user/view/cs_msg/51463"><U><FONT 
+  color=#0000ff>View</FONT></U></A>]</SPAN><BR><BR>It seems to me that Cheetah 
+  only copies ideas from other Java based template engines. I think Python can 
+  do better than that.<BR>My favorite template engine 
+  is:<BR><B>http://kid-template.sourceforge.net/</B><BR>(I use it with 
+  CherryPy).<BR><BR>Have fun !<BR>j.rebhan@web.de<BR></LI></UL>
+<UL>
+  <LI><A name=id_50296></A><SPAN class=headline>tip for html templates</SPAN> 
+  <BR><SPAN class=smalltext>2005-01-14 06:19:13&nbsp;<!-- begin conditional display of username --> filz <!-- end conditional display of username -->[<A class=smalltext 
+  title="Reply to this message" 
+  href="/cs/user/create/cs_msg?x-lr=cs_msg/50296&amp;x-lr2=a/5541"><U><FONT 
+  color=#0000ff>Reply</FONT></U></A> | <A class=smalltext 
+  href="/cs/user/view/cs_msg/50296"><U><FONT 
+  color=#0000ff>View</FONT></U></A>]</SPAN><BR><BR>I use Cheetah a lot. Both as 
+  template system for html pages and as codegenerator.<BR><BR>Looking for a way 
+  to better work with html page designers I found this tip in the cheetah 
+  mailinglist:<BR>the default directive token is '#'. <BR><BR>This can be 
+  changed:<BR><CODE><BR>t = Template(file=filename, 
+  compilerSettings={'directiveStartToken': '&lt;!-- #', 'directiveEndToken': 
+  '#--&gt;'})<BR></CODE><BR>Calling Template with the optional compilerSettings 
+  argument as above tells the template engine to use '&lt;!-- #' and '#--&gt;' 
+  to delimit directives<BR><BR>So code like:<BR><CODE><BR>&lt;!-- #for $myObj in 
+  $objList 
+  #--&gt;<BR>&lt;tr&gt;<BR>&lt;td&gt;$myObj.attr1&lt;/td&gt;&lt;td&gt;$myObj.attr2&lt;/td&gt;<BR>&lt;/tr&gt;<BR>&lt;!-- 
+  #end for #--&gt;<BR></CODE><BR>is valid html and can be viewed correctly from 
+  html designers in applications like 
+Dreamweaver.<BR></LI></UL></DIV></div>
+</BODY></HTML>

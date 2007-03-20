@@ -1,0 +1,7 @@
+<!-- Properties.xml -->
+<classInfo className='Account' packagePath='com.ibatis.jpetstore'>
+        <property name='id' type='String' />
+        <property name='revNum' type='Integer' />
+        <property name='subject' type='String' />
+        <property name='modDate' type='Date' />
+</classInfo>

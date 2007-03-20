@@ -1,0 +1,24 @@
+package lfis.sample.cd.vo;
+
+import lfis.framework.vo.BaseVO;
+
+public class ${className} extends BaseVO {
+
+	public ${className}() {
+	}
+
+	/*****************************************************
+	  Attributes
+	 *****************************************************/
+#for $attribute in $attributeList
+ 	private ${attribute.attributeType}   ${attribute.attributeName};
+	public ${attribute.attributeType} get${attribute.upperNameIndex0}() {
+		return ${attribute.attributeName};
+	}
+	public void set${attribute.upperNameIndex0}(String ${attribute.attributeName}) {
+		this.${attribute.attributeName} = ${attribute.attributeName};
+	}
+
+#end for
+
+}

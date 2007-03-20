@@ -1,0 +1,936 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=ks_c_5601-1987">
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+SELECT {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+INPUT {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+DIV {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+FORM {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+TEXTAREA {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+OPTION {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: verdana
+}
+A:link {
+	FONT-WEIGHT: bold; COLOR: #4077a0; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-WEIGHT: bold; COLOR: #4077a0; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-WEIGHT: bold; COLOR: #990000; TEXT-DECORATION: none
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2800.1543" name=GENERATOR></HEAD>
+<BODY>
+<TABLE cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <TBODY>
+  <TR>
+    <TD width=600>
+      <DIV><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </DIV></TD></TR>
+  <TR bgColor=#ffffff>
+    <TD>
+      <DIV></DIV>
+      <DIV>Title: </DIV>
+      <DIV>&nbsp;</DIV>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV></TD></TR></TBODY></TABLE>
+<DIV>&nbsp;</DIV>
+<DIV>Building and filling out templates with Python and Cheetah<BR>Generate 
+HTML, XML, plain text, and more with this powerful templating engine for 
+Python<BR>&nbsp; <BR>&nbsp;<BR>&nbsp; Document options <BR>&nbsp; Print this 
+page<BR>&nbsp;<BR>&nbsp; E-mail this page<BR>&nbsp;<BR>&nbsp; Sample 
+code<BR>&nbsp;<BR>&nbsp;</DIV>
+<DIV>New site feature <BR>&nbsp; dW radio -- Listen to our podcasts 
+<BR>&nbsp;<BR>&nbsp;</DIV>
+<DIV>Rate this page <BR>&nbsp; Help us improve this 
+content<BR>&nbsp;<BR>&nbsp;</DIV>
+<DIV><BR>Level: Introductory</DIV>
+<DIV>Leonard Richardson (<A 
+href="mailto:leonardr@segfault.org">leonardr@segfault.org</A>), Software 
+Engineer, CollabNet</DIV>
+<DIV><BR>09 Aug 2005</DIV>
+<DIV>After reading this article, you'll be able to generate any kind of 
+text-based content with Python scripts and Cheetah templates. Cheetah templates 
+are easy to understand and maintain, and they help you separate the static parts 
+of a document from the dynamic parts <BR></DIV>
+<DIV>
+<P><A name=N1004E><SPAN class=atitle>A plethora of templating 
+systems</SPAN></A></P>
+<P>"<A 
+href="http://www.ibm.com/developerworks/opensource/library/os-pythonsqlo/"><U><FONT 
+color=#0000ff>Connecting databases to Python with SQLObject</FONT></U></A>" 
+mentioned the wide variety of open source object-relational mapping libraries 
+for Python. Python programmers like to do things their own way, which leads to a 
+lot of duplication of effort. Out of all that effort, though, often comes one 
+package that's good enough for just about everyone.</P>
+<P>The same pattern has played out for templating systems: ways of representing 
+static text as forms to be filled out, so that dynamic elements can be plugged 
+in later. The official Python Wiki links to nearly 20 templating systems, and 
+those are just the major ones. What's more, Python comes packaged with several 
+basic templating systems that will work in simple cases.</P>
+<P>This article describes the problems that templating systems solve. It also 
+introduces Cheetah, the best Python templating system yet devised. The article 
+assumes you have a basic knowledge of Python, but no knowledge of templating 
+systems or what they're used for.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="" width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="" width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N10062><SPAN class=atitle>Basic templating concepts</SPAN></A></P>
+<P>Suppose you're writing a Web application for an online store. You need 
+classes to represent aspects of the store and the purchasing process: items of 
+stock, customers and the orders they place, and so on. The instances of these 
+classes probably correspond to rows in a database, and they're used to represent 
+the state of your store and your customers. In order for you and your customers 
+to use the application, these objects need to be used to generate human-readable 
+HTML pages and e-mail messages, like the following e-mail:</P><BR><A 
+name=N1006E><B>Listing 1. Hello code</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+Hello, Leonard.
+
+Your order (#98765) has shipped:
+ Widget, green: 50 unit(s)
+ Widget, blue: 1 unit(s)
+
+Your tracking number is 1234567890AB.
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>This e-mail body has a static portion and a dynamic portion. The static 
+portion is the abstract <I>form</I> of the message, which is always the same. It 
+can be described in pseudocode like this:</P><BR><A name=N1007D><B>Listing 2. 
+Abstract form of the template</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+Hello, [customer's first name].
+
+Your order (#[order's ID]) has shipped:
+ [list items in the order, with quantity, appending "unit(s)" to each]
+
+Your tracking number is [order's tracking number].
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>The dynamic portion of the e-mail body is all the information pertaining to a 
+specific order from a specific customer. This portion is represented by the 
+application objects and the data members associated with them: a customer, an 
+order, and the list of items and quantities for that order.</P>
+<P>The sections that follow use dummy <CODE>User</CODE> and <CODE>Order</CODE> 
+objects to simulate the dynamic portion of the template. In a real application, 
+these objects would probably be obtained from a database.</P>
+<P>A templating system lets you represent the static portion of a text as a 
+template definition, stored and managed separately from the dynamic portion. The 
+static portion can be combined with different dynamic values to produce custom 
+text.</P>
+<P>The sections that follow explain how Python's built-in facilities fall short, 
+introduce the use of Cheetah as an alternative, and show you how to implement 
+this e-mail message as a Cheetah template.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N10098><SPAN class=atitle>Why use a templating system?</SPAN></A></P>
+<P>Without a templating system, you'd use Python code to generate pieces of text 
+like the example e-mail message. You'd write logic that appends to a list of 
+strings or writes to a file-like object. For instance, the following code 
+generates the e-mail described above:</P><BR><A name=N100A4><B>Listing 3. 
+Generate the e-mail</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+from DummyObjects import dummyUser, dummyOrder
+l = []
+l.append('Hello, ')
+l.append(dummyUser.firstName)
+l.append('.\n\nYour order (#')
+l.append(str(dummyOrder.id))
+l.append(') has shipped:\n')
+for purchased, quantity in dummyOrder.purchased.items():
+     l.append(' ')
+     l.append(purchased.name)
+     l.append(': ')
+     l.append(str(quantity))
+     l.append(' unit(s)\n')
+l.append('\nYour tracking number is ')
+l.append(dummyOrder.trackingNumber)
+l.append('.')
+print ''.join(l)
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>Unfortunately, this code isn't as nice as its output. It's hard to see the 
+structure of the e-mail message by looking at the code. A lot of code is 
+repeated (for instance, the many calls to the list <CODE>append()</CODE> 
+method), which creates room for error. Finally, the UI designer on your team 
+would probably rather edit something more like the abstract template described 
+above than edit this Python code. Developers turn to template systems for all 
+these reasons.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N100B2><SPAN class=atitle>Are Python's built-in templating systems 
+enough?</SPAN></A></P>
+<P>Python comes with a few built-in templating systems, which work well in 
+simple cases. For a long time, Python had simple template systems that 
+understood formats reminiscent of C's <CODE>printf()</CODE> string 
+formatting:</P><BR><A name=N100C2><B>Listing 4. Python's built-in template 
+systems</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+from DummyObjects import dummyUser, dummyOrder
+print 'Hello, %s.\n\nYour order (#%d) has shipped:' % (dummyUser.firstName, 
+                                                       dummyOrder.id)
+
+print 'Hello, %(firstName)s.\n\nYour order (#%(orderID)d) has shipped:' % \
+{'firstName' : dummyUser.firstName, 'orderID' : dummyOrder.id}
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>Python V2.4 introduced a template system with a more modern-looking format. 
+Variable names are designated as such by prefixing them with a dollar sign 
+(<CODE>$</CODE>); this is similar to Perl, PHP, most shell languages, and 
+Cheetah:</P><BR><A name=N100D2><B>Listing 5. Python V2.4's built-in template 
+system</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+from string import Template
+from DummyObjects import dummyUser, dummyOrder
+t = Template('Hello, $firstName.\n\nYour order (#$orderID) has shipped:')
+t.substitute({'firstName' : dummyUser.firstName, 'orderID' : dummyOrder.id})
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>These template systems share two major shortcomings.</P>
+<OL>
+  <LI>Their template definitions can't call any method or access any members of 
+  the <CODE>dummyUser</CODE> and <CODE>dummyOrder</CODE> objects. You can't put 
+  <CODE>dummyUser.firstName</CODE> in the template definition. You have to put 
+  it into the map that gets applied to the template definition. All the dynamic 
+  information to be inserted into the static template definition must first be 
+  broken down into basic Python data types. 
+  <LI>These template systems have no flow control -- no loops or conditionals. 
+  The previous examples stop right before they have to iterate over the items in 
+  the order, and for good reason: The templating systems they use can't do that 
+  iteration within a template definition. You need to write Python code to 
+  iterate over the items in the order, concatenating multiple strings together 
+  (possibly using intermediate templates) and providing the end result to the 
+  template system as a single string called something like 
+  <CODE>itemsOrdered</CODE>. The loop itself is part of the static portion of 
+  the e-mail body -- it works the same way no matter what user and order are 
+  being processed -- but there's no way to factor it out into the static 
+  template definition. </LI></OL>
+<P>Most of the add-on template systems available for Python intend to address 
+these two shortcomings. The best of this crowded field is Cheetah.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N100F8><SPAN class=atitle>Getting started with Cheetah</SPAN></A></P>
+<P>Cheetah has a long pedigree. It's inspired by a Java™ templating system 
+called Velocity, an improved version of the Webmacro templating system, which is 
+itself an attempt to improve on JavaServer Pages. Cheetah provides a simple 
+language for defining templates that provides basic flow control and object 
+access constructs. It borrows its basic template syntax from Velocity, but adds 
+features that give Cheetah templates access to the convenient constructs of 
+Python.</P>
+<P>Here's some Cheetah code that interprets the "easy" portion of the template 
+definition -- the part with no flow control, which Python's built-in templating 
+systems can handle:</P><BR><A name=N10109><B>Listing 6. A first Cheetah 
+example</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+from Cheetah.Template import Template
+from DummyObjects import dummyUser, dummyOrder
+definition = """Hello, $user.firstName.
+
+Your order (#$order.id) has shipped:"""
+print Template(definition, searchList=[{'user' : dummyUser,
+                                        'order' : dummyOrder}])
+                                        </CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="40%" align=right border=0>
+  <TBODY>
+  <TR>
+    <TD width=10><IMG height=1 src="" width=10></TD>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=5 width="100%" border=1>
+        <TBODY>
+        <TR>
+          <TD bgColor=#eeeeee><A name=N10112><B>For Velocity 
+            users</B></A><BR>A <I>namespace</I> in Cheetah is what Velocity 
+            calls a <I>context</I>. </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>The <CODE>definition</CODE> string contains the template definition (the 
+static portion of the e-mail), which can make references to outside variables 
+(the dynamic portion). The <CODE>Template</CODE> constructor is used here to 
+bind the template definition to a <CODE>searchList</CODE> of <I>namespaces</I>: 
+ways of looking up objects corresponding to the variables used in the 
+definition. For instance, <CODE>$user</CODE> in the template definition gets 
+mapped here to the <CODE>dummyUser</CODE> variable. You can also run the 
+<CODE>Template</CODE> constructor ahead of time and set its 
+<CODE>searchList</CODE> member when you're ready to interpret the template with 
+specific objects.</P>
+<P>You should already see the advantages of Cheetah over Python's built-in 
+templating systems. The dynamic portions of the message (the 
+<CODE>dummyUser</CODE> and <CODE>dummyOrder</CODE> objects) are the only things 
+left out of the template definition. Everything else, including which members of 
+the objects to access, doesn't change between messages and so goes into the 
+template definition.</P>
+<P>Suppose you needed to change the e-mail template so it printed the user's 
+full name instead of first name. Assuming the <CODE>dummyUser</CODE> object 
+already provides that information (for instance, with a 
+<CODE>getFullName()</CODE> method or a <CODE>fullname</CODE> member), you could 
+make this change solely by changing the template definition. With the built-in 
+Python templating systems, you'd have to change the Python code.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N1015B><SPAN class=atitle>Compiling template definitions into Python 
+classes</SPAN></A></P>
+<P>What happens when you turn a template definition into a <CODE>Template</CODE> 
+object? Cheetah generates a custom Python class that implements code for merging 
+the template definition with dynamic data. You can see this for yourself by 
+saving a template definition to a file and running the <CODE>cheetah 
+compile</CODE> command on it. Here's Greeting.tmpl, a template file containing 
+the same Cheetah template used previously:</P>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+Hello, $user.firstName.
+
+Your order (#$order.id) has shipped:
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>Running <CODE>cheetah compile Greeting.tmpl</CODE> on this file generates a 
+module called Greeting.py. This class contains a class called 
+<CODE>Greeting</CODE> that implements code very similar to the manually written 
+code featured at the beginning of this article:</P>
+<TABLE cellSpacing=1 cellPadding=3 width="60%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD><B>Manual code</B></TD>
+    <TD><B>Cheetah-generated code</B></TD></TR>
+  <TR vAlign=top>
+    <TD><CODE>l.append('Hello, 
+      ')<BR>l.append(<BR>&nbsp;&nbsp;&nbsp;dummyUser.firstName)<BR><BR><BR><BR>l.append('.\n\nYour 
+      <BR>&nbsp;&nbsp;&nbsp;order 
+      (#')<BR>l.append(str(<BR>&nbsp;&nbsp;&nbsp;dummyOrder.id))<BR><BR><BR>l.append(') 
+      has <BR>&nbsp;&nbsp;&nbsp;shipped:\n')<BR></CODE></TD>
+    <TD><CODE>write('Hello, 
+      ')<BR>write(filter(VFFSL(SL,<BR>&nbsp;&nbsp;&nbsp;"user.firstName",<BR>&nbsp;&nbsp;&nbsp;True), 
+      rawExpr=<BR>&nbsp;&nbsp;&nbsp;'$user.firstName'))<BR>write('.\n\nYour 
+      <BR>&nbsp;&nbsp;&nbsp;order 
+      (#')<BR>write(filter(VFFSL(SL,<BR>&nbsp;&nbsp;&nbsp;"order.id",True), 
+      <BR>&nbsp;&nbsp;&nbsp;rawExpr=<BR>&nbsp;&nbsp;&nbsp;'$order.id'))<BR>write(') 
+      has <BR>&nbsp;&nbsp;&nbsp;shipped:')<BR></CODE></TD></TR></TBODY></TABLE>
+<P>You can then use the generated <CODE>Greeting</CODE> class in Python code, 
+just as if you had defined a generic <CODE>Template</CODE> with the contents of 
+<CODE>Greeting.tmpl</CODE>:</P>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+from Greeting import Greeting
+print Greeting(searchList=[{'user' : dummyUser, 'order' : dummyOrder}])
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>Because Cheetah can compile template files to Python code, you can do all the 
+template parsing up front and get the benefits of compiled code when you fill 
+out the templates with dynamic data.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N101E5><SPAN class=atitle>Flow control: the #for 
+directive</SPAN></A></P>
+<P>Cheetah is better than Python's built-in templating systems at generating the 
+first part of the sample template. It also handles the rest of the template, 
+which the built-in systems can't handle at all. In addition to variable 
+references, Cheetah template definitions can contain directives to the Cheetah 
+interpreter, including the <CODE>#for</CODE> directive that sets up 
+loops:</P><BR><A name=N101F9><B>Listing 7. Using the #for directive to iterate 
+over a list</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+definition = """Hello, $user.firstName.
+
+Your order (#$order.id) has shipped:
+#for $purchased, $quantity in $order.purchased.items():
+ $purchased.name: $quantity unit(s)
+#end for
+
+Your tracking number is $order.trackingNumber."""
+print Template(definition, searchList=[{'user' : dummyUser,
+			                'order' : dummyOrder}])
+			                </CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>The code is exactly the same as before, but the template definition is 
+different. The <CODE>#for</CODE> directive starts a loop, and the <CODE>#end 
+for</CODE> directive ends it. Because it can be used to generate text where 
+whitespace is significant (like an e-mail message), Cheetah can't use whitespace 
+as a flow control mechanism the way Python does -- thus, the <CODE>#end</CODE> 
+directives.</P>
+<P>The <CODE>#for</CODE> iteration works like a Python iteration using Python's 
+<CODE>for</CODE> keyword. This iteration works exactly like the hand-written 
+Python iteration shown above:</P>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+for purchased, quantity in order.items():
+     l.append(purchased.name)
+     ...
+     </CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>In the hand-written Python code, each item of output had to be appended 
+manually to the list <CODE>l</CODE> of output strings. Cheetah makes things 
+easier: it evaluates the code inside a <CODE>#for</CODE> loop and automatically 
+appends the output of each iteration to the output of the template.</P>
+<P>Cheetah also provides a <CODE>#while/#end while</CODE> directive, which is 
+equivalent to Python's <CODE>while</CODE> construct.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N10239><SPAN class=atitle>Flow control: the #if 
+directive</SPAN></A></P>
+<P>You've created a Cheetah template that reproduces the e-mail described above. 
+Now let's improve it a little. The e-mail says you ordered "1 unit(s)" of blue 
+widgets. It shouldn't be difficult to change the template to say "1 unit" if you 
+ordered only one of something or "x units" otherwise. Cheetah provides an 
+<CODE>#if</CODE> directive that lets you set up if-then-else conditionals. 
+Here's a Cheetah template that tries to handle the plural correctly. The Python 
+code is the same as always, so the following just presents the new template 
+definition:</P><BR><A name=N1024D><B>Listing 8. Using the #if directive to 
+handle plurals</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+Hello, $user.firstName.
+Your order (#$order.id) has shipped:
+#for $purchased, $quantity in $order.purchased.items():
+ $purchased.name: $quantity unit
+#if $quantity != 1
+s
+#end if
+#end for
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>The only problem with this template definition is that Cheetah prints 
+<I>s</I> on a separate line from <I>unit</I>:</P>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+ Widget, green: 50 unit
+s
+ Widget, blue: 1 unit
+ </CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>You can avoid this embarrassing fate a couple of ways: suppress the 
+troublesome new line, or set the appropriate string as a variable ahead of 
+time.</P>
+<P><A name=N10269><SPAN class=smalltitle>Suppressing new lines with the #slurp 
+directive</SPAN></A></P>
+<P>The Cheetah directive <CODE>#slurp</CODE> tells Cheetah not to print the 
+newline at the end of a particular line:</P><BR><A name=N1027D><B>Listing 9. 
+Suppressing the newline at the end of a line</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+#for $purchased, $quantity in $order.purchased.items():
+ $purchased.name: $quantity unit#slurp
+#if $quantity != 1
+s
+#end if
+#end for
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>This code gives the output you want:</P>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+ Widget, green: 50 units
+ Widget, blue: 1 unit
+ </CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P><A name=N1028C><SPAN class=smalltitle>Setting variables with the #set 
+directive</SPAN></A></P>
+<P>If the <CODE>#slurp</CODE> directive looks ugly to you, there's another way. 
+You can use the <CODE>#set</CODE> directive to create a temporary variable in 
+the scope of the Cheetah template:</P><BR><A name=N102A4><B>Listing 10. Use #set 
+to create a temporary variable</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+#for $purchased, $quantity in $order.purchased.items():
+ #if $quantity == 1
+  #set $units = 'unit'
+ #else
+  #set $units = 'units'
+ #end if
+ $purchased.name: $quantity $units
+#end for
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>In this case, <CODE>#set</CODE> lets you move the conditional out of the text 
+generation and into the code that defines the variable. <CODE>#set</CODE> is a 
+generally useful directive. You can also use it to create intermediate values or 
+to avoid calling a costly method multiple times.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N102BA><SPAN class=atitle>Generating other types of 
+files</SPAN></A></P>
+<P>For simplicity's sake, all the examples so far have generated a plain text 
+e-mail, but you don't have to stop there. Cheetah was originally designed to 
+generate HTML, and you can use it to generate any text-based format: XML, SQL, 
+even Python or other programming language code.</P>
+<P>Here's a Cheetah template that gives an HTML rendering of an order status 
+page. It might go into a file called OrderStatus.tmpl. Note its basic similarity 
+to the e-mail rendition of the same information:</P><BR><A 
+name=N102C9><B>Listing 11. An HTML rendering of the order status 
+information</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Status for order #$order.id&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;[You are logged in as $user.getFullName().]&lt;/p&gt;
+&lt;p&gt;
+#if ($order.hasShipped())
+ Your order has shipped. Your tracking number is $order.trackingNumber.
+#else
+ Your order has not yet shipped.
+#end if
+&lt;/p&gt;
+&lt;p&gt;Order #$order.id contains the following items:&lt;/p&gt;
+&lt;ul&gt;
+#for $purchased, $quantity in $order.purchased.items():
+ &lt;li&gt;$purchased.name: $quantity unit#slurp
+#if ($quantity != 1)
+s
+#end if
+&lt;/li&gt;
+#end for
+&lt;/ul&gt;
+&lt;hr /&gt;
+Served by Online Store v1.0
+&lt;/body&gt;
+&lt;/html&gt;
+</CODE></PRE></TD></TR></TBODY></TABLE><BR><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N102D0><SPAN class=atitle>Combining templates</SPAN></A></P>
+<P>The HTML order status page defined previously has certain elements that are 
+(or should be) common to all pages of the online store Web application: an HTML 
+header with a page-specific title, a notice at the top of the page telling you 
+that you're logged in, and an HTML footer. It should be possible to factor out 
+these common page elements into a separate master template. That way, the 
+template definition in OrderStatus.tmpl will contain only the code specific to 
+displaying order status, and all the other template definitions can use the 
+common code in the master template, instead of defining the same code each 
+time.</P>
+<P>Most templating systems (including Cheetah, with its <CODE>#include</CODE> 
+directive) let you call one template from another. You could use this 
+functionality to move the common template content into (for instance) 
+Header.tmpl and Footer.tmpl files. However, Cheetah also lets you solve this 
+problem in a more elegant way: by making it possible for templates to subclass 
+each other.</P>
+<P>Here's Skeleton.tmpl, a template definition that defines the skeleton of an 
+HTML page, but leaves two items conspicuously unbound: <CODE>$title</CODE> and 
+<CODE>$body</CODE>:</P><BR><A name=N102EE><B>Listing 12. Skeleton.tmpl template 
+definition</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;$title&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;[You are logged in as $user.getFullName().]&lt;/p&gt;
+$body
+&lt;hr /&gt;
+Served by Online Store v1.0.
+&lt;/body&gt;
+&lt;/html&gt;
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>Recall that running the <CODE>cheetah compile</CODE> command on the 
+Skeleton.tmpl file generates Skeleton.py, a package containing a Python class 
+called <CODE>Skeleton</CODE> that acts just like Skeleton.tmpl. Once that file 
+is in place, you can write an order status template. OrderStatusII.tmpl can 
+import the generated <CODE>Skeleton</CODE> class and subclass it. You'll also 
+define values for <CODE>$title</CODE> and <CODE>$body</CODE>, variables 
+referenced in the master template:</P><BR><A name=N1030E><B>Listing 13. 
+Subclassing Skeleton.tmpl</B></A><BR>
+<TABLE cellSpacing=0 cellPadding=5 width="100%" bgColor=#eeeeee border=1>
+  <TBODY>
+  <TR>
+    <TD><PRE><CODE class=section>
+#from Skeleton import Skeleton
+#extends Skeleton
+
+#def title
+Status for order #$order.id
+#end def
+
+#def body
+&lt;p&gt;
+#if ($order.hasShipped())
+ Your order has shipped. Your tracking number is $order.trackingNumber.
+#else
+ Your order has not yet shipped.
+#end if
+&lt;/p&gt;
+
+&lt;p&gt;Order #$order.id contains the following items:&lt;/p&gt;
+&lt;ul&gt;
+#for $purchased, $quantity in $order.purchased.items():
+ &lt;li&gt;$purchased.name: $quantity unit#slurp
+#if ($quantity != 1)
+s
+#end if
+ &lt;/li&gt;
+#end for
+&lt;/ul&gt;
+#end def
+</CODE></PRE></TD></TR></TBODY></TABLE><BR>
+<P>OrderStatusII.tmpl uses an <CODE>#extends</CODE> directive to declare that 
+its template is a specialization of the template defined in Skeleton.tmpl. It 
+then uses <CODE>#def</CODE> directives to define functions called 
+<CODE>title</CODE> and <CODE>body</CODE>. These correspond to the 
+<CODE>$title</CODE> and <CODE>$body</CODE> variables used in the skeleton 
+template. It won't do here to <CODE>#set</CODE> the value of <CODE>$title</CODE> 
+and <CODE>$body</CODE>: the <CODE>#set</CODE> directive sets a value for a 
+Python variable, but <CODE>title</CODE> and <CODE>body</CODE> are expected to 
+correspond to Python functions.</P>
+<P>As with the <CODE>def</CODE> keyword in Python, you can also use the Cheetah 
+<CODE>#def</CODE> directive to define functions inside a template. You can then 
+call the template multiple times, to avoid having to copy and paste 
+code.</P><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=N10356><SPAN class=atitle>Conclusion</SPAN></A></P>
+<P>Cheetah offers many more features that aren't covered here. For instance, you 
+can set up a filter that modifies the output of all variable references in a 
+certain way. You can use the <CODE>#import</CODE> directive to import arbitrary 
+Python modules into Cheetah templates and call their functions. In fact, almost 
+anything you can do in Python you can do inside Cheetah.</P>
+<P>However, I recommend that you keep it simple. Remember the goal behind 
+templating systems: separate the dynamic parts of a document from its static 
+description. Start putting application code into your Cheetah templates, and 
+you'll find yourself with the same headaches that drive programmers and UI 
+designers to choose templating systems in the first place. One aspect of 
+Cheetah's philosophy: "Python for the back end, Cheetah for the front end." 
+Follow this rule of thumb, and you should have no trouble reaping the benefits 
+of this templating system.</P><BR><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><SPAN class=atitle><A name=download>Download</A></SPAN></P>
+<TABLE class=data-table-1 cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TH>Description</TH>
+    <TH>Name</TH>
+    <TH style="TEXT-ALIGN: right">Size</TH>
+    <TH>Download method</TH></TR>
+  <TR>
+    <TD class=tb-row>Scripts and templates</TD>
+    <TD noWrap>os-cheetah-code.zip</TD>
+    <TD style="TEXT-ALIGN: right" noWrap>10 KB</TD>
+    <TD noWrap><A class=fbox 
+      href="file://www.ibm.com/developerworks/views/download.jsp?contentid=91098&amp;filename=os-cheetah-code.zip&amp;method=ftp&amp;locale=worldwide"><B><U><FONT 
+      color=#0000ff>FTP</FONT></U></B></A></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD colSpan=5><U><FONT color=#0000ff><IMG height=12 src="1_02.files/c.gif" 
+      width=12 border=0></FONT></U></TD></TR>
+  <TR>
+    <TD><U><FONT color=#0000ff><IMG height=16 src="" width=16></FONT></U></TD>
+    <TD><A class=fbox 
+      href="file:///C:/developerworks/library/whichmethod.html"><U><FONT 
+      color=#0000ff>Information about download methods</FONT></U></A></TD>
+    <TD><U><FONT color=#0000ff><IMG height=1 src="1_02.files/c.gif" 
+      width=50></FONT></U></TD>
+    <TD><U><FONT color=#0000ff><IMG height=16 src="" width=16></FONT></U></TD>
+    <TD><A class=fbox 
+      href="http://www.adobe.com/products/acrobat/readstep2.html"><U><FONT 
+      color=#0000ff>Get Adobe® Reader®</FONT></U></A></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><U><FONT color=#0000ff><IMG height=1 src="1_02.files/blue_rule.gif" 
+      width="100%"></FONT></U></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><U><FONT color=#0000ff><IMG height=16 
+            src="1_02.files/u_bold.gif" width=16 border=0><BR></FONT></U></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=resources><SPAN class=atitle>Resources</SPAN></A></P><B>Learn</B><BR>
+<UL>
+  <LI><A 
+  href="http://wiki.python.org/moin/WebProgramming#head-90a011bd0700ba34e12c35e1b2d1390538a98b3f"><U><FONT 
+  color=#0000ff>The official Python wiki</FONT></U></A> lists many open-source 
+  templating systems. Perhaps the most popular alternatives to Cheetah are <A 
+  href="http://spyce.sourceforge.net/"><U><FONT 
+  color=#0000ff>Spyce</FONT></U></A> and <A 
+  href="http://zpt.sourceforge.net/"><U><FONT color=#0000ff>Zope Page 
+  Templates</FONT></U></A>.<BR><BR>
+  <LI><A href="http://www.cheetahtemplate.org/"><U><FONT 
+  color=#800080>Cheetah</FONT></U></A> resources include a comprehensive <A 
+  href="http://www.cheetahtemplate.org/docs/users_guide_html/"><U><FONT 
+  color=#800080>user's guide</FONT></U></A> and a quick <A 
+  href="http://www.cheetahtemplate.org/docs/OnePageTutorial.html"><U><FONT 
+  color=#800080>tutorial</FONT></U></A>.<BR><BR>
+  <LI>Three Java templating systems form a major part of Cheetah's pedigree: <A 
+  href="http://jakarta.apache.org/velocity/"><U><FONT 
+  color=#0000ff>Velocity</FONT></U></A>, <A 
+  href="http://www.webmacro.org/"><U><FONT 
+  color=#0000ff>WebMacro</FONT></U></A>, and <A 
+  href="http://java.sun.com/products/jsp/"><U><FONT color=#0000ff>JavaServer 
+  Pages</FONT></U></A>.<BR><BR>
+  <LI>Get started with Python with "<A 
+  href="http://www.ibm.com/developerworks/linux/library/l-python101.html"><U><FONT 
+  color=#0000ff>Python 101</FONT></U></A>."<BR><BR>
+  <LI>See "<A 
+  href="http://www.ibm.com/developerworks/linux/library/l-cpyide/"><U><FONT 
+  color=#0000ff>Charming Python: Review of Python IDEs</FONT></U></A>" to learn 
+  more about Python tools.<BR><BR>
+  <LI>The article "<A 
+  href="http://www.ibm.com/developerworks/opensource/library/os-python1/"><U><FONT 
+  color=#0000ff>Discover Python, Part 1: Python's built-in numerical 
+  types</FONT></U></A>" is the first in a series written for Java 
+  developers.<BR><BR>
+  <LI>Visit the developerWorks <A 
+  href="http://www.ibm.com/developerworks/opensource"><U><FONT 
+  color=#0000ff>Open source zone</FONT></U></A> for extensive how-to 
+  information, tools, and project updates to help you develop with open source 
+  technologies and use them with IBM's products.<BR><BR></LI></UL><BR><B>Get 
+products and technologies</B><BR>
+<UL>
+  <LI>Innovate your next open source development project with <A 
+  href="http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX44"><U><FONT 
+  color=#0000ff>IBM trial software</FONT></U></A>, available for download or on 
+  DVD.<BR><BR></LI></UL><BR><B>Discuss</B><BR>
+<UL>
+  <LI>Get involved in the developerWorks community by participating in <A 
+  href="http://www.ibm.com/developerworks/blogs/"><U><FONT 
+  color=#0000ff>developerWorks blogs</FONT></U></A>.</LI></UL><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="1_02.files/blue_rule.gif" 
+  width="100%"></TD></TR></TBODY></TABLE>
+<TABLE class=no-print cellSpacing=0 cellPadding=0 align=right>
+  <TBODY>
+  <TR align=right>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center><IMG height=16 src="1_02.files/u_bold.gif" 
+            width=16 border=0><BR></TD>
+          <TD vAlign=top align=right><A class=fbox 
+            href="file:///C:/_python/Cheetah-2.0rc6_doc/_doc/jwFreeNote/BookData/Cheetah/1/1_02.htm#main"><B><U><FONT 
+            color=#0000ff>Back to 
+  top</FONT></U></B></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<P><A name=author><SPAN class=atitle>About the author</SPAN></A></P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3><IMG height=5 src="1_02.files/c.gif" width="100%"></TD></TR>
+  <TR vAlign=top align=left>
+    <TD>
+      <P></P></TD>
+    <TD><IMG height=5 src="1_02.files/c.gif" width=4></TD>
+    <TD width="100%">
+      <P>Leonard Richardson is the author of many Python applications and 
+      libraries, including NewsBruiser and Beautiful Soup. He is a co-author of 
+      the new tome <I>Beginning Python</I>, from 
+Wrox.</P></TD></TR></TBODY></TABLE><BR></DIV></BODY></HTML>

@@ -1,0 +1,9 @@
+package ${packagePath}.domain;
+
+import java.io.Serializable;
+
+public class ${className} implements Serializable {
+  //[[[cog import posCog; posCog.writeProperty2('Account', cog.inFile) ]]]
+  //[[[end]]]  
+
+}

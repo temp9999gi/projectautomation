@@ -1,0 +1,171 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><STRONG>AcroEdit FAQ</STRONG></div>
+<DIV>&nbsp;</DIV>
+<DIV>아래 설명은 0.9.4.4 버전부터 적용 가능한 정규 표현식에 대한 간단한 설명입니다.<BR><BR>정규표현식은 세계적으로 패턴을 가진 
+문자열을 검색하는데 널리 사용되는 방법이다.<BR>복잡하지만 형식을 가지는 문자열을 표현하기 위해서 정규 표현식에서는 여러가지 메타 문자를 
+사용한다.<BR>정규 표현식에서 일반적인 문자는 문자 그 자체를 나타내지만 메타문자로 지정된 문자는 특수한 의미를 
+가진다.<BR><BR>AcroEdit에서 사용 가능한 메타 문자는 아래와 같다.<BR><BR><BR><B>문자열 집합</B><BR>문자 리스트를 
+[] 내부에 입력하면 문자열 집합을 나타낼수 있다. 이것은 문자열 집합내의 어느 문자와도 매치됨을 나타낸다. 만약에 "["문자 바로 뒤에 
+"^"문자가 나오면 반대의 의미가 되며 문자열 집합내에 속하지 않는 하나의 문자를 나타낸다. []안 문자 리스트에 "-"문자가 포함되면 이는 
+전후 문자사이의 범위를 의미한다. 예를 들어 a-z는 a에서 z까지의 모든 문자를 집합으로 한다. 만약에 "-" 문자를 집합의 요소로 사용하려면 
+리스트의 시작이나 끝에 "-"문자를 삽입하거나 ""문자를 이용해서 Escape처리 해주면 된다. 또한 "]" 문자를 집합의 요소로 사용하려면 
+리스트의 시작이나 ""문자를 이용해서 Escape처리하도록 한다.<BR><BR><BR><B>기본 문자열 집합</B><BR>
+<TABLE border=0>
+  
+  <TR>
+    <TD>w</TD>
+    <TD>알파벳 문자("_" 문자 포함)</TD></TR>
+  <TR>
+    <TD>W</TD>
+    <TD>w 의 반대</TD></TR>
+  <TR>
+    <TD>d</TD>
+    <TD>숫자 문자(0-9)</TD></TR>
+  <TR>
+    <TD>D</TD>
+    <TD>d의 반대</TD></TR>
+  <TR>
+    <TD>s</TD>
+    <TD>공백 문자([tnrf]와 같음)</TD></TR>
+  <TR>
+    <TD>S</TD>
+    <TD>s의 반대</TD></TR></TABLE><BR><BR><B>부표현식</B><BR>() 문자로 둘러싸인 영역은 전체 정규 
+표현식의 부표현식이라하며 왼쪽에서 오른쪽으로 나타난 순서에 따라 1번에서 9번까지 내부적으로 번호가 부여된다. <BR><BR><B>메타 
+문자</B><BR>
+<TABLE border=0>
+  
+  <TR>
+    <TD></TD>
+    <TD>이 문자는 이 다음에 나오는 문자에 특별한 의미를 부여한다. 예를 들어 "t"를 단지 "t"를 의미하지만 "t"는 TAB 
+      문자를 의미한다.<BR>"" 문자를 검색하려면 "\"로 입력해야 한다.</TD></TR>
+  <TR>
+    <TD>xnn</TD>
+    <TD>16진수로 nn이 나타내는 문자</TD></TR>
+  <TR>
+    <TD>t</TD>
+    <TD>TAB 문자(0x09)</TD></TR>
+  <TR>
+    <TD>n</TD>
+    <TD>Line Feed 문자(0x0A)</TD></TR>
+  <TR>
+    <TD>r</TD>
+    <TD>Carriage Return 문자(0x0D)</TD></TR>
+  <TR>
+    <TD>f</TD>
+    <TD>Form Feed 문자(0x0C)</TD></TR>
+  <TR>
+    <TD>a</TD>
+    <TD>BEL 문자(0x07)</TD></TR>
+  <TR>
+    <TD>e</TD>
+    <TD>ESC 문자(0x1B)</TD></TR>
+  <TR>
+    <TD>^</TD>
+    <TD>행의 시작</TD></TR>
+  <TR>
+    <TD>$</TD>
+    <TD>행의 마지막</TD></TR>
+  <TR>
+    <TD>.</TD>
+    <TD>모든 문자</TD></TR>
+  <TR>
+    <TD>*</TD>
+    <TD>이전 문자 또는 부표현식이 없거나 그 이상</TD></TR>
+  <TR>
+    <TD>+</TD>
+    <TD>이전 문자 또는 부표현식이 하나 또는 그 이상</TD></TR>
+  <TR>
+    <TD>?</TD>
+    <TD>이전 문자 또는 부표현식이 없거나 하나</TD></TR>
+  <TR>
+    <TD>{n}</TD>
+    <TD>이전 문자 또는 부표현식이 정확히 n번 반복될때</TD></TR>
+  <TR>
+    <TD>{n,} </TD>
+    <TD>이전 문자 또는 부표현식이 적어도 n번 이상 반복될때</TD></TR>
+  <TR>
+    <TD>{n,m} </TD>
+    <TD>이전 문자 또는 부표현식이 n번 이상 m번 이하 반복될때</TD></TR>
+  <TR>
+    <TD>(표현식)</TD>
+    <TD>부 표현식을 나타낸다.</TD></TR>
+  <TR>
+    <TD>|</TD>
+    <TD>OR 연산자를 의미한다.</TD></TR></TABLE><BR><BR><B>예 :</B><BR>
+<TABLE border=0>
+  
+  <TR>
+    <TD>foob[aeiou]r</TD>
+    <TD>"foobar", "foober"등은 매치되지만 "foobbr", "foobcr"등은 안된다.</TD></TR>
+  <TR>
+    <TD>foob[^aeiou]r</TD>
+    <TD>"foobbr", "foobcr"등은 매치되지만 "foobar", "foober"등은 안된다.</TD></TR>
+  <TR>
+    <TD>foob[-az]r </TD>
+    <TD>'foobzr', 'foob-r'등은 매치되지만 'foobcr'등은 안된다.</TD></TR>
+  <TR>
+    <TD>foob[az-]r</TD>
+    <TD>'foobzr', 'foob-r'등은 매치되지만 'foobcr'등은 안된다.</TD></TR>
+  <TR>
+    <TD>foob[a-z]r</TD>
+    <TD>'foobzr', 'foob-r'등은 매치되지만 'foobcr'등은 안된다.</TD></TR>
+  <TR>
+    <TD>[a-z]</TD>
+    <TD>'a'에서 'z'까지의 26개의 모든 알파벳 소문자와 매치</TD></TR>
+  <TR>
+    <TD>[n-x0D]</TD>
+    <TD>0x0A에서 0x0D까지의 4개의 문자와 매치</TD></TR>
+  <TR>
+    <TD>[d-t] </TD>
+    <TD>숫자 문자 및 '-', 't'</TD></TR>
+  <TR>
+    <TD>[]-a] </TD>
+    <TD>']'에서 'a'까지의 모든 문자</TD></TR>
+  <TR>
+    <TD>foob.*r </TD>
+    <TD>'foobar', 'foobafdsfdsr', 'foobr' 등과 매치</TD></TR>
+  <TR>
+    <TD>foob.+r </TD>
+    <TD>'foobar', 'foobafdsfdsr'등과 매치하지만 'foobr'는 안된다.</TD></TR>
+  <TR>
+    <TD>foob.?r </TD>
+    <TD>'foobar', 'foobr'등과 매치하지만 'foobafdsfdsr'는 안된다.</TD></TR>
+  <TR>
+    <TD>fooba{2}r </TD>
+    <TD>'foobaar'와 매치</TD></TR>
+  <TR>
+    <TD>fooba{2,}r </TD>
+    <TD>'foobaar', 'foobaaar', 'foobaaar'와 매치</TD></TR>
+  <TR>
+    <TD>fooba{2,3}r </TD>
+    <TD>'foobaar', 'foobaaar', 'foobaaar'와 매치하지만 'foobaaaar'는 안된다.</TD></TR>
+  <TR>
+    <TD>ari(rang|rong) </TD>
+    <TD>'arirang'이나 'arirong'과 매치</TD></TR>
+  <TR>
+    <TD>[_a-zA-Zd-.]+@([_a-zA-Zd-]+(.[_a-zA-Zd-]+)+) </TD>
+    <TD>메일 주소</TD></TR>
+  <TR>
+    <TD>(?i)(FTP|HTTP)://([_a-zd-]+(.[_a-zd-]+)+)((/[ _a-zd-\.]+)+)*</TD>
+    <TD>Internet URL</TD></TR></TABLE></DIV>
+</BODY></HTML>

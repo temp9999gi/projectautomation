@@ -1,0 +1,1 @@
+C:\_tools\Python24\python.exe  C:\_tools\Python24\Lib\site-packages\pynsource\pynsource.py -j C:\_tools\PyNSource_doc\doc\reverse\java  C:\_kldp\codegen\Cheetah\genValueObject3\*.py

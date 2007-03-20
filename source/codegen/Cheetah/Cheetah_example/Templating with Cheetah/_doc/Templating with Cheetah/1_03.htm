@@ -1,0 +1,118 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div><SPAN class=contentpagetitle><B>Templating with Cheetah 
+- Compiling <A class=iAs 
+style="PADDING-BOTTOM: 1px; COLOR: blue; BORDER-BOTTOM: blue 0.07em solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>Templates</A></B></SPAN> <BR>(Page 3 of 4 )<BR><BR>
+<P></P>
+<P>Compiling a template converts it into Python code, which eliminates the need 
+for Cheetah to go through a template and replace everything. This means that 
+Cheetah can work faster. Compiling a template is very simple, and all it 
+involves is a call to Cheetah. Take a look at this template, quote.tmpl, which 
+provides a placeholder for a random quotation:</P>
+<P><FONT face=Courier>&lt;center&gt;<BR>&lt;i&gt;$quotation&lt;/i&gt;&lt;br 
+/&gt;<BR>-- $speaker<BR>&lt;/center&gt;</FONT></P>
+<P>To compile this, we pass a few arguments to cheetah:</P>
+<P><FONT face=Courier>cheetah compile quote.tmpl</FONT></P>
+<P>Cheetah then generates the file quote.py, which contains the class 
+<I>quote</I>. The class can be imported into a Python script and then used 
+similarly to the <I>Template</I> class:</P>
+<P><FONT face=Courier>import random<BR>from quote import quote</FONT></P>
+<P><FONT face=Courier># Define a list of quotations<BR>quotations = [ [ 'It is 
+easier to find people fit to govern<BR>themselves than people fit to govern 
+others.', 'Lord Acton' 
+],\<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[ 'A house divided against itself cannot stand.',<BR>'Abraham Lincoln' 
+],\<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[ 'Before anything else, preparation is the key to<BR>success.', 'Alexander 
+Graham Bell' ] ]</FONT></P>
+<P><FONT face=Courier># Pick a random quotation<BR>quotation = random.choice ( 
+quotations )</FONT></P>
+<P><FONT face=Courier># <A class=iAs 
+style="PADDING-BOTTOM: 1px; COLOR: blue; BORDER-BOTTOM: blue 0.07em solid; BACKGROUND-COLOR: transparent; TEXT-DECORATION: underline" 
+href="#" target=_blank>Print</A> the product<BR>print quotation ( searchList = 
+[{ 'quotation': quotation [0],<BR>'author': quotation [1] }]</FONT></P>
+<P><B>Adding Logic</B></P>
+<P>Instead of having a Python script control all the logic for a certain 
+template, it's possible to slip a bit of simple logic into a template. Cheetah 
+makes this possible through special directives. For example, say that you want 
+to display a certain message if one condition is met and a certain message if 
+another condition is met. The <I>#if</I> directive can be used for this task, 
+rather than doing work in Python. Take a look at greeting.tmpl, which displays 
+different greetings for different times of day:</P>
+<P><FONT face=Courier>#if $hour &lt; 12<BR>Good morning!<BR>#else if $hour &gt;= 
+12 and $hour &lt;=18<BR>Good afternoon!<BR>#else<BR>Good evening!<BR>#end 
+if</FONT></P>
+<P>All we need to do is pass the hour of the day to the script, and it will 
+display the appropriate message:</P>
+<P><FONT face=Courier>import time<BR>from Cheetah.Template import 
+Template</FONT></P>
+<P><FONT face=Courier>hour = time.localtime() [3]<BR>print Template ( file = 
+'greeting.tmpl', searchList = [{ 'hour':<BR>hour }] )</FONT></P>
+<P>The <I>#unless</I> directive is similar to the <I>#if</I> directive, but it 
+returns the opposite of what the expression returns. If the expression is true, 
+then the contained code is not executed. If the expression is false, then the 
+contained code executes. Take this template for example:</P>
+<P><FONT face=Courier>#unless $a<BR>&lt; Message &gt;<BR>#end unless</FONT></P>
+<P>Unless <I>$a</I> returns a true value, “&lt; Message &gt;” is displayed to 
+the user. If <I>$a</I> does return a true value, then the message is never 
+displayed.</P>
+<P>Cheetah also allows for loops to be used within templates. The <I>#for</I> 
+directive acts as a <I>for</I> loop, as in listPresidents.tmpl:</P>
+<P>Presidents:<BR>#for $name in $names:<BR>&lt;br /&gt;$name<BR>#end for</P>
+<P>To see the template in action, we need to pass a list to take the place of 
+the <I>$names</I> variable:</P>
+<P><FONT face=Courier>from Cheetah.Template import Template</FONT></P>
+<P><FONT face=Courier>presidents = [ 'George Washington', 'John Adams', 
+'Thomas<BR>Jefferson', 'James Madison', 'James Monroe' ]</FONT></P>
+<P><FONT face=Courier>print Template ( file = 'listPresidents.tmpl', searchList 
+=<BR>[{ 'names': presidents }] )</FONT></P>
+<P>The <I>#repeat</I> directive simply repeats something a specified amount of 
+times. For example, say I wanted to make a primitive horizontal bar graph using 
+“|” characters. I could use the <I>#repeat</I> directive to do this in 
+graph.tmpl:</P>
+<P><FONT face=Courier>#repeat $x<BR>|<BR>#end repeat</FONT></P>
+<P>We can now substitute <I>$x</I> for the length of the graph:</P>
+<P><FONT face=Courier>from Cheetah.Template import Template</FONT></P>
+<P><FONT face=Courier># Set the length of the bar graph<BR>x = 10</FONT></P>
+<P><FONT face=Courier>print Template ( file = 'graph.tmpl', searchList = [{ 'x': 
+x }] )</FONT></P>
+<P>If you run the above script, however, you will see that each “|” character is 
+put on a new line. This can be fixed using the <I>#slurp</I> directive:</P>
+<P><FONT face=Courier>#repeat $x<BR>|#slurp<BR>#end repeat</FONT></P>
+<P>Lastly, the <I>#while</I> directive acts as a while loop:</P>
+<P><FONT face=Courier>#set $x = 1<BR>#while $x &lt;= 10<BR>$x<BR>#set $x = $x + 
+1<BR>#end while</FONT></P>
+<P>Notice that the above template uses the <I>#set </I>directive. This simply 
+sets the value of a variable.</P>
+<P>Cheetah also contains <I>#break</I> and <I>#continue</I> directives for use 
+in loops. This template will not display “4” or anything past “5”:</P>
+<P><FONT face=Courier>#set $x = 1<BR>#while $x &lt;= 10<BR>#if $x == 
+4<BR>#continue<BR>#end if<BR>$x<BR>#if $x ==5<BR>#break<BR>#set $x = $x + 
+1<BR>#end if<BR>#end while</FONT></P>
+<P>
+<DIV class=pagenavbar align=center>
+<DIV align=center><A 
+href="http://www.devshed.com/c/a/Python/Templating-with-Cheetah/3/" 
+rel=nofollow><FONT color=#0000ff size=4><U>Next: More Logic 
+&gt;&gt;</U></FONT></A></DIV></DIV></div>
+</BODY></HTML>

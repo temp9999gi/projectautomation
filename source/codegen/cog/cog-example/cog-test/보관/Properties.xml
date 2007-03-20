@@ -1,0 +1,7 @@
+<!-- Properties.xml -->
+<props>
+        <property name='id' type='String' />
+        <property name='revNum' type='Integer' />
+        <property name='subject' type='String' />
+        <property name='modDate' type='Date' />
+</props>

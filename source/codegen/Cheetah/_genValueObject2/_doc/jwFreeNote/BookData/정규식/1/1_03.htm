@@ -1,0 +1,143 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div>
+<TABLE cellSpacing=0 cellPadding=3 width="100%" border=0>
+  
+  <TR vAlign=center>
+    <TD class=nav align=left><BIG><FONT size=4>Regular Expressions: 
+      Examples</FONT></BIG></TD>
+    <TD class=nav align=right><SMALL><A href="home.html"><U><FONT 
+      color=#0000ff size=2>home</FONT></U></A><FONT size=2> | </FONT><A 
+      href="list_function.html"><U><FONT color=#0000ff 
+      size=2>function</FONT></U></A><FONT size=2> | </FONT><A 
+      href="sw_python.html"><U><FONT color=#0000ff 
+      size=2>python</FONT></U></A><FONT size=2> | </FONT><A 
+      href="sw_re.html"><U><FONT color=#0000ff size=2>regular 
+      expressions</FONT></U></A></SMALL></TD></TR></TABLE>
+<H2>Grouping</H2>
+<P>Here's a complete example. Note that the second of three groups is not 
+returned.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.match(r'(a(?:b)c)(?P&lt;found&gt;d)', 
+'abcd')<BR>&gt;&gt;&gt; m.group(0)<BR>'abcd'<BR>&gt;&gt;&gt; 
+m.group(1)<BR>'abc'<BR>&gt;&gt;&gt; m.group(2)<BR>'d'<BR>&gt;&gt;&gt; 
+m.group('found')<BR>'d'<BR>&gt;&gt;&gt; m.groups()<BR>('abc', 
+'d')<BR></TT></P></SPAN>
+<P>Backreferences allow you to refer to the contents of an earlier group. For 
+example, \1 will succeed only if the contents of group 1 can be found at the 
+current position.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.search(r'(\b\w+)\s+\1', 'what is is what 
+about?')<BR>&gt;&gt;&gt; m.group()<BR>'is is'<BR></TT></P></SPAN>
+<P>Using named groups this can be rewritten.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.search(r'(?P&lt;word&gt;\b\w+)\s+(?P=word)', 'what is 
+is what about?')<BR>&gt;&gt;&gt; m.group()<BR>'is is'<BR></TT></P></SPAN>
+<P>Compare with:</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.search(r'(\b\w+)\s+', 'what is is what 
+about?')<BR>&gt;&gt;&gt; m.group()<BR>'what'<BR></TT></P></SPAN>
+<HR align=left width=100>
+
+<H2>Lookahead Assertions</H2>
+<P>Lookahead assertions are zero-width and hence do not consume characters. 
+Consider matching a filename, spliting it into the base name and 
+extension.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.search(r'(.*)[.](.*)$', 
+'autoexec.bat')<BR>&gt;&gt;&gt; m.groups()<BR>('autoexec', 
+'bat')<BR></TT></P></SPAN>
+<P>That was simple, but now we wish to exclude filenames where the extension is 
+"bat".</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; m = re.search(r'(.*)[.](?!bat$)(.*)$', 
+'autoexec.bat')<BR>&gt;&gt;&gt; m<BR>None<BR><TT>&gt;&gt;&gt; m = 
+re.search(r'(.*)[.](?!bat$)(.*)$', 'autoexec.dat')<BR>&gt;&gt;&gt; 
+m<BR>('autoexec', 'dat') </TT></P></SPAN>
+<HR align=left width=100>
+
+<H2>Splitting Strings</H2>
+<P><TT>re.split()</TT> is similar to <TT>string.split()</TT> but provides much 
+more flexibility in delimiter selection.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.split('[\W]+', 'what is is what about?')<BR>['what', 
+'is', 'is', 'what', 'about', '']<BR>&gt;&gt;&gt; re.split('[is]+', 'what is is 
+what about?')<BR>['what ', ' ', ' what about?'] </TT></P></SPAN>
+<P>If capturing parentheses are used in the RE, then the delimiters are also 
+returned as part of the list.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.split('([\W]+)', 'what is is what about?')<BR>['what', ' 
+', 'is', ' ', 'is', ' ', 'what', ' ', 'about', '?', ''] </TT></P></SPAN>
+<HR align=left width=100>
+
+<H2>Search and Replace</H2>
+<P><TT>re.sub()</TT> is similar to <TT>string.replace()</TT> but also provides 
+more flexibility.</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.sub('wh\S*', 'who', 'what is is what about?')<BR>'who is 
+is who about?' </TT></P></SPAN>
+<P>Any escapes in the replacement string are processed. This lets you 
+incorporate portions of the original text in the resulting string using 
+backreferences. These may refer to groups using the <TT>\g</TT> syntax.</P><SPAN 
+class=code>
+<P><TT>&gt;&gt;&gt; re.sub('(?P&lt;robin&gt;^wh\S*)', '\g&lt;robin&gt; 
+\g&lt;robin&gt;', 'what is what about?')<BR>'what what is what about?' 
+</TT></P></SPAN>
+<P>If the replacement string is instead a function name, that function is called 
+with a <TT>MatchObject</TT> argument for every non-overlapping 
+occurance.</P><SPAN class=code>
+<P><TT><PRE>&gt;&gt;&gt; def myThing( match ):
+...	if match == 'who':
+...		ret = 'me'
+...	else:
+...		ret = 'you'
+...	return ret
+...
+&gt;&gt;&gt; re.sub('^wh\S*', myThing, 'what is who about?')
+'you is who about?'
+</PRE></TT>
+<P></P></SPAN>
+<HR align=left width=100>
+
+<H2>Selecting Whole Words</H2>
+<P>When searching for a whole word this is probably not what you want:</P><SPAN 
+class=code>
+<P><TT>&gt;&gt;&gt; re.sub('ha', 'who', 'what is ha about?')<BR>'wwhot is who 
+about?' </TT></P></SPAN>
+<P>And neither is this:</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.sub('\sha\s', 'who', 'what is ha about?')<BR>'what 
+iswhoabout?' </TT></P></SPAN>
+<P>Instead, try the word boundary zero-width assertion:</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.sub('\bha\b', 'who', 'what is ha about?')<BR>'what is ha 
+about?' </TT></P></SPAN>
+<HR align=left width=100>
+
+<H2>Greedy Versus Non-Greedy</H2>
+<P>It is common to make the following error:</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.split('(&lt;.*&gt;)', '&lt;p&gt;some 
+text&lt;/p&gt;')<BR>['', '&lt;p&gt;some text&lt;/p&gt;', ''] </TT></P></SPAN>
+<P>The entire string has been gobbled up by the greedy * metacharacter. But the 
+non-greedy version gets us the desired result:</P><SPAN class=code>
+<P><TT>&gt;&gt;&gt; re.split('(&lt;.*?&gt;)', '&lt;p&gt;some 
+text&lt;/p&gt;')<BR>['', '&lt;p&gt;', 'some text', '&lt;/p&gt;', ''] 
+</TT></P></SPAN>
+<P>&nbsp;</P>
+<TABLE width="100%">
+  
+  <TR>
+    <TD align=right><SMALL><A href="a_copyleft.html"><U><FONT color=#0000ff 
+      size=2>copyleft</FONT></U></A><FONT size=2> (c) 2001 </FONT><A 
+      href="r_robin.html"><U><FONT color=#0000ff 
+      size=2>robin</FONT></U></A></SMALL><BR><SMALL><FONT size=2>updated: 24 
+      August 2001</FONT></SMALL></TD></TR></TABLE></TT></div>
+</BODY></HTML>

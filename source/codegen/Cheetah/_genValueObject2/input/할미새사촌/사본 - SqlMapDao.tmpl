@@ -1,0 +1,47 @@
+package com.ibatis.jpetstore.persistence.sqlmapdao;
+
+import com.ibatis.dao.client.DaoManager;
+import com.ibatis.jpetstore.domain.${className};
+import com.ibatis.jpetstore.persistence.iface.${className}Dao;
+
+public class ${className}SqlMapDao extends BaseSqlMapDao implements ${className}Dao {
+
+  public ${className}SqlMapDao(DaoManager daoManager) {
+    super(daoManager);
+  }
+
+#for $x1 in $sqlInfoList
+  public ${className} ${x1.sqlId}(String username) {
+ 	  ${x1.methodBody}
+  }
+#end for    
+
+}
+
+----------
+
+  public Account getAccount(String username) {
+    return (Account) queryForObject("getAccountByUsername", username);
+  }
+
+  public Account getAccount(String username, String password) {
+    Account account = new Account();
+    account.setUsername(username);
+    account.setPassword(password);
+    return (Account) queryForObject("getAccountByUsernameAndPassword", account);
+  }
+
+  public void insertAccount(Account account) {
+    update("insertAccount", account);
+    update("insertProfile", account);
+    update("insertSignon", account);
+  }
+
+  public void updateAccount(Account account) {
+    update("updateAccount", account);
+    update("updateProfile", account);
+
+    if (account.getPassword() != null && account.getPassword().length() > 0) {
+      update("updateSignon", account);
+    }
+  }

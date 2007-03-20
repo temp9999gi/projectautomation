@@ -1,0 +1,1 @@
+cheetah.py compile quote.tmpl

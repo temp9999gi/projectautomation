@@ -1,0 +1,23 @@
+package ${packagePath}.persistence.sqlmapdao;
+
+import com.ibatis.dao.client.DaoManager;
+import ${packagePath}.domain.${className};
+import ${packagePath}.persistence.iface.${className}Dao;
+
+public class ${className}SqlMapDao extends BaseSqlMapDao implements ${className}Dao {
+
+  public ${className}SqlMapDao(DaoManager daoManager) {
+    super(daoManager);
+  }
+
+#for $m in $methodInfoList
+  public ${m.methodReturnType} ${m.methodName}(${m.methodArgument}) {
+  #for $x1 in $m.callMethodList
+    ${x1.methodBody}
+  #end for
+  }
+
+#end for
+  
+}
+

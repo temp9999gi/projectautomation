@@ -1,0 +1,28 @@
+package ${packagePath}.service;
+
+import com.ibatis.dao.client.DaoManager;
+import com.ibatis.jpetstore.domain.${className};
+import com.ibatis.jpetstore.persistence.iface.${className}Dao;
+import com.ibatis.jpetstore.persistence.DaoConfig;
+
+public class ${className}Service {
+
+  private ${className}Dao ${lowerClassName}Dao;
+
+  public ${className}Service() {
+    DaoManager daoMgr = DaoConfig.getDaoManager();
+    this.${lowerClassName}Dao = (${className}Dao) daoMgr.getDao(${className}Dao.class);
+  }
+
+  public ${className}Service(${className}Dao ${lowerClassName}Dao) {
+    this.${lowerClassName}Dao = ${lowerClassName}Dao;
+  }
+
+#for $m in $methodInfoList
+  public ${m.methodReturnType} ${m.methodName}(${m.methodArgument}) {
+    ${m.returnStringInMethod}${lowerClassName}Dao.${m.methodName}(${m.callArgument});
+  }
+
+#end for
+  
+}

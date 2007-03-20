@@ -1,0 +1,176 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:333333}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<table cellSpacing=1 cellPadding=4 width=500 bgColor=#3c62c6 border=0>
+  <tr>
+    <td width=600>
+      <div><STRONG><FONT color=#ffffff>▶제목/참고</FONT></STRONG> </div></td></tr>
+  <tr bgColor=#ffffff>
+    <td>
+      <div></div>
+      <DIV>Title: </DIV>      
+      <div>&nbsp;</div>
+      <DIV>&nbsp;</DIV>
+      <DIV>From: </DIV>
+    </td></tr></table>
+<div>
+<DIV class=entry>
+<H3>Capturing the power of re.split</H3>
+<P>A couple of Python tips. The first is really a tip for Mozilla/Firebird: You 
+can set up a <A 
+href="http://www.mozilla.org/docs/end-user/keywords.html"><U><FONT 
+color=#0000ff>Custom Keyword</FONT></U></A> for instantly accessing Python 
+module documentation using the string 
+<SAMP>www.python.org/doc/current/lib/module-%s.html</SAMP> - I have this set up 
+as <SAMP>pydoc</SAMP>, so I can type <SAMP>pydoc re</SAMP> to jump straight to 
+the re module documentation. I only set it up half an hour ago and I've already 
+used it about a dozen times.</P>
+<P>The second tip is so powerful I've been kicking myself for not finding out 
+about it sooner. It relates to the regular expression module's <CODE 
+class=python>re.split()</CODE> function. Just like <CODE>string.split()</CODE>, 
+this lets you split up a string based on a certain token. With <CODE 
+class=python>string.split()</CODE> you the token you split on isn't included in 
+the resulting array:</P><PRE><CODE class=python>&gt;&gt;&gt; 'pipe|separated|values'.split('|')
+['pipe', 'separated', 'values']
+</CODE></PRE>
+<P>This is also true of <CODE class=python>re.split</CODE>:</P><PRE><CODE class=python>&gt;&gt;&gt; splitter = re.compile('&lt;.&gt;')
+&gt;&gt;&gt; splitter.split('hi&lt;a&gt;there&lt;b&gt;from&lt;c&gt;python')
+['hi', 'there', 'from', 'python']
+</CODE></PRE>
+<P>Here's the magic part though. If you put part or all of the regular 
+expression in parenthesis the separating tokens get included in the resulting 
+list:</P><PRE><CODE class=python>&gt;&gt;&gt; splitter = re.compile('(&lt;.&gt;)')
+&gt;&gt;&gt; splitter.split('hi&lt;a&gt;there&lt;b&gt;from&lt;c&gt;python')
+['hi', '&lt;a&gt;', 'there', '&lt;b&gt;', 'from', '&lt;c&gt;', 'python']
+</CODE></PRE>
+<P>Why is this a big deal? Because it suddenly makes writing simple parsers and 
+tokenisers a whole heck of a lot easier. Using the above example, say you wanted 
+to do something with each of the <SAMP>&lt;?&gt;</SAMP> style tags. You can just 
+iterate through the resulting list identifying each tag using the regular 
+expression you've already compiled and then altering just those list items, 
+before joining the whole list back together again at the end.</P>
+<P>Simple parsing and replacement of easily identified tags can already be 
+achieved using the <CODE class=python>re.sub()</CODE> method, which allows you 
+to provide a callback function to process each matching token. The difference 
+with using <CODE class=python>re.split()</CODE> is that you can easily take in 
+to account the <EM>order</EM> of the tokens, allowing you to build systems that 
+can use special tags to define areas of documents without getting confused by 
+nesting tag sets. As a simple example, you could build a basic event based 
+<ACRONYM title="eXtensible Markup Language">XML</ACRONYM> parser using just a 
+couple of expressions. In fact, I discovered this technique while examining the 
+source code for the <A href="http://sourceforge.net/projects/tinpy/"><U><FONT 
+color=#0000ff>tinpy</FONT></U></A> tiny python template module, which gives a 
+clue to why I'm so interested in it.</P>
+<P>Having discovered this feature in Python, I just had to see if it existed in 
+other languages as well. Unsurprisingly it does; <ACRONYM 
+title="PHP: Hypertext Preprocessor">PHP</ACRONYM>'s <A 
+href="http://www.php.net/preg_split"><U><FONT 
+color=#0000ff>preg_split</FONT></U></A> offers an optional 
+<CODE>PREG_SPLIT_DELIM_CAPTURE</CODE> flag (added in <ACRONYM 
+title="PHP: Hypertext Preprocessor">PHP</ACRONYM> 4.0.5) and Javascript has 
+similar behaviour to Python, including the splitting token if it is wrapped in 
+parentheses.</P>
+<P>I'm probably the last person to find out about this, but it's such a useful 
+technique I felt I just had to share it with the world.</P>
+<DIV class=entryFooter>Posted <A href="/archive/2003/10/26/"><U><FONT 
+color=#0000ff>26th October 2003</FONT></U></A> - 03:01 | Categories: <A 
+href="/categories/mozilla/"><U><FONT color=#0000ff>Mozilla</FONT></U></A>, <A 
+href="/categories/python/"><U><FONT color=#0000ff>Python</FONT></U></A>, <A 
+href="/categories/programming/"><U><FONT 
+color=#0000ff>Programming</FONT></U></A> </DIV></DIV>
+<H4>Related Entries:</H4>
+<UL class=related>
+  <LI><A href="/archive/2004/09/20/newlines"><U><FONT color=#0000ff>Matching 
+  newlines in JavaScript</FONT></U></A> - 20th September 2004 
+  <LI><A href="/archive/2004/03/23/pydoc"><U><FONT 
+  color=#0000ff>Pydoc</FONT></U></A> - 23rd March 2004 
+  <LI><A href="/archive/2003/07/28/simpleTemplates"><U><FONT 
+  color=#0000ff>Ludicrously simple templates with Python</FONT></U></A> - 28th 
+  July 2003 
+  <LI><A href="/archive/2006/01/20/escape"><U><FONT color=#0000ff>Escaping 
+  regular expression characters in JavaScript</FONT></U></A> - 20th January 2006 
+
+  <LI><A href="/archive/2003/09/17/sexeger"><U><FONT 
+  color=#0000ff>"sexeger"[::-1]</FONT></U></A> - 17th September 2003 </LI></UL>
+<H4 id=comments>Comments:</H4>
+<DIV class=comment id=comment1>I've found re.findall similarly useful 
+(particularly when I'm trying to <EM>do</EM> something immediately with the 
+results, instead of passing them around to other functions) because it will 
+return the grouped matches, if there are any groups. 
+<P class=commentFooter id=comment-3091><A 
+href="http://www.google.com/url?sa=D&amp;q=http%3A%2F%2Fwww.thok.org%2F"><U><FONT 
+color=#0000ff>Mark Eichin</FONT></U></A> - 26th October 2003 07:21 - <A 
+title="Permalink for comment 1" href="#comment1"><U><FONT 
+color=#0000ff>#</FONT></U></A></P></DIV>
+<SCRIPT type=text/javascript><!--
+if(!mmcomments){var mmcomments=[];}mmcomments[mmcomments.length]="3091";
+//--></SCRIPT>
+<!-- mmc mmid:3091 mmdate:20031026072147 mmauthor:- -->
+<DIV class=comment id=comment2>Duh! I've used the Custom Keywords in the past, 
+but completely forgot about them. I get tired of going to CPAN and doing a 
+module search. Thanks for the reminder! 
+<P class=commentFooter id=comment-3094><A 
+href="http://www.google.com/url?sa=D&amp;q=http%3A%2F%2Ftoday.icantfocus.com%2Fblog%2F"><U><FONT 
+color=#0000ff>Chris</FONT></U></A> - 26th October 2003 15:23 - <A 
+title="Permalink for comment 2" href="#comment2"><U><FONT 
+color=#0000ff>#</FONT></U></A></P></DIV>
+<SCRIPT type=text/javascript><!--
+if(!mmcomments){var mmcomments=[];}mmcomments[mmcomments.length]="3094";
+//--></SCRIPT>
+<!-- mmc mmid:3094 mmdate:20031026152304 mmauthor:- -->
+<DIV class=comment id=comment3>
+<P>fwiw, having implemented them both ;-), I tend to prefer 
+<STRONG>re.findall("token|sep")</STRONG> over 
+<STRONG>re.split("sep")</STRONG>.</P>
+<P>(but that's probably only because I got used to that style back in the 
+pre-2.2 days, when <STRONG>findall</STRONG> was written in C but 
+<STRONG>split</STRONG> was written in Python. in 2.2 and later, they're both 
+about as fast as they can be.)</P>
+<P class=commentFooter id=comment-3106><A 
+href="http://www.google.com/url?sa=D&amp;q=http%3A%2F%2Fonline.effbot.org"><U><FONT 
+color=#0000ff>Fredrik Lundh</FONT></U></A> - 27th October 2003 11:55 - <A 
+title="Permalink for comment 3" href="#comment3"><U><FONT 
+color=#0000ff>#</FONT></U></A></P></DIV>
+<SCRIPT type=text/javascript><!--
+if(!mmcomments){var mmcomments=[];}mmcomments[mmcomments.length]="3106";
+//--></SCRIPT>
+<!-- mmc mmid:3106 mmdate:20031027115510 mmauthor:- -->
+<DIV class=comment id=comment4>Opera users can use your firebird tip. Just edit 
+the search.ini in the profile folder. I just set it up to be able to type: p re 
+in the address bar to go to python module doc. Some other ones I use all the 
+time g - google n - google news r - google groups z - amazon e - ebay i - imdb w 
+- wikipedia 
+<P class=commentFooter id=comment-3119>Greg - 28th October 2003 05:19 - <A 
+title="Permalink for comment 4" href="#comment4"><U><FONT 
+color=#0000ff>#</FONT></U></A></P></DIV>
+<SCRIPT type=text/javascript><!--
+if(!mmcomments){var mmcomments=[];}mmcomments[mmcomments.length]="3119";
+//--></SCRIPT>
+<!-- mmc mmid:3119 mmdate:20031028051925 mmauthor:- -->
+<DIV class=comment id=comment5>
+<BLOCKQUOTE>
+  <P>Having discovered this feature in Python, I just had to see if it existed 
+  in other languages as well.</P>
+  <DIV class=blockquotesource><A title="" href=""><U><FONT 
+  color=#0000ff>Source</FONT></U></A></DIV></BLOCKQUOTE>
+<P>This feature was most likely dreamt up by Larry Wall &amp; Co.</P>
+<BLOCKQUOTE>
+  <P>The <CODE>split</CODE> function can return as part of the returned array 
+  any substrings matched as part of the delimiter: <CODE>split(/([-,])/, 
+  '1-10,20')</CODE> returns <CODE>(1,'-',10,',',20)</CODE></P>
+  <DIV class=blockquotesource><A title="" href=""><U><FONT 
+  color=#0000ff>Source</FONT></U></A></DIV></BLOCKQUOTE>
+<P>The above is from the <CODE>Changes</CODE> file of <A 
+href="http://www.google.com/url?sa=D&amp;q=http:%2F%2Fmirrors.develooper.com%2Fperl%2Freally-ancient-perls%2Foldperl%2Fdist%2Fleo%2Fsrc%2Fperl3%2Fperl3.0.tar.gz"><STRONG><U><FONT 
+color=#0000ff>Perl 3.0</FONT></U></STRONG></A>, released on October 18th, 
+<STRONG>1989</STRONG> (making it older than any Python source code).</P>
+<P class=commentFooter id=comment-3122>Arien - 28th October 2003 07:09 - <A 
+title="Permalink for comment 5" href="#comment5"><U><FONT 
+color=#0000ff>#</FONT></U></A></P></DIV></div>
+</BODY></HTML>

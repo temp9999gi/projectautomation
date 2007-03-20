@@ -1,0 +1,7 @@
+<!-- Party.xml -->
+<classInfo className='Party' packagePath='pos.sysa.biz'>
+        <attribute name='id' type='String' />
+        <attribute name='name' type='String' />
+        <attribute name='address' type='String' />
+        <attribute name='birthday' type='Date' />
+</classInfo>

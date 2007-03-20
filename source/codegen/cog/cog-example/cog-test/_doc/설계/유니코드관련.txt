@@ -1,0 +1,22 @@
+		xmlFile = './input/'+sys.argv[1]
+
+		doc = xml.dom.minidom.parse(xmlFile)
+
+		# getElementsByTagName("name")[0].firstChild.data 의 리턴은 유니코드임
+		# UnicodeDecodeError: 'ascii' codec can't decode byte 0xc0 in position 0: ordinal not in range(128)
+		# str(className)
+		#className = temp.encode('cp949') #Korean
+
+		namespace 	= doc.getElementsByTagName("sqlMap")[0].getAttribute('namespace')
+		alias 		= doc.getElementsByTagName("typeAlias")[0].getAttribute('alias')
+		type1 		= doc.getElementsByTagName("typeAlias")[0].getAttribute('type')
+
+		aSqlMaster = SqlMaster(namespace,alias,type1)
+		
+		aCallMethodInfoList = self.getCallMethodInfo(aSqlMaster,doc)
+
+		aSqlMaster.setCallMethodInfoList(aCallMethodInfoList)
+		self.parseDefinitionXml(aSqlMaster)
+
+		return aSqlMaster
+
