@@ -1,1 +1,0 @@
-Cheetah, handyxml를  사용한다.

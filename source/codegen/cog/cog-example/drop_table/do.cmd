@@ -1,1 +1,0 @@
-cog -r test.txt

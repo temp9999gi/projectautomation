@@ -1,4 +1,0 @@
-
-#for $attribute in $pkList
- 	${attribute.attributeType} ${attribute.attributeName};
-#end for

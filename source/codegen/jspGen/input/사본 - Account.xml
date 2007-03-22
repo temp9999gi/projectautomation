@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!-- Properties.xml -->
-<classInfo className="className" packagePath='com.ibatis.jpetstore' file_name="form1.jsp" title="Edit Name">
-        <property name='id'         type="ÇÑ±Û"/>
-        <property name='revNum'     type='text' />
-        <property name='subject'    type='text' />
-        <property name='modDate'    type='text' />
-</classInfo>

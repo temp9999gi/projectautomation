@@ -1,1 +1,0 @@
-generatorMgr.py Account.xml

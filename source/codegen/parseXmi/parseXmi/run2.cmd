@@ -1,1 +1,0 @@
-ParseXmiMain.py Party.xmi

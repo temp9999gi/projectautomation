@@ -1,1 +1,0 @@
-voMain.py Account.xml

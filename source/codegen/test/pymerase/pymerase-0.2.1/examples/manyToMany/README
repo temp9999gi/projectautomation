@@ -1,4 +1,0 @@
-Please note that this example will be used in implementing
-many-to-many relationships in the future. To see how to implement
-many-to many relationship in Pymerases current state, please see the
-example 'manyToMany2'.

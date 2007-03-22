@@ -1,7 +1,0 @@
-<!-- Account.xml -->
-<classInfo className='Account' packagePath='pos.sysa.biz'>
-        <attribute name='id' type='String' />
-        <attribute name='name' type='String' />
-        <attribute name='description' type='String' />
-        <attribute name='modDate' type='Date' />
-</classInfo>

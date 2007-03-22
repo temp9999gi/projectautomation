@@ -1,1 +1,0 @@
-ArchGenXML.py ./samples/SimpleSample.xmi

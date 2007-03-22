@@ -1,1 +1,0 @@
-cheetah compile getSetMethod.tmpl

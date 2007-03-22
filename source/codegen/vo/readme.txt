@@ -1,1 +1,0 @@
-Cheetah, cog를 사용한다.

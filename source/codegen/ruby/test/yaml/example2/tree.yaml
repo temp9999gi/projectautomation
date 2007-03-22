@@ -1,7 +1,0 @@
---- 
-:name: ruby
-:uses: 
-  - scripting
-  - web
-  - testing
-  - etc
