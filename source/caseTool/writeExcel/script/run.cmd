@@ -1,2 +1,2 @@
 REM WriterExcelMain.py outputClassForExport.xls
-WriterExcelMain.py outputClassForExport_IF.xls
+WriterExcelMain.py output_ClassOrIF_Export.xls
