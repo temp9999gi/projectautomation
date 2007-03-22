@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # start
 # CONSTANTS & GLOBALS
 import os
@@ -52,7 +52,7 @@ class Constants :
 
 		self.OUTPUT_INTERFACE_EXCEL		= self.OUT_DIR / 'outputInterfaceDefinition'
 		
-		self.OUTPUT_CLASS_EXPORT_XLS	= self.OUT_DIR / 'outputClassForExport.xls'
+		self.OUTPUT_CLASS_EXPORT_XLS	= self.OUT_DIR / 'output_ClassOrIF_Export.xls'
 		
 		self.INPUT_CLASS_LIST_XLS_TEMPLATE 	= self.INPUT_DIR / 'templates' / \
 			'inputClassListTemplate.xls'
