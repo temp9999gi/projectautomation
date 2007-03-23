@@ -1,0 +1,1 @@
+jython GenXML2SqlMap.py
