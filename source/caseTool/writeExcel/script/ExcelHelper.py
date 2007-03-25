@@ -49,14 +49,18 @@ class ExcelHelper:
 			if sheetName == None:
 				xl.Sheets(cnt).Name = cnt - 1
 			else:
-				xl.Sheets(cnt).Name = str(cnt - 1)+ sheetName
+				xl.Sheets(cnt).Name = str(cnt - 1)+ self.getSheetName(sheetName)
 				
 			return aTargetSheet
 			
 		except pythoncom.com_error, (hr, msg, exc, arg):
 			ComUtil.printPythonComError(hr, msg, exc, arg)
 			
-			
+	def getSheetName(self, inName):
+		#엑셀에서 SheetName은 31자리까지 가능하다.
+		#순번에 3자리, 나머지 시트 이름 28
+		outSheetName = inName[0:28]
+		return outSheetName
 		
 	def deleteSheet(self, inSheetNameList):
 		try:

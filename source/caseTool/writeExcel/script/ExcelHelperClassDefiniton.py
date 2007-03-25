@@ -38,6 +38,8 @@ class ExcelHelperClassDefiniton(ExcelHelper):
 				self.initExcelFileClassDef()
 
 			aTargetSheet = self.addSheet("templ", aClassInfo.name)
+			#aTargetSheet = self.addSheet("templ", None)
+			print 'aClassInfo.name:[', aClassInfo.name,']'
 
 			self.writeClassMasterInfo(aTargetSheet, aClassInfo, sheetCnt)
 			self.writeAttribute(aTargetSheet, aClassInfo)
@@ -113,11 +115,11 @@ class ExcelHelperClassDefiniton(ExcelHelper):
 ##		sh.Cells(row, 6).Value = attr.documentation	# 설명
 	def writeAttributeRecordBlank(self, sh, row):
 		sh.Cells(row, 1).Value = '1'	# 번호
-		sh.Cells(row, 2).Value = 'N/A'			# 속성명
-		sh.Cells(row, 3).Value = 'N/A'	# 가시성
-		sh.Cells(row, 4).Value = 'N/A'		# 타입
-		sh.Cells(row, 5).Value = 'N/A'			# 기본값 ????????????????????????????
-		sh.Cells(row, 6).Value = 'N/A'	# 설명
+		sh.Cells(row, 2).Value = 'N_A'	# 속성명
+		sh.Cells(row, 3).Value = 'N_A'	# 가시성
+		sh.Cells(row, 4).Value = 'N_A'	# 타입
+		sh.Cells(row, 5).Value = 'N_A'	# 기본값 ????????????????????????????
+		sh.Cells(row, 6).Value = 'N_A'	# 설명
 		
 	def writeOperation(self, sh, aClassInfo):
 		row = self.getCurrentRow()
