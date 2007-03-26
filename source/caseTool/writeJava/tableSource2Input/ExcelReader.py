@@ -1,6 +1,7 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # start
 from CommonUtil import *
+import sys;sys.path.append("C://_projectautomation/source/common")
 from pyExcel.ReadExcel import *
 from Klass import *
 from Field import *
