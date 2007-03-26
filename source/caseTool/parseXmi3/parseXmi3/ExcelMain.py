@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ###########################################################################
 #																																				 #
 # C O P Y R I G H T	 N O T I C E																				 #
@@ -15,7 +15,7 @@ Currently requires the novosoft uml reader, which implies the need for jython.
 It was currently tested with 0.4.19 downloaded from the argo cvs.
 """
 # start
-import sys
+import sys;sys.path.append("C://_projectautomation/source/common")
 import logging
 import utils
 ##import xmiCommonUtil as xmiUtil
