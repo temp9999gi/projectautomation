@@ -5,7 +5,7 @@
 #
 # Copyright (c) 2002 KyungUk, Sung
 # start
-import sys
+import sys;sys.path.append("C://_projectautomation/source/common")
 import logging
 import utils
 # import shutil
@@ -40,9 +40,9 @@ class SqlWriterApp:
 ##			print 'aKlass.getInsertSql\n', aKlass.getUpdateSql()
 ##			print 'aKlass.getInsertSql\n', aKlass.getInsertSql()
 			
- 			outSource = aCommonUtil.generateCode(aKlass, str(CONS.SQL_TEMPLATE))
- 			fileName = CONS.OUT_DIR / aKlass.name + '.txt'
- 			aCommonUtil.writeFile(fileName, outSource)
+			outSource = aCommonUtil.generateCode(aKlass, str(CONS.SQL_TEMPLATE))
+			fileName = CONS.OUT_DIR / aKlass.name + '.txt'
+			aCommonUtil.writeFile(fileName, outSource)
 			
 		log.info('---def writeSqlCore---')
 		log.info("(MSG) Ok: write Sql")
