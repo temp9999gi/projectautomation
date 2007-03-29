@@ -14,11 +14,16 @@ class LoggerAspect(object):
     def __init__(self, method):
         self.method = method
 
-    def before(self):
-        print 'entering', self.method
+    def before(self,*args, **kwargs):
+        print 'before:', self.method
+        #a = args
+        print 'before:*args', args
 
-    def after(self, retval, exc):
-        print 'leaving', self.method
+    def after(self, retval, exc, *args, **kwargs):
+        print 'after:', self.method, args
+        if exc:
+        	print exc
+        	print args, kwargs
 
 def weave_method(method, advice_class, *advice_args, **advice_kwargs):
     advice = advice_class(method, *advice_args, **advice_kwargs)
@@ -26,14 +31,14 @@ def weave_method(method, advice_class, *advice_args, **advice_kwargs):
     advice_after = advice.after
 
     def invoke_advice(*args, **kwargs):
-        advice_before()
+        advice_before(*args, **kwargs)
         try:
             retval = method(*args, **kwargs)
         except Exception, e:
-            advice_after(None, e)
+            advice_after(None, e, *args,**kwargs)
             raise
         else:
-            advice_after(retval, None)
+            advice_after(retval, None, *args,**kwargs)
             return retval
 
     try:
