@@ -72,4 +72,4 @@ class ExcelReader:
 		return self.klassListFromExcel
 	
 
-aspect.weave()
+aspect.weaveAtionForClass([ExcelReader])
