@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import sys
 # start
 import handyxml
@@ -10,7 +10,10 @@ class DbAndJavaTypeMapper:
 		self.parseXml(CONS.DB_JAVA_TYPE_MAPPING)
 		
 	def parseXml(self, inXmlFile):
-		for attr in handyxml.xpath(inXmlFile, '//property'):
+		inXmlFile = str(inXmlFile)
+		xx = inXmlFile.replace('\\', "/") # replace( old, new[, count])
+		#print xx
+		for attr in handyxml.xpath(xx, '//property'):
 			self.dbAndJavaTypeDict[attr.dataType] = attr.javaType
 	def getJavaType(self, dataType):
 		
