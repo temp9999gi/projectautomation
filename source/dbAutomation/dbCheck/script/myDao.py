@@ -26,7 +26,7 @@ class MyDao:
 			self.tableVoList.append((vo.tableEng, vo.tableKor))
 			for vo1 in vo.ColumnList:
 				self.columnVoList.append((vo1.no1,vo1.columnKor,vo1.columnEng,vo1.type1, \
-					vo1.length,vo1.null1,vo1.key,vo1.remark,vo1.tableEng))
+					vo1.length,vo1.null1,vo1.key1,vo1.remark,vo1.tableEng))
 
 	def deleteAll(self):
 		# clean up existing data
@@ -42,7 +42,7 @@ class MyDao:
 		
 
 	def insertColumn(self):
-		statement = "INSERT INTO columnInfo (no1,columnKor,columnEng,type1,length,null1,key,remark,tableEng) VALUES " + \
+		statement = "INSERT INTO columnInfo (no1,columnKor,columnEng,type1,length,null1,key1,remark,tableEng) VALUES " + \
 										   "(  ?,		?,		?,	?,	 ?,	?,  ?,	 ?,	  ?)"
 		insert1(self.conn,statement,self.columnVoList)
 		
