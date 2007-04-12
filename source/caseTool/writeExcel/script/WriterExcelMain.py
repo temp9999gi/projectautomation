@@ -34,8 +34,7 @@ class WriterExcelMain:
 		aExcelReader = ExcelReader(inFile)
 		self.aModelInfo = KlassInfoList()
 		self.aModelInfo.setKlassList(aExcelReader.getKlassListFromExcel())
-		#self.aModelInfo = aKlassInfoList
-		#self.aModelInfo = self.getModel()
+
 		self.aModelInfo.setReaderAppEnv(aReaderAppEnv)
 
 		self.aModelInfo.setDefinitionType(deliverableType)
@@ -74,7 +73,8 @@ if __name__ == '__main__':
 
 	aReaderAppEnv = ReaderAppEnv.ReaderAppEnv()
 	aReaderAppEnv.saveAppEnvInfo(CONS.INPUT_APP_ENV_XML)
-
+	aReaderAppEnv.saveClassTemplateEnv(CONS.CLASS_TEMPLATE_ENV)
+	
 	if aReaderAppEnv.appEnvData["isClassDefinition"]=='True':
 		deliverableType = 'Class'
 		aWriterExcelMain = WriterExcelMain()

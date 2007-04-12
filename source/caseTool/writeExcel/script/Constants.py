@@ -74,6 +74,7 @@ class Constants :
 		
 		# 프로그램 환경 정보
 		self.INPUT_APP_ENV_XML 		= self.ETC_DIR / 'appEnv.xml'
+		self.CLASS_TEMPLATE_ENV 		= self.ETC_DIR / 'classTemplateEnv.xml'
 		
 		#CLASS_EXCEL_TEMPLATE의 ATTRIBUTE START 위치
 		self.ATTRIBUTE_LIST_START_POSITION = 8
@@ -81,7 +82,12 @@ class Constants :
 		
 		self.USECASE_LIST_START_POSITION = 7 #클래스의 목록 시작위치
 		
-		self.EXCEL_MAX_SHEET_COUNT = 250
+		
+		#243개부터에러가난다
+		#왜일까?
+		#엑셀의 문제가 있는 것으로 판단된다.
+		#그래서 240개로 조정을 했다.
+		self.EXCEL_MAX_SHEET_COUNT = 240
 		
 	def setInputXmlFile(self, inputXmlFile):
 		Constants.INPUT_XML_FILE = inputXmlFile

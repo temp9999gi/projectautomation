@@ -6,6 +6,8 @@ ComUtil = ComUtil1.CommonUtil()
 class ReaderAppEnv:
 	def __init__(self):
 		self.appEnvData={}
+		self.classTemplateEnv={}
+		
 
 	def saveAppEnvInfo(self, inAppEnvXml):
 		doc = ComUtil1.getDomEncodeUtf8(inAppEnvXml)
@@ -16,28 +18,42 @@ class ReaderAppEnv:
 		  'isClassExport', 'isInterfaceExport']:
 			outValue = doc.getElementsByTagName("appEnv")[0].getAttribute(attrName)
 			value1 = ComUtil1.encodeCp949(outValue)
-			self.__setitem__(attrName, value1)
+			self.setAppEnvData(attrName, value1)
 			#apply(
 	
-	def __setitem__(self, key, item): 
+	def setAppEnvData(self, key, item):
 		self.appEnvData[key] = item
-	def __getitem__(self, key):
+	def getAppEnvData(self, key):
 		return self.appEnvData[key]
 	
-##	def setWriter(self, writer):
-##		self.writer = writer
-##	def getWriter(self):
-##		return self.writer
-##
-##	def setWriteDate(self, writeDate):
-##		self.writeDate = writeDate
-##	def getWriteDate(self):
-##		return self.writeDate
-##
-##	def setSubSystemName(self, subSystemName):
-##		self.subSystemName = subSystemName
-##	def getSubSystemName(self):
-##		return self.subSystemName
+	#---------------------------------------------------------------------------
+	def saveClassTemplateEnv(self, inClassTemplateEnvXml):
+		doc = ComUtil1.getDomEncodeUtf8(inClassTemplateEnvXml)
+		for attrName in ['rowPhase', \
+			'colPhase', \
+			'rowTask', \
+			'colTask', \
+			'rowWriter', \
+			'colWriter', \
+			'rowWriteDate', \
+			'colWriteDate', \
+			'rowSubSystemName', \
+			'colSubSystemName', \
+			'rowClass', \
+			'colClass', \
+			'rowPackage', \
+			'colPackage', \
+			'rowDesc', \
+			'colDesc', 'AttrStartPosition']:
+			outValue = doc.getElementsByTagName("appEnv")[0].getAttribute(attrName)
+			value1 = ComUtil1.encodeCp949(outValue)
+			self.setClassTemplateEnvData(attrName, value1)
+			#apply(
+
+	def setClassTemplateEnvData(self, key, item):
+		self.classTemplateEnv[key] = int(item)
+	def getClassTemplateEnvData(self, key):
+		return self.classTemplateEnv[key]
 
 if __name__ == '__main__':
 	from path import path

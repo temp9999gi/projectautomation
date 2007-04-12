@@ -3,7 +3,7 @@ import sys
 from win32com.client import Dispatch
 import pythoncom
 from CommonUtil import *
-#from ReaderAppEnvXml import *
+
 from Constants import *
 import CommonUtil as comUtil
 
@@ -45,7 +45,6 @@ class ExcelHelper:
 			xl.Workbooks(workFile).Sheets(templName).Copy(aSheet)
 			
 			aTargetSheet = xl.Workbooks(workFile).Sheets(cnt) # 복사된 시트
-			#xl.Sheets(cnt).Name = aClassInfo.className
 			if sheetName == None:
 				xl.Sheets(cnt).Name = cnt - 1
 			else:
@@ -126,9 +125,16 @@ class ExcelHelper:
 	def writeHeadInfo(self, sh, aClassInfo):
 		# row, col
 		aReaderAppEnv=self.aModelInfo.getReaderAppEnv()
-		sh.Cells(2, 4).Value = aReaderAppEnv.appEnvData["writer"]	# 작성자
-		sh.Cells(2, 6).Value = aReaderAppEnv.appEnvData["writeDate"]# 작성일
-		sh.Cells(3, 6).Value = aReaderAppEnv.appEnvData["subSystemName"] # 서브시스템
+		rowWriter    = aReaderAppEnv.classTemplateEnv["rowWriter"] #        ='2'
+		colWriter    = aReaderAppEnv.classTemplateEnv["colWriter"] #        ='4'
+		rowWriteDate = aReaderAppEnv.classTemplateEnv["rowWriteDate"] #        ='2'
+		colWriteDate = aReaderAppEnv.classTemplateEnv["colWriteDate"] #        ='6'
+		rowSubSystemName = aReaderAppEnv.classTemplateEnv["rowSubSystemName"] #        ='3'
+		colSubSystemName = aReaderAppEnv.classTemplateEnv["colSubSystemName"] #        ='6'
+
+		sh.Cells(rowWriter,        colWriter).Value        = aReaderAppEnv.appEnvData["writer"]	# 작성자
+		sh.Cells(rowWriteDate,     colWriteDate).Value     = aReaderAppEnv.appEnvData["writeDate"]# 작성일
+		sh.Cells(rowSubSystemName, colSubSystemName).Value = aReaderAppEnv.appEnvData["subSystemName"] # 서브시스템
 
 
 

@@ -38,8 +38,6 @@ class ExcelHelperClassDefiniton(ExcelHelper):
 				self.initExcelFileClassDef()
 
 			aTargetSheet = self.addSheet("templ", aClassInfo.name)
-			#aTargetSheet = self.addSheet("templ", None)
-			print 'aClassInfo.name:[', aClassInfo.name,']'
 
 			self.writeClassMasterInfo(aTargetSheet, aClassInfo, sheetCnt)
 			self.writeAttribute(aTargetSheet, aClassInfo)
@@ -80,26 +78,31 @@ class ExcelHelperClassDefiniton(ExcelHelper):
 
 	def writeClassMasterInfo(self, sh, aClassInfo,sheetCnt):
 		self.writeHeadInfo(sh, aClassInfo)
-		
-		sh.Cells(1, 6).Value = sheetCnt #페이지번호
-		sh.Cells(4, 3).Value = aClassInfo.name				# 클래스명
-		sh.Cells(5, 3).Value = aClassInfo.getClassDoc().packagePath
-		sh.Cells(6, 3).Value = aClassInfo.getClassDoc().documentation	# 설명
-		#sh.Cells(7, 3).Value = self.aModelInfo.getDocumentation(aClassInfo.taggedValue)	# 설명
+		aEnv=self.aModelInfo.getReaderAppEnv()
+		rowClass	=aEnv.classTemplateEnv["rowClass"]    #'4'
+		colClass	=aEnv.classTemplateEnv["colClass"]    #'3'
+		rowPackage	=aEnv.classTemplateEnv["rowPackage"]    #'5'
+		colPackage	=aEnv.classTemplateEnv["colPackage"]    #'3'
+		rowDesc		=aEnv.classTemplateEnv["rowDesc"]    #'6'
+		colDesc		=aEnv.classTemplateEnv["colDesc"]    #'3'
 
+		sh.Cells(rowClass, 		colClass).Value = aClassInfo.name				# 클래스명
+		sh.Cells(rowPackage, 	colPackage).Value = aClassInfo.getClassDoc().packagePath
+		sh.Cells(rowDesc, 		colDesc).Value = aClassInfo.getClassDoc().documentation	# 설명
 
 	def writeAttribute(self, sh, aClassInfo):
 
-		#attributes = self.aModelInfo.getAttributes(aClassInfo)
 		attributes = aClassInfo.fieldList
-		i = self.CONS.ATTRIBUTE_LIST_START_POSITION
+		aEnv=self.aModelInfo.getReaderAppEnv()
+		AttrStartPosition=aEnv.classTemplateEnv["AttrStartPosition"]    #'8'
+		i = AttrStartPosition
 
 		for attr in attributes:
 			self.writeAttributeRecord(sh, i, attr)
 			i = i + 1
 
 		#속성정보가 없는 경우에 대한 처리
-		if i == self.CONS.ATTRIBUTE_LIST_START_POSITION:
+		if i == AttrStartPosition:
 			self.writeAttributeRecordBlank(sh, i)
 			i = i + 1
 
@@ -109,10 +112,10 @@ class ExcelHelperClassDefiniton(ExcelHelper):
 
 		sh.Cells(row, 1).Value = row - (self.CONS.ATTRIBUTE_LIST_START_POSITION-1)	# 번호
 		sh.Cells(row, 2).Value = attr.name			# 속성명
-##		sh.Cells(row, 3).Value = attr.visibility	# 가시성
-##		sh.Cells(row, 4).Value = attr.typeName		# 타입
-##		sh.Cells(row, 5).Value = attr.initialValueBody			# 기본값 ????????????????????????????
-##		sh.Cells(row, 6).Value = attr.documentation	# 설명
+		sh.Cells(row, 3).Value = attr.visibility	# 가시성
+		sh.Cells(row, 4).Value = attr.typeName		# 타입
+		sh.Cells(row, 5).Value = attr.initialValueBody			# 기본값 ????????????????????????????
+		sh.Cells(row, 6).Value = attr.documentation	# 설명
 	def writeAttributeRecordBlank(self, sh, row):
 		sh.Cells(row, 1).Value = '1'	# 번호
 		sh.Cells(row, 2).Value = 'N_A'	# 속성명
