@@ -111,8 +111,10 @@ class ExcelHelperClassExport(ExcelHelper):
 
 		#속성정보가 없는 경우에 대한 처리
 		if i == self.CONS.ATTRIBUTE_LIST_START_POSITION:
+			
+		    #음 N/A가 찍히면 에러난다.==>N/A =N_A
 			className, visibility, name, typeName, initialValueBody, documentation = \
-				"N/A", "N/A", "N/A", "N/A", "N/A", "N/A"
+				"N_A", "N_A", "N_A", "N_A", "N_A", "N_A"
 			self.writeAttributeRecord(sh, i, className,visibility, name, typeName, \
 				initialValueBody, documentation)
 			i = i + 1
