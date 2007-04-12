@@ -1,14 +1,14 @@
 ﻿# -*- coding: utf-8 -*-
 # start
 from CommonUtil import *
-#import sys;sys.path.append("C://_projectautomation/source/common")
+
 from pyExcel.ReadExcel import *
 from Klass import *
 from Field import *
 from posdata.DbAndJavaTypeMapper import *
 # from DbAndJavaTypeMapper import *
+#import sys;sys.path.append("C://_projectautomation/source/common")
 
-import aop.aspect as aspect
 
 class ExcelReader:
 	def __init__(self, inFile, CONS):
@@ -71,5 +71,5 @@ class ExcelReader:
 		
 		return self.klassListFromExcel
 	
-
+import aop.aspect as aspect
 aspect.weaveAtionForClass([ExcelReader])

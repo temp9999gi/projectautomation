@@ -57,3 +57,6 @@ class ExcelHelperClassList(ExcelHelper):
 		sh.Cells(row, 4).Value = attr.javaType		# 타입
 		sh.Cells(row, 5).Value = attr.name			# 속성명
 		
+		
+import aop.aspect as aspect
+aspect.weaveAtionForClass([ExcelHelperClassList])
