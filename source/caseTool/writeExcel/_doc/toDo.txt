@@ -1,6 +1,18 @@
-엑셀을 읽는다.
-그다음 객체를 만든다.
-그다음..
+1페이지 39
+2 73
+3 107
+4 141
+5 175
 
-템플릿에 뿌린다.
-끝.
+Sub Macro1()
+'
+' Macro1 Macro
+' myname이(가) 2007-04-07에 기록한 매크로
+'
+
+'
+    Range("A1:F103").Select
+    'Range("F103").Activate
+    ActiveSheet.PageSetup.PrintArea = "$A$1:$F$103"
+    'ActiveWindow.SmallScroll Down:=-120
+End Sub

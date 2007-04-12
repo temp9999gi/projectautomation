@@ -1,7 +1,7 @@
 <appEnv
-    writer = '박종서'
-    writeDate = '2007.03.22'
-    subSystemName = '영업관리'
+    writer = '김한규'
+    writeDate = '2007.04.06'
+    subSystemName = '전사조직지원'
     isClassList = 'False'
     isClassDefinition = 'True'
     isInterfaceList = 'False'
