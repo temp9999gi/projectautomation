@@ -1,6 +1,6 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # start
-import sys
+import sys;sys.path.append("C://_projectautomation/source/common")
 import logging
 import utils
 import xmiCommonUtil as xmiUtil
