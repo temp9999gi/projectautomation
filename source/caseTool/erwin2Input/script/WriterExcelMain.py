@@ -1,11 +1,11 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # 
 # generates xml files from Excel
 # Programming by KyungUk, Sung
 #
 # Copyright (c) 2002 KyungUk, Sung
 # start
-import sys
+import sys;sys.path.append("C://_projectautomation/source/common")
 from KlassInfoList import *
 from ExcelReader import *
 from Constants import *
