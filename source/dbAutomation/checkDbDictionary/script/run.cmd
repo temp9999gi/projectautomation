@@ -1,1 +1,1 @@
-checkDbDictionary.py C:\_projectautomation\source\dbAutomation\checkDbDictionary2\input\inputData\input.xls C:\_projectautomation\source\dbAutomation\checkDbDictionary2\db\MyDB.mdb
+checkDbDictionary.py C:\_projectautomation\source\dbAutomation\checkDbDictionary\input\inputData\input.xls C:\_projectautomation\source\dbAutomation\checkDbDictionary\db\MyDB.mdb

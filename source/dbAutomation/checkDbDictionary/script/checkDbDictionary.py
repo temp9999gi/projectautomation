@@ -20,13 +20,9 @@ from CheckDbDictionaryDao import CheckDbDictionaryDao
 from TbNameKorAndNullDao import TbNameKorAndNullDao
 
 CONS = Constants()
-##def getList(cursor):
-##	voList = []
-##	for row in cursor:
-##		voList.append(row)
-##	return voList
+
 class WriterApp:
-	def common1(self,aReaderAppEnv, dataSource):
+	def common1(self,aReaderAppEnv):
 		inFile = path(sys.argv[1])
 #		print inFile
 		aExcelReader = ExcelReader(inFile, CONS)
@@ -37,7 +33,7 @@ class WriterApp:
 		self.aKlassInfoList.setReaderAppEnv(aReaderAppEnv)
 
 	def insertTblAndColAction(self,aReaderAppEnv, dataSource):
-		self.common1(aReaderAppEnv, dataSource)
+		self.common1(aReaderAppEnv)
 		
 		# db에 저장한다.
 		aCheckDbDictionaryDao = CheckDbDictionaryDao(dataSource)
@@ -49,7 +45,7 @@ class WriterApp:
 
 	def writeAction(self,aReaderAppEnv, dataSource):
 
-		self.common1(aReaderAppEnv, dataSource)
+		self.common1(aReaderAppEnv)
 		
 		# db에 저장한다.
 		aCheckDbDictionaryDao = CheckDbDictionaryDao(dataSource)
@@ -81,18 +77,6 @@ def run():
 	aWriterApp.writeAction(aReaderAppEnv, dataSource)
 	print "(MSG) OK"
 
-def run2():
-	inPath = sys.argv[0]
-	CONS.setConstant(inPath)
-
-	aReaderAppEnv = ReaderAppEnv.ReaderAppEnv()
-	aReaderAppEnv.saveAppEnvInfo(CONS.INPUT_APP_ENV_XML)
-	aWriterApp = WriterApp()
-	#dataSource='C://_projectautomation/source/dbAutomation/checkDbDictionary2/db/MyDB.mdb'
-	dataSource = sys.argv[2]
-	aWriterApp.insertTblAndColAction(aReaderAppEnv, dataSource)
-
-	print "(MSG) Insert OK"
 
 	
 if __name__ == '__main__':
