@@ -3,6 +3,7 @@ import win32com.client
 
 class MyDao2:
 	def __init__(self):
+		self.data_source ='C://_projectautomation/source/dbAutomation/checkDbDictionary/db/MyDB.mdb'
 		self.connect()
 
 	def selectAction(self, sql):
@@ -12,9 +13,9 @@ class MyDao2:
 		return self.getTuple(rs)
 		
 	def connect(self):
-		data_source ='C://_projectautomation/source/dbAutomation/checkDbDictionary/db/MyDB.mdb'
+		
 		dsn = 'PROVIDER=Microsoft.Jet.OLEDB.4.0;DATA SOURCE=%(data_source)s;' \
-			% {'data_source': data_source}
+			% {'data_source': self.data_source}
 		self.conn = win32com.client.Dispatch(r'ADODB.Connection')
 		self.conn.Open(dsn)
 		return self.conn

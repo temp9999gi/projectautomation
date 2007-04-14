@@ -5,7 +5,7 @@
 #
 # Copyright (c) 2002 KyungUk, Sung
 # start
-import sys
+import sys;sys.path.append("C://_projectautomation/source/common")
 import logging
 import utils
 # import shutil
@@ -55,8 +55,8 @@ class WriterApp:
 		aDao.insertTbNameKorAndNullAction(voList)
 
 		log.info('---def writeAction---')
-		log.info("(MSG) Ok: write Sql")
-		print "(MSG)write statement: Ok"
+		log.info("(MSG)insert: Ok")
+		print "(MSG)insert: Ok"
 
 
 if __name__ == '__main__':

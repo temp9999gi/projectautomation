@@ -4,6 +4,7 @@ import adodb
 
 class MyDao:
 	def __init__(self):
+		self.dbq = "C:\\_projectautomation\\source\\dbAutomation\\checkDbDictionary\\db\\MyDB.mdb;"
 		self.conn = adodb.NewADOConnection('access') # mxodbc required
 		self.connect()
 		self.tableVoList=[]
@@ -11,8 +12,7 @@ class MyDao:
 		self.elementWordVoList=[]
 
 	def connect(self):
-		dbq = "C:\\_projectautomation\\source\\dbAutomation\\checkDbDictionary\\db\\MyDB.mdb;"
-		dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=%(dbq)s" % {'dbq': dbq}
+		dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=%(dbq)s" % {'dbq': self.dbq}
 		self.conn.Connect(dsn)
 		return self.conn
 	
