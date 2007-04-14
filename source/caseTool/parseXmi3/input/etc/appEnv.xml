@@ -1,13 +1,13 @@
 <appEnv
     writer = '작성자: 박종서'
-    writeDate = '작성일: 2007.01.24'
+    writeDate = '작성일: 2007.03.23'
     subSystemName = '서브시스템: 영업관리'
     isClassList = 'False'
     isClassDefinition = 'False'
     isInterfaceList = 'False'
-    isInterfaceDefinition = 'True'
+    isInterfaceDefinition = 'False'
     isUseCaseList = 'False'
-    isClassExport = 'False'
+    isClassExport = 'True'
     isInterfaceExport = 'False'
 >
 </appEnv>
