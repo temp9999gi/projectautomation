@@ -1,0 +1,13 @@
+<appEnv
+    writer = '박종서'
+    writeDate = '2007.03.22'
+    subSystemName = '영업관리'
+    isClassList = 'False'
+    isClassDefinition = 'True'
+    isInterfaceList = 'False'
+    isInterfaceDefinition = 'False'
+    isUseCaseList = 'False'
+    isClassExport = 'False'
+    isInterfaceExport = 'False'
+>
+</appEnv>

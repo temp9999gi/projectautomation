@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<META content="text/html; charset=ks_c_5601-1987" http-equiv=Content-Type>
+<SCRIPT language="JavaScript">
+
+
+
+
+// 현재 이 예제 파일이 있는 곳을 지정해 준다.
+var BasePath = "C:/Documents and Settings/ 아래 OnStart에서 실패하면 여기에 직접 쓴다.";  
+
+
+
+
+
+
+function OnStart()
+{
+	//BasePath를 구한다.
+	var loc = document.URLUnencoded.toString();
+	var path;
+	path = loc.replace(/.+:\/+/g, "");
+	BasePath  = path.substr(0,path.lastIndexOf("\\") + 1);//BasePath 생성
+
+	HwpControl.HwpCtrl.SetClientName("DEBUG");
+//	InitToolBarJS();
+	if(!HwpControl.HwpCtrl.Open(BasePath + "sample.hwp"))
+	{
+		alert("Base Path가 잘못 지정된 것 같습니다. 소스에서 BasePath 를 수정하십시요");
+	}
+}
+function InitToolBarJS()
+{
+	HwpControl.HwpCtrl.SetToolBar(0, "FilePreview, Print, Separator, Undo, Redo, Separator, Cut, Copy, Paste,"
+	+"Separator, ParaNumberBullet, MultiColumn, SpellingCheck, HwpDic, Separator, PictureInsertDialog, MacroPlay1");
+
+	HwpControl.HwpCtrl.SetToolBar(1, "DrawObjCreatorLine, DrawObjCreatorRectangle, DrawObjCreatorEllipse,"
+	+"DrawObjCreatorArc, DrawObjCreatorPolygon, DrawObjCreatorCurve, DrawObjCreator, DrawObjTemplateLoad,"
+	+"Separator, ShapeObjSelect, ShapeObjGroup, ShapeObjUngroup, Separator, ShapeObjBringToFront,"
+	+"ShapeObjSendToBack, ShapeObjDialog, ShapeObjAttrDialog");
+
+	HwpControl.HwpCtrl.SetToolBar(2, "StyleCombo, CharShapeLanguage, CharShapeTypeFace, CharShapeHeight,"
+	+"CharShapeBold, CharShapeItalic, CharShapeUnderline, ParagraphShapeAlignJustify, ParagraphShapeAlignLeft,"
+	+"ParagraphShapeAlignCenter, ParagraphShapeAlignRight, Separator, ParaShapeLineSpacing,"
+	+"ParagraphShapeDecreaseLeftMargin, ParagraphShapeIncreaseLeftMargin");
+	HwpControl.HwpCtrl.ShowToolBar(true);
+
+}
+function CutAndPasteTable()
+{
+	HwpControl.HwpCtrl.MoveToField("테스트필드");	// 테스트필드 셀로 이동
+	HwpControl.HwpCtrl.MovePos(26);				// 표 위치로 이동
+	var PosSet = HwpControl.HwpCtrl.GetPosBySet();
+	var nCurPara = PosSet.Item("Para");	// para
+	var nCurPos = PosSet.Item("Pos");		// pos
+	HwpControl.HwpCtrl.SelectText(nCurPara, nCurPos, nCurPara, nCurPos + 8);	// 표 선택
+	var actCut = HwpControl.HwpCtrl.CreateAction("Cut");												// 잘라내기
+	if (actCut.Execute(actCut.CreateSet()))
+	{
+		HwpControl.HwpCtrl.MovePos(3);												// 문서 끝으로 이동
+		HwpCtrlPaste();
+	}
+
+}
+var failCount = 0;
+function HwpCtrlPaste_Debug()
+{
+	var actPaste = HwpControl.HwpCtrl.CreateAction("Paste");
+	var setPaste = actPaste.CreateSet();
+	if(!actPaste.Execute(setPaste))
+	{
+		
+		if (failCount<5)
+		{
+			setTimeout(HwpCtrlPaste_Debug, 100); //0.1초 후 다시 시도.
+			failCount++;
+		}
+		else
+		{
+			failCount = 0;
+			alert("붙이기를 "+failCount+"번 시도 했으나 모두 실패했습니다.\n마지막으로 다시 한번 시도합니다.");
+			if (!actPaste.Execute(setPaste))
+			{
+				alert("붙이기를 실패했습니다.");
+			}
+		}
+	}
+	else
+	{
+		if(failCount > 0)
+		{
+			alert("붙이기를 "+failCount+"번 실패해서 다시 붙였습니다.");
+		}
+		failCount = 0;
+	}
+}		
+function HwpCtrlPaste()
+{
+	var actPaste = HwpControl.HwpCtrl.CreateAction("Paste");
+	var setPaste = actPaste.CreateSet();
+	if(!actPaste.Execute(setPaste))
+	{
+		
+		if (failCount<5) // 대부분 2번이상은 실패하지 않는다.
+		{
+			setTimeout(HwpCtrlPaste, 100);  //0.1초 후 다시 시도.
+			failCount++;
+		}
+		else
+		{
+			failCount = 0;
+			actPaste.Execute(setPaste); // 최후 시도
+		}
+
+		
+	}
+	else
+	{
+		failCount = 0;  // 실패 했으나 성공...
+	}
+}
+
+</SCRIPT>
+
+
+</HEAD>
+
+<BODY bgColor=#77bbff onload = "OnStart()" >
+<H3>표 이동,  Cut and Paste 예</H3>
+<hr>
+			특정한 이름의 필드를 갖는 표를 문서의 맨 아래로 이동한다.<br>
+			Cut Action이 호출된 후  Paste Action이 바로 호출되면서 ClipBoard read error가 발생하는 것을 타이머를 사용해 해결.<br>
+			이는 임시 방편이며, 데이터 이동에 ClipBoard를 사용하는 권할만한 사항이 못된다.<br><BR> 블럭저장후 InsertFile을 사용하는 것이 옳다.<br><br>
+
+<form name = "HwpControl">
+<input type=button value = "Table Cut and Paste" onclick=CutAndPasteTable() >
+
+<br>
+<br>
+<OBJECT id=HwpCtrl style="LEFT: 0px; TOP: 0px" height=600 width=800 align=center 
+	classid=CLSID:BD9C32DE-3155-4691-8972-097D53B10052>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="21167">
+	<PARAM NAME="_ExtentY" VALUE="15875">
+	<PARAM NAME="_StockProps" VALUE="0">
+	<PARAM NAME="FILENAME" VALUE=""></OBJECT>
+
+</form>
+
+</BODY>
+
+</HTML>

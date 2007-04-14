@@ -1,0 +1,131 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+
+	<HEAD>
+
+		<TITLE>HWPCtrl OCX Test</TITLE>
+
+		<SCRIPT language="JavaScript">
+			function onLoad()
+			{
+				HWPCtrl.Run("ViewOptionCtrlMark");
+			}
+			function onOpenHwpFile()
+			{
+				var strFilePath = idFile.value;
+				HWPCtrl.Open(strFilePath);
+			}
+			function cutAndPasteTable()
+			{
+				HWPCtrl.MoveToField("테스트필드");	// 테스트필드 셀로 이동
+				HWPCtrl.MovePos(26);				// 표 위치로 이동
+				var diAction = HWPCtrl.CreateAction("DocumentInfo");
+				var diSet = diAction.CreateSet();
+				diAction.Execute(diSet);
+				var nCurPara = diSet.Item("CurPara");	// para
+				var nCurPos = diSet.Item("CurPos");		// pos
+				HWPCtrl.SelectText(nCurPara, nCurPos, nCurPara, nCurPos + 8);	// 표 선택
+				var actCut = HWPCtrl.CreateAction("Cut");												// 잘라내기
+				if (actCut.Execute(actCut.CreateSet()))
+				{
+					HWPCtrl.MovePos(3);												// 문서 끝으로 이동
+					HwpCtrlPaste();
+				}
+
+			}
+			var failCount = 0;
+			function HwpCtrlPaste_Debug()
+			{
+				var actPaste = HWPCtrl.CreateAction("Paste");
+				var setPaste = actPaste.CreateSet();
+				if(!actPaste.Execute(setPaste))
+				{
+					
+					if (failCount<5)
+					{
+						setTimeout(HwpCtrlPaste_Debug, 100); //0.1초 후 다시 시도.
+						failCount++;
+					}
+					else
+					{
+						failCount = 0;
+						alert("붙이기를 "+failCount+"번 시도 했으나 모두 실패했습니다.\n마지막으로 다시 한번 시도합니다.");
+						if (!actPaste.Execute(setPaste))
+						{
+							alert("붙이기를 실패했습니다.");
+						}
+					}
+				}
+				else
+				{
+				    if(failCount > 0)
+					{
+						alert("붙이기를 "+failCount+"번 실패해서 다시 붙였습니다.");
+					}
+					failCount = 0;
+				}
+			}		
+			function HwpCtrlPaste()
+			{
+				var actPaste = HWPCtrl.CreateAction("Paste");
+				var setPaste = actPaste.CreateSet();
+				if(!actPaste.Execute(setPaste))
+				{
+					
+					if (failCount<5) // 대부분 2번이상은 실패하지 않는다.
+					{
+						setTimeout(HwpCtrlPaste, 100);  //0.1초 후 다시 시도.
+						failCount++;
+					}
+					else
+					{
+						failCount = 0;
+						actPaste.Execute(setPaste); // 최후 시도
+					}
+
+					
+				}
+				else
+				{
+					failCount = 0;  // 실패 했으나 성공...
+				}
+			}		
+
+		</SCRIPT>
+
+	</HEAD>
+
+	<BODY onload="onLoad();">
+
+			특정한 이름의 필드를 갖는 표를 문서의 맨 아래로 이동한다.<br>
+			Cut Action이 호출된 후  Paste Action이 바로 호출되면서 ClipBoard read error가 발생하는 것을 타이머를 사용해 해결.<br>
+			이는 임시 방편이며, 데이터 이동에 ClipBoard를 사용하는 권할만한 사항이 못된다.<br><BR> 블럭저장후 InsertFile을 사용하는 것이 옳다.<br><br>
+		<CENTER>
+			<INPUT type="file" id="idFile"/>
+
+			<INPUT type="button" onclick="JavaScript:onOpenHwpFile();" value="Open..."/>
+
+			<BR/>
+
+			<INPUT type="button" onclick="JavaScript:cutAndPasteTable();" value="Cut and Paste table"/>
+
+			<OBJECT id="HWPCtrl" width="100%" height="100%" classid="CLSID:BD9C32DE-3155-4691-8972-097D53B10052">
+
+				<PARAM name="_Version" value="65536"/>
+
+				<PARAM name="_ExtentX" value="20902"/>
+
+				<PARAM name="_ExtentY" value="12435"/>
+
+				<PARAM name="_StockProps" value="0"/>
+
+				<PARAM name="FILENAME" value=""/>
+
+			</OBJECT>
+
+		</CENTER>
+
+	</BODY>
+
+</HTML>
+
