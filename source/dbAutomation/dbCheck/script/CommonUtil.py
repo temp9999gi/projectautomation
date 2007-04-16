@@ -13,7 +13,6 @@ def getDomEncodeUtf8(xmlFile):
 def encodeCp949(inStr):
 	return inStr.encode('cp949')
 
-		
 class CommonUtil :
 
 	def generateCode(self, objectArray, templateFileName):
@@ -46,4 +45,4 @@ class CommonUtil :
 			print "The source of the error is", source
 			print "The error message is", text
 			print "More info can be found in %s (id=%d)" % (helpFile, helpId)
-		
+

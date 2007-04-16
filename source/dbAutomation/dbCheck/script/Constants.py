@@ -39,7 +39,7 @@ class Constants :
 		#파일명은 한글을 사용하면 에러남
 		#------------------------------------------------------------------------
 		self.OUTPUT_XLS_FILE 	= self.OUT_DIR / 'output.xls'
-
+		self.XLS_FILE_TEMPLATE 	= self.TEMPLATE_DIR / 'tmpl_output.xls'
 		#------------------------------------------------------------------------
 		
 		self.INPUT_CLASS_ATTRIBUTE 	= self.INPUT_DIR / 'inputData' / \

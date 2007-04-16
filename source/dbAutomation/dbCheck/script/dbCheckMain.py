@@ -21,7 +21,9 @@ def getList(cursor):
 	return voList
 	
 def Run():
-
+	
+	
+	
 	aDao = MyDao()
 ##	aDao.deleteAll()
 ##	aDao.setVo(tableList)
@@ -92,6 +94,12 @@ def Run():
 		'tableKR', 'bizName')
 	inSheetName='203'
 	writeAtion(aWriterExcelMain,voList,title,inSheetName)
+	
+	#---------------------------------------------------------------------------
+	aWriterExcelMain.deleteSheet('templ')
+	aWriterExcelMain.closeExcel()
+
+	
 	
 	print "(MSG) OK"
 	

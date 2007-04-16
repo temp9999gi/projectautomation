@@ -6,14 +6,17 @@ class WriterExcelMain(ExcelHelper):
 		inPath = sys.argv[0] #메인프로그램
 		CONS.setConstant(inPath)
 		self.setCons(CONS)
-		outputfile = CONS.OUTPUT_XLS_FILE		
+		outputfile = CONS.OUTPUT_XLS_FILE
+		tmplFileName = CONS.XLS_FILE_TEMPLATE
+		
+		ComUtil.copyTemplate(tmplFileName, outputfile)
 		self.openExcelSheet(outputfile)
 		
 	def writeSheetAtion(self, voList, columnTitle, inSheetName):
 		i = self.CONS.ATTRIBUTE_LIST_START_POSITION
 		self.setCurrentRow(i)
 		self.setVoList(voList)
-		#??????????????????????????????????????
+		
 		self.setColumnTitle(columnTitle)
 
 		self.deleteSheet([inSheetName])
