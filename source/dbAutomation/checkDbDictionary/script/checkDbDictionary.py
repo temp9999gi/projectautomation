@@ -43,7 +43,7 @@ class WriterApp:
 
 		aCheckDbDictionaryDao.insertTblAndColAction(tableList)
 
-	def writeAction(self,aReaderAppEnv, dataSource):
+	def createCheckDbAction(self,aReaderAppEnv, dataSource):
 
 		self.common1(aReaderAppEnv)
 		
@@ -74,7 +74,7 @@ def run():
 	aWriterApp = WriterApp()
 	#dataSource='C://_projectautomation/source/dbAutomation/checkDbDictionary2/db/MyDB.mdb'
 	dataSource = sys.argv[2]
-	aWriterApp.writeAction(aReaderAppEnv, dataSource)
+	aWriterApp.createCheckDbAction(aReaderAppEnv, dataSource)
 	print "(MSG) OK"
 
 
