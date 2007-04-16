@@ -1,0 +1,22 @@
+<appEnv
+	rowPhase        	='1'
+	colPhase            ='4'
+	rowTask             ='1'
+	colTask             ='6'
+	rowWriter           ='2'
+	colWriter           ='4'
+	rowWriteDate        ='2'
+	colWriteDate        ='6'
+	rowSubSystemName    ='3'
+	colSubSystemName    ='6'
+	rowClass   			='4'
+	colClass            ='3'
+	rowPackage          ='5'
+	colPackage          ='3'
+	rowDesc             ='6'
+	colDesc             ='3'
+	AttrStartPosition   ='8'	
+>
+</appEnv>
+
+
