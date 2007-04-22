@@ -43,9 +43,14 @@ class WordSuperType:
 	def getDoc(self):
 		return self.doc
 	def setVisible(self, isVisible):
-		#pass
-		self.app.Visible = isVisible
-
+		pass
+		#self.app.Visible = isVisible
+	def moveTopLevelEnd(self):
+		self.app.HAction.Run("MoveTopLevelEnd");
+		#HAction.Run("MoveTopLevelBegin");
+	def breakPage(self):
+		self.app.HAction.Run("BreakPage");
+	
 	def insertRowOfTable(self, tb, row):
 		tb.Rows(row).Select()
 		self.app.Selection.InsertRowsBelow(1)

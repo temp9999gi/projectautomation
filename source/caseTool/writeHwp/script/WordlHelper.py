@@ -22,16 +22,14 @@ class WordlHelper(WordSuperType):
 			log.debug("data is none")
 			sys.exit(0)
 
-		#print self.CONS.OUT_DIR_TEMP
-		ComUtil.rmTreeDir(self.CONS.OUT_DIR_TEMP)
-		ComUtil.mkDir(self.CONS.OUT_DIR_TEMP)
+
+		ComUtil.rmPattern(self.CONS.OUT_DIR_TEMP,'*.hwp')
 		for aClassInfo in outList:
 			self.openWordService()
-			
-##			activeDoc = self.getActiveDoc()
-##			tb = activeDoc.Tables(1)
+
 			self.writeHeadInfo()
-			#self.writeClassMasterInfo(tb, aClassInfo)
+			self.writeClassMasterInfo(aClassInfo)
+			self.writeAttribute(aClassInfo)
 
 			self.closeActiveDocument(self.filename)
 
@@ -75,34 +73,34 @@ class WordlHelper(WordSuperType):
 		self.app.PutFieldText("writer",		writer)
 		self.app.PutFieldText("writeDate",	writeDate)
 
-	def writeClassMasterInfo(self, tb, aClassInfo):
+	def writeClassMasterInfo(self, aClassInfo):
 		#self.writeHeadInfo(tb, aClassInfo)
+		#누름틀
+		aClassDoc = aClassInfo.getClassDoc()
+		self.app.PutFieldText("packagePath",	aClassDoc.packagePath)
+		self.app.PutFieldText("klassEng",	aClassInfo.name)
+		self.app.PutFieldText("classDoc",	aClassDoc.documentation) # 설명
 
-		tb.Cell(3, 2).Range.Text = aClassInfo.getClassDoc().packagePath
-		tb.Cell(4, 2).Range.Text = aClassInfo.name				# 클래스명
-		tb.Cell(5, 2).Range.Text = aClassInfo.getClassDoc().documentation	# 설명
+ 	#---------------------------------------------------------------------------
+	def writeAttribute(self, aClassInfo):
 
-	#---------------------------------------------------------------------------
-	def writeAttribute(self, tb, aClassInfo):
-
-		i = 2 #self.CONS.ATTRIBUTE_LIST_START_POSITION
+		i = 1
 		for attr in aClassInfo.fieldList:
-			self.writeAttributeRecord(tb, i, attr)
+			self.writeAttributeRecord( i, attr)
 			i = i + 1
 
 		self.setCurrentRow(i)
 		
-	def writeAttributeRecord(self, tb, row, attr):
+	def writeAttributeRecord(self, row, attr):
+		self.app.PutFieldText("attrName" + str(row),	attr.name)
+		self.app.PutFieldText("attrVisib"+ str(row),	attr.visibility)# 가시성
+		self.app.PutFieldText("attrType"+ str(row),		attr.typeName)# 타입
+		self.app.PutFieldText("initialValue"+ str(row),	attr.initialValueBody) # 기본값
+		self.app.PutFieldText("attrDoc"+ str(row),		attr.documentation) # 설명
 
-		#tb.Cell(row, 1).Range.Text = row - (self.CONS.ATTRIBUTE_LIST_START_POSITION-1)	# 번호
-
-		tb.Cell(row, 1).Range.Text = attr.name				# 속성명
-		tb.Cell(row, 2).Range.Text = attr.visibility		# 가시성
-		tb.Cell(row, 3).Range.Text = attr.typeName			# 타입
-		tb.Cell(row, 4).Range.Text = attr.initialValueBody	# 기본값
-		tb.Cell(row, 5).Range.Text = attr.documentation		# 설명
-		if row >= 6:
-			self.insertRowOfTable(tb, row)
+##		tb.Cell(row, 5).Range.Text = attr.documentation		# 설명
+##		if row >= 6:
+##			self.insertRowOfTable(tb, row)
 	#---------------------------------------------------------------------------
 	def writeOperation(self, tb, aClassInfo):
 		operations = aClassInfo.operationList

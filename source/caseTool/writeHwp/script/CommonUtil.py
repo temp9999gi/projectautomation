@@ -35,7 +35,11 @@ class CommonUtil :
 	def mkDir(self, inDir):
 		import os
 		os.mkdir(inDir)
-		
+
+	def rmPattern(self, inDir, inPattern):
+		from path import path
+		for f in path(inDir).walkfiles(inPattern):
+			f.remove()
 
 	def getUpperNameIndex0(self, inString):
 		return string.upper(inString[0]) + inString[1:]		

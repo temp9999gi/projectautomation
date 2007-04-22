@@ -46,6 +46,7 @@ class Constants :
 			
 		self.INPUT_CLASS_WRD_TOTAL_TEMPLATE 	= self.INPUT_DIR / 'templates' / \
 			'inputClassDefinitionTotalTemplate.hwp'
+			
 		self.INPUT_INTERFACE_WRD_TOTAL_TEMPLATE 	= self.INPUT_DIR / 'templates' / \
 			'inputInterfaceDefinitionTotalTemplate.hwp'
 
