@@ -1,0 +1,27 @@
+메인 파일을 연다.
+
+한개의 클래스 정의서 파일을 연다.
+
+복사한다.
+
+메인파일에 붙혀 넣는다.
+
+
+
+
+
+=============
+엑셀에서 읽어서 클래스정의서를 만든다.
+
+
+
+# 테이블별로 한개의 xml정보를 만든다.
+
+WriterExcelMain.py
+input을 엑셀로 받아서... 아웃풋을 액셀로 만들다.
+input:엑셀
+output: 엑셀 
+
+WriterXmlFromExcel.py
+input:엑셀
+output: xml파일들
