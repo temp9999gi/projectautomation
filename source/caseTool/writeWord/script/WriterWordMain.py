@@ -34,8 +34,7 @@ class WriteWordMain:
 		aExcelReader = ExcelReader(inFile)
 		self.aModelInfo = KlassInfoList()
 		self.aModelInfo.setKlassList(aExcelReader.getKlassListFromExcel())
-		#self.aModelInfo = aKlassInfoList
-		#self.aModelInfo = self.getModel()
+
 		self.aModelInfo.setReaderAppEnv(aReaderAppEnv)
 
 		self.aModelInfo.setDefinitionType(deliverableType)
@@ -62,13 +61,11 @@ if __name__ == '__main__':
 	inPath = sys.argv[0]
 	CONS.setConstant(inPath)
 
-	#CONS.LOG_FILE
 
 	utils.initLog(CONS.LOG_FILE)
 	utils.addConsoleLogging()
 	log = logging.getLogger('ExcelMain')
 
-	#log.debug("argv0: ['%s'], attrs.getValue(attrName): ['%s']",attrName, attrs.getValue(attrName))
 	log.debug("---input argument---")
 	log.debug("sys.argv[0]: ['%s']",sys.argv[0])
 	log.debug("sys.argv[1]: ['%s']",sys.argv[1])

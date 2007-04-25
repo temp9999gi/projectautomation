@@ -1,6 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 # start
 import string
+import os
 #from Cheetah.Template import Template
 from xml.dom.minidom import *
 
@@ -32,10 +33,15 @@ class CommonUtil :
 	def rmTreeDir(self, inDir):
 		#import sys
 		shutil.rmtree(inDir, True)
-	def mkDir(self, inDir):
-		import os
-		os.mkdir(inDir)
 		
+	def mkDir(self, inDir):
+		os.mkdir(inDir)
+
+	def rmPattern(self, inDir, inPattern):
+		from path import path
+		for f in path(inDir).walkfiles(inPattern):
+			f.remove()
+
 
 	def getUpperNameIndex0(self, inString):
 		return string.upper(inString[0]) + inString[1:]		

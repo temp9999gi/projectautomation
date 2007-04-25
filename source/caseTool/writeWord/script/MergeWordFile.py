@@ -33,7 +33,7 @@ def main():
 		outputfile = CONS.OUTPUT_INTERFACE_WRD_TOTAL
 		
 	
-	print tmplFileName, outputfile
+	#print tmplFileName, outputfile
 	ComUtil.copyTemplate(tmplFileName, outputfile)
 		
 	aWordHelper=WordSuperType()
@@ -58,17 +58,15 @@ def insertFileAction(aSelection):
 	for aFile in os.listdir(p):
 	    if aFile.endswith('.doc'):
 	        docList.append(aFile)
-	        #print inPath+aFile
 	        aSelection.InsertFile(inPath + aFile)
 	        aSelection.InsertBreak()
 	#print docList
         
+if __name__ == '__main__':
+	main()
 
-main()
-
-import message.message as message
-inMessage ="산출물 생성 완료!\ngood luck!"
-#message.messageLabel(inMessage)
-inTitle='inTitle'
-message.showInfo(inTitle, inMessage)
+	import message.message as message
+	inMessage ="산출물 생성 완료!\ngood luck!"
+	inTitle='정보'
+	message.showInfo(inTitle, inMessage)
 

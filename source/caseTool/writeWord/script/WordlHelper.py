@@ -23,8 +23,9 @@ class WordlHelper(WordSuperType):
 			sys.exit(0)
 
 		print self.CONS.OUT_DIR_TEMP
-		ComUtil.rmTreeDir(self.CONS.OUT_DIR_TEMP)
-		ComUtil.mkDir(self.CONS.OUT_DIR_TEMP)
+		#ComUtil.rmTreeDir(self.CONS.OUT_DIR_TEMP)
+		#ComUtil.mkDir(self.CONS.OUT_DIR_TEMP)
+		ComUtil.rmPattern(self.CONS.OUT_DIR_TEMP,'*.doc')
 		for aClassInfo in outList:
 			self.openWordService()
 			
