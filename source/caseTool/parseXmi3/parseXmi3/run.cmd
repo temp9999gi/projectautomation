@@ -4,6 +4,6 @@ rem C:\_tools\Python24\python.exe C:\_kldp\codegen\caseTool\parseXmi3\parseXmi3\
 
 rem C:\_kldp\codegen\caseTool\parseXmi3\parseXmi3\ExcelMain.py Party.xmi
 
-rem ExcelMain.py ../inputData/Party.xmi
+rem ExcelMain.py ../inputData/spt2.xml
 
-ExcelMain.py ../inputData/spt2.xml
+ExcelMain.py ../inputData/Party.xmi
