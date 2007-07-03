@@ -21,10 +21,9 @@ def getList(cursor):
 	return voList
 	
 def Run():
+	dataSource= sys.argv[1]
 	
-	
-	
-	aDao = MyDao()
+	aDao = MyDao(dataSource)
 ##	aDao.deleteAll()
 ##	aDao.setVo(tableList)
 ##	aDao.insertTable()

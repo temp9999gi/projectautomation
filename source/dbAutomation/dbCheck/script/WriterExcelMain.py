@@ -19,7 +19,7 @@ class WriterExcelMain(ExcelHelper):
 		
 		self.setColumnTitle(columnTitle)
 
-		self.deleteSheet([inSheetName])
+		#self.deleteSheet([inSheetName])
 		aTargetSheet = self.addSheet('templ', inSheetName)
 		
 		self.writeExcel(aTargetSheet)

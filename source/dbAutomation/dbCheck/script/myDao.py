@@ -2,14 +2,14 @@
 import adodb
 #builds object layers on top of databases.
 class MyDao:
-	def __init__(self):
+	def __init__(self, dataSource):
 		self.conn = adodb.NewADOConnection('access') # mxodbc required
-		self.connect()
+		self.connect(dataSource)
 		self.tableVoList=[]
 		self.columnVoList=[]
 
-	def connect(self):
-		dataSource ='C://_projectautomation/source/dbAutomation/dbCheck/db/MyDB.mdb'
+	def connect(self, dataSource):
+		#dataSource ='C://_projectautomation/source/dbAutomation/dbCheck/db/MyDB.mdb'
 		#C:\\_kldp\\codegen\\dbAutomation\\dbCheck\\input\\mdb\\MyDB.mdb
 		#dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=C:\\_kldp\\codegen\\dbAutomation\\dbCheck\\input\\mdb\\MyDB.mdb;"
 		dsn = "Driver={Microsoft Access Driver (*.mdb)};Dbq=%(dataSource)s;" \
