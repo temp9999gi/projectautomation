@@ -1,0 +1,1 @@
+python.exe C:\_projectautomation\source\dbAutomation\checkDbDictionary\script\insertTblAndCol.py C:\_projectautomation\source\dbAutomation\dbCheck\input\inputData\input.xls C:\_projectautomation\source\dbAutomation\dbCheck\db\MyDB.mdb
