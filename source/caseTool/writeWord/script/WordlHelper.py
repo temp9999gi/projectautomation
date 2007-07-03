@@ -77,16 +77,16 @@ class WordlHelper(WordSuperType):
 	def writeHeadInfo(self, tb):
 		aReaderAppEnv=self.aModelInfo.getReaderAppEnv()
 		# row, col
-		tb.Cell(2, 2).Range.Text = aReaderAppEnv.appEnvData["subSystemName"] # 서브시스템
-		tb.Cell(3, 4).Range.Text = aReaderAppEnv.appEnvData["writer"]	# 작성자
-		tb.Cell(2, 4).Range.Text = aReaderAppEnv.appEnvData["writeDate"]# 작성일
+		tb.Cell(1, 2).Range.Text = aReaderAppEnv.appEnvData["subSystemName"] # 서브시스템
+		#tb.Cell(3, 4).Range.Text = aReaderAppEnv.appEnvData["writer"]	# 작성자
+		#tb.Cell(2, 4).Range.Text = aReaderAppEnv.appEnvData["writeDate"]# 작성일
 
 	def writeClassMasterInfo(self, tb, aClassInfo):
 		#self.writeHeadInfo(tb, aClassInfo)
 
 		tb.Cell(3, 2).Range.Text = aClassInfo.getClassDoc().packagePath
-		tb.Cell(4, 2).Range.Text = aClassInfo.name				# 클래스명
-		tb.Cell(5, 2).Range.Text = aClassInfo.getClassDoc().documentation	# 설명
+		tb.Cell(2, 2).Range.Text = aClassInfo.name				# 클래스명
+		tb.Cell(4, 2).Range.Text = aClassInfo.getClassDoc().documentation	# 설명
 
 	#---------------------------------------------------------------------------
 	def writeAttribute(self, tb, aClassInfo):
@@ -101,12 +101,12 @@ class WordlHelper(WordSuperType):
 	def writeAttributeRecord(self, tb, row, attr):
 
 		#tb.Cell(row, 1).Range.Text = row - (self.CONS.ATTRIBUTE_LIST_START_POSITION-1)	# 번호
-
-		tb.Cell(row, 1).Range.Text = attr.name				# 속성명
-		tb.Cell(row, 2).Range.Text = attr.visibility		# 가시성
-		tb.Cell(row, 3).Range.Text = attr.typeName			# 타입
-		tb.Cell(row, 4).Range.Text = attr.initialValueBody	# 기본값
-		tb.Cell(row, 5).Range.Text = attr.documentation		# 설명
+		tb.Cell(row, 1).Range.Text = row-1
+		tb.Cell(row, 2).Range.Text = attr.name				# 속성명
+		tb.Cell(row, 3).Range.Text = attr.visibility		# 가시성
+		tb.Cell(row, 4).Range.Text = attr.typeName			# 타입
+		tb.Cell(row, 5).Range.Text = attr.initialValueBody	# 기본값
+		tb.Cell(row, 6).Range.Text = attr.documentation		# 설명
 		if row >= 6:
 			self.insertRowOfTable(tb, row)
 	#---------------------------------------------------------------------------
@@ -121,11 +121,12 @@ class WordlHelper(WordSuperType):
 
 	def writeOperationRecord(self, tb, row, aOper):
 		i=row
-		tb.Cell(i, 1).Range.Text = aOper.name					# 명
-		tb.Cell(i, 2).Range.Text = aOper.visibility				# 가시성
-		tb.Cell(i, 3).Range.Text = aOper.parameterString		# 파라미터
-		tb.Cell(i, 4).Range.Text = aOper.returnTypeName			# 반환타입
-		tb.Cell(i, 5).Range.Text = aOper.documentation			# 설명
+		tb.Cell(i, 1).Range.Text = row-1
+		tb.Cell(i, 2).Range.Text = aOper.name					# 명
+		tb.Cell(i, 3).Range.Text = aOper.visibility				# 가시성
+		tb.Cell(i, 4).Range.Text = aOper.parameterString		# 파라미터
+		tb.Cell(i, 5).Range.Text = aOper.returnTypeName			# 반환타입
+		tb.Cell(i, 6).Range.Text = aOper.documentation			# 설명
 		if row >= 6:
 			self.insertRowOfTable(tb, row)
 
