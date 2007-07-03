@@ -21,58 +21,14 @@ class TableInfoDao(SuperDao):
 
 	def getKlassListAction(self):
 		self.selectAction()
-		return self.getKlassList(self.fldList)
-
-
-	#---------------------------------------------------------------------------
-	#self.setMethod(klassName)
-
-	#def setMethod(self, klassName):
-		
-	def setMethod(self, aKlass):
-		self.setRecordset()
-		sql=self.getSqlForMethod(aKlass.klassName)
-		rs = self.executeQuery(sql)
-		xx = self.getTuple(rs)
-		self.setRelMethodAndClass(xx, aKlass)
-
-	def getSqlForMethod(self, klassName):
-		sql = """
-			SELECT T1.methodReturnType, T1.methodName, T1.methodArgument
-			FROM MethodInfo AS T1
-			WHERE T1.klassName="%(in_klassName)s";
-			"""% \
-			{'in_klassName': klassName}
-			
-		return sql
-	
-	def setRelMethodAndClass(self, inRs, aKlass):
-		for row  in inRs:
-			try:
-			    #
-				col1, col2, col3 = row[0:3]
-			except (ValueError):
-				print 'ValueError'
-				sys.exit(2)
-
-			if len(col2) > 0:
-				aMethod = Method()
-				aMethod.setAttributes(col1, col2, col3)
-				aKlass.addMethodList(aMethod)
-
-		#return self.klassList
+		return self.getKlassList(self.getResultSetList())
 	
 	#---------------------------------------------------------------------------
 	def selectAction(self):
-		self.setRecordset()
-		sql=self.selectColumnInfo()
-		rs = self.executeQuery(sql)
-		return self.getTuple(rs)
-	
+		sql=self.getSqlColumnInfo()
+		return self.getTupleAction(sql)
 
-
-
-	def selectColumnInfo(self):
+	def getSqlColumnInfo(self):
 		sql = """
 			SELECT
 			columnInfo.no1, columnInfo.javaClassEng, "private" as fieldVisibility,
@@ -111,12 +67,11 @@ class TableInfoDao(SuperDao):
 				print 'excel input file is invalid'
 				sys.exit(2)
 
-			#if seqNo == 'NO': continue
 			if fieldName == '': break
 			if oldKlassEng != klassName:
 				aKlass = Klass()
 				aKlass.setAttributes(klassName)
-				self.setMethod(aKlass)
+				#self.setMethod(aKlass)
 				
 				self.klassList.append(aKlass)
 

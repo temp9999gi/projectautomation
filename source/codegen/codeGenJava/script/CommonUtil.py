@@ -1,10 +1,15 @@
 ﻿# -*- coding: utf-8 -*-
 import string
 from xml.dom.minidom import *
+
+# CONSTANTS & GLOBALS
+SPC2 = '  '
+SPC4 = '    '
 try:
     True, False
 except NameError:
     True, False = (1==1), (1==0)
+
 def capitalize1(inText):
 	return string.capitalize(inText)
 def utf8ToEucKr(inUtf8):

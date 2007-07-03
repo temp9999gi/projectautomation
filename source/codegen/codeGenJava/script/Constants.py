@@ -29,9 +29,19 @@ class Constants:
 		self.PROPERTY_XML_FILE_DIR = self.INPUT_DIR
 		self.DB_JAVA_TYPE_MAPPING = self.ETC_DIR / 'mapping_properties.xml'
 		
+		#-----------------------------------------------------------------------
+		#DOMAIN
 		self.JAVA_DOMAIN_TEMPLATE 	= self.TEMPLATE_DIR / "JAVA_DOMAIN_TEMPLATE.tmpl"
-		
-		#DAO_OUT_DIR
-		self.DAO_OUT_DIR 	= self.OUT_DIR / 'dao' / 'ibatis'
-		
+		self.DOMAIN_OUT_DIR 	= self.OUT_DIR / 'domain'
+		#-----------------------------------------------------------------------
+		#DAO
 		self.DAO_TEMPLATE 	= self.TEMPLATE_DIR / "DAO_TEMPLATE.tmpl"
+		self.DAO_OUT_DIR 	= self.OUT_DIR / 'dao' / 'ibatis'
+		#-----------------------------------------------------------------------
+		# IDAO
+		self.IDAO_TEMPLATE 	= self.TEMPLATE_DIR / "IDAO_TEMPLATE.tmpl"
+		self.IDAO_OUT_DIR 	= self.OUT_DIR / 'dao'
+
+		
+		
+		
