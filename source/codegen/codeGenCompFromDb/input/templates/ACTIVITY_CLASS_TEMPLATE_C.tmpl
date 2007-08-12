@@ -1,0 +1,72 @@
+/*******************************************************************************
+ * <p>Copyright: Copyright(c) 2008 POSDATA</p>
+ *
+ * @author È«±æµ¿
+ * 
+ * <p>Test Gubun: Unit_Test_IsTested?:N, Integrated_Test_IsTested?:N</p>
+*******************************************************************************/
+
+package com.posdata.glue.sample;//??????
+import com.posdata.glue.biz.activity.PosActivity;
+import com.posdata.glue.biz.constants.PosBizControlConstants;
+import com.posdata.glue.context.PosContext;
+import com.posdata.glue.dao.PosGenericDao;
+import com.posdata.glue.dao.vo.PosParameter;
+
+import com.posdata.glue.reuse.activity.PosServiceParamIF;
+
+public class  ${classId} extends PosActivity 
+{
+    public String runActivity(PosContext ctx)
+    {
+        ${methodId}Action(ctx);
+        return PosBizControlConstants.SUCCESS;    
+    }
+
+    
+    /**
+    ÀÔ·Â
+    */    
+    private void ${methodId}Action(PosContext ctx) //insert()Action
+    {
+        PosGenericDao dao = this.getDao(PosServiceParamIF.DAO);
+        PosParameter param = null;
+        String[] selectedRows         = (String[])ctx.get(PosServiceParamIF.SELECTED_ROWS);
+#set $idx = 0            
+#for $fld in $aTable.pkColumnList
+        String[] ${fld.getPadedJavaName()} = (String[])ctx.get("${fld.javaName}"); //${fld.columnKor}
+    #set $idx = $idx + 1
+#end for
+#for $fld in $aTable.nonPkColumnList
+        String[] ${fld.getPadedJavaName()} = (String[])ctx.get("${fld.javaName}"); //${fld.columnKor}
+    #set $idx = $idx + 1             
+#end for
+
+        int index = 0;
+        int insertCount = 0
+        for (int i = 0; i < selectedRows.length; i++) 
+        {
+            index = Integer.parseInt(selectedRows[i]);
+            //this.logger.logDebug("xx=[" + xx[index] + "]");
+
+            param = new PosParameter();
+
+#set $idx = 0            
+#for $fld in $aTable.pkColumnList
+            param.setValueParamter($idx, ${fld.javaName}[index]);
+    #set $idx = $idx + 1
+#end for
+#for $fld in $aTable.nonPkColumnList
+            param.setValueParamter($idx, ${fld.javaName}[index]);
+    #set $idx = $idx + 1             
+#end for
+
+            insertCount += dao.insert("${processID}_${methodId}", param);
+        }
+        ctx.put(PosServiceParamIF.INSERT_COUNT, new Integer(insertCount));        
+    }    
+
+    
+}
+
+

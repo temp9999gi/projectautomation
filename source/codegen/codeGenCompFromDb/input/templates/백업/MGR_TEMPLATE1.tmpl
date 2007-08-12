@@ -1,0 +1,14 @@
+import org.springframework.samples.jpetstore.dao.${biz_Comp_Id}Dao;
+import org.springframework.samples.jpetstore.domain.${biz_Comp_Id};
+
+public class SqlMap${biz_Comp_Id}Dao extends SqlMapClientDaoSupport implements ${biz_Comp_Id}Dao {
+
+#for $dao in $daoInfoList
+	#for $tbl in $dao.tableList
+		#for $m in $tbl.methodList
+  public ${m.methodId} 
+    
+  		#end for
+	#end for
+#end for
+}

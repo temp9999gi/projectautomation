@@ -1,0 +1,43 @@
+package lfis.fe.commcd.dao;
+
+import java.util.List;
+import java.util.Vector;
+
+import org.springframework.jdbc.JdbcUpdateAffectedIncorrectNumberOfRowsException;
+
+import laf.core.log.LLog;
+
+import lfis.fe.commcd.vo.CommCdVO;
+import lfis.fe.commcd.vo.CommDetlCdVO;
+import lfis.framework.dao.SuperOracleDao;
+import lfis.framework.exception.BizException;
+import lfis.framework.exception.RollBackBizException;
+import lfis.framework.vo.PageVO;
+
+public class ${classId} extends SuperOracleDao implements I${classId} 
+{
+   
+	/**
+	 * »ý¼ºÀÚ
+	 */
+	public ${classId}() 
+	{
+	 
+	}
+
+	#for $tbl in $tableList
+	/**
+	* ${tbl.table_Id}:${tbl.table_Kor}
+	*/
+		#for $m in $tbl.methodList
+	public ${m.returnType} ${m.methodId}(${tbl.voId} ${tbl.lowerVoId})${m.exception}
+	{
+		${m.returnTypeForDaoMethodBody}("${m.methodId}", ${tbl.lowerVoId});
+	}
+	
+  		#end for
+	#end for
+
+	
+}
+

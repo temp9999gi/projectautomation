@@ -1,0 +1,19 @@
+package org.springframework.samples.jpetstore.domain;
+
+import java.io.Serializable;
+
+public class ${klassName} implements Serializable {
+
+  /* Private Fields */
+  #for $attr in $fieldList
+  ${attr.fieldVisibility} ${attr.javaType} ${attr.fieldName};
+  #end for
+
+  /* JavaBeans Properties */
+  #for $attr in $fieldList
+  public ${attr.javaType} ${attr.getMethodType()}${attr.upperNameIndex0}() { return ${attr.fieldName}; }
+  public void set${attr.upperNameIndex0}(${attr.javaType} ${attr.fieldName}) { this.${attr.fieldName} = ${attr.fieldName}; }
+  ${attr.getMethodBoolean}
+  #end for
+
+}

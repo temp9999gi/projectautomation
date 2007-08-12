@@ -1,0 +1,58 @@
+/*******************************************************************************
+ * <p>Copyright: Copyright(c) 2008 POSDATA</p>
+ *
+ * @author È«±æµ¿
+ * 
+ * <p>Test Gubun: Unit_Test_IsTested?:N, Integrated_Test_IsTested?:N</p>
+*******************************************************************************/
+
+package com.posdata.glue.sample;//??????
+import com.posdata.glue.PosException;
+import com.posdata.glue.biz.activity.PosActivity;
+import com.posdata.glue.biz.constants.PosBizControlConstants;
+import com.posdata.glue.context.PosContext;
+import com.posdata.glue.dao.PosGenericDao;
+import com.posdata.glue.dao.vo.PosParameter;
+
+import com.posdata.glue.reuse.activity.PosServiceParamIF;
+
+public class ${classId} extends PosActivity 
+{
+    public String runActivity(PosContext ctx)
+    {
+        ${methodId}Action(ctx);
+        return PosBizControlConstants.SUCCESS;            
+    }
+
+    
+    /**
+    »èÁ¦
+    */
+    private void ${methodId}Action(PosContext ctx) //delete()Action
+    {
+        PosGenericDao dao = this.getDao(PosServiceParamIF.DAO);
+        PosParameter param = null;
+        int index = 0;
+        int delCount = 0;
+        String[] selectedRows         = (String[])ctx.get(PosServiceParamIF.SELECTED_ROWS);        
+#for $fld in $aTable.pkColumnList
+        String[] ${fld.getPadedJavaName()} = (String[])ctx.get("${fld.javaName}"); //${fld.columnKor}        
+#end for        
+        for (int i = 0; i < selectedRows.length; i++) 
+        {
+            index = Integer.parseInt(selectedRows[i]);
+            param = new PosParameter();
+            
+#set $idx = 0            
+#for $fld in $aTable.pkColumnList
+            param.setWhereClauseParameter($idx, ${fld.javaName}[index]); //Pk
+    #set $idx = $idx + 1
+#end for            
+            delCount += dao.delete("${processID}_${methodId}", param);
+
+        }
+        ctx.put(PosServiceParamIF.DEL_COUNT, new Integer(delCount));        
+    }
+
+}
+

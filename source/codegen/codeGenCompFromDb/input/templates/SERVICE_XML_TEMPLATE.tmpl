@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='EUC-KR'?>
+<service name="${processID}${service_Xml_Id}" initial="EventRouter" >
+
+<activity name="EventRouter" class="com.posdata.glue.biz.activity.PosDefaultRouter">
+#for $tbl in $tableInfoList
+    <transition name="find.x"   value="${tbl.tableIdCapWord}Find"/>    
+#end for
+    <transition name="add.x"    value="CheckInputParam"/>
+    <transition name="update.x" value="CheckInputParam"/>
+    <transition name="delete.x" value="CheckInputParam"/>
+    <transition name="success"  value="end"/>
+</activity>
+
+<activity name="CheckInputParam" class="???com.posco.mes.m00.PosValidationCheckAC">
+#for $tbl in $tableInfoList
+    #for $m in $tbl.methodList
+        #if ($m.crud_Type != 'R')
+    <transition name="${m.crudGubun}.x" value="${m.classId}"/>
+        #end if    
+    #end for
+#end for
+    <transition name="failure" value="HandleError"/>
+</activity>
+
+
+//------------------------------------------------------------------------------
+#for $tbl in $tableInfoList
+    #for $m in $tbl.methodList
+        #if ($m.findParagraph)
+    ${m.findParagraph}#slurp
+        #end if
+        #if ($m.addParagraph)
+    ${m.addParagraph}#slurp
+        #end if
+        #if ($m.updateParagraph)
+    ${m.updateParagraph}#slurp
+        #end if
+        #if ($m.deleteParagraph)
+    ${m.deleteParagraph}#slurp
+        #end if
+    #end for
+#end for
+//------------------------------------------------------------------------------
+
+
+<activity name="HandleError" class="com.posco.mes.m00.PosErrorHanlerAC">
+    <transition name="success" value="end"/>
+</activity>  
+
+<transaction-manager id="tx1" commit="true"/>
+
+</service>
+

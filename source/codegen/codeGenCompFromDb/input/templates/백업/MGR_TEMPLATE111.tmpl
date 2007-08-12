@@ -1,0 +1,76 @@
+package lfis.fe.commcd.mgr;
+
+import java.util.List;
+
+#for $dao in $daoInfoList
+import lfis.fe.commcd.dao.I${dao.classId}DAO;
+#end for	 
+
+#for $dao in $daoInfoList
+	#for $tbl in $dao.tableList
+import lfis.fe.commcd.vo.${tbl.voId};
+	#end for
+#end for
+import lfis.framework.exception.BizException;
+import lfis.framework.vo.PageVO;
+
+/**
+공통분류코드와 공통상세코드를 조회, 등록, 수정, 삭제하는 서비스를 제공한다.
+ */
+public class ${biz_Comp_Id} implements I${biz_Comp_Id} 
+{
+#for $dao in $daoInfoList
+	protected I${dao.classId} ${dao.lowerClassId};
+#end for	 
+ 
+
+#for $dao in $daoInfoList
+	/**
+	 * @param ${dao.lowerClassId} 설정하려는 ${dao.lowerClassId}.
+	 */
+	public void set${dao.classId}DAO(I${dao.classId}DAO ${dao.lowerClassId}DAO) {
+		this.${dao.lowerClassId}DAO = ${dao.lowerClassId}DAO;
+	}
+#end for	 
+
+	
+	/**
+	 * @param commDetlCdDAO 설정하려는 commDetlCdDAO.
+	 */
+	public void setCommDetlCdDAO(ICommDetlCdDAO commDetlCdDAO) {
+		this.commDetlCdDAO = commDetlCdDAO;
+	}
+	
+	/**
+	*
+	*/
+	public ${biz_Comp_Id}() 
+	{
+	  
+	}
+
+	/**
+	@param commCdVO
+	 */
+#for $dao in $daoInfoList
+	/***************************************************************************
+	* ${dao.classId}DAO
+	***************************************************************************/
+	#for $tbl in $dao.tableList
+	/**
+	* ${tbl.table_Id}:${tbl.table_Kor}
+	*/
+		#for $m in $tbl.methodList
+	public ${m.returnType} ${m.methodId}(${tbl.voId} ${tbl.lowerVoId})${m.exception}
+	{
+		${m.returnString}${dao.classId}.${m.methodId}(${tbl.lowerVoId});
+	}
+	
+  		#end for
+	#end for
+#end for	 
+	
+	
+	
+	
+}	

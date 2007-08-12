@@ -1,0 +1,76 @@
+/*******************************************************************************
+ * <p>Copyright: Copyright(c) 2008 POSDATA</p>
+ *
+ * @author 홍길동
+ * 
+ * <p>Test Gubun: Unit_Test_IsTested?:N, Integrated_Test_IsTested?:N</p>
+*******************************************************************************/
+//이것은 삼정에서 가져온 것임
+package com.posdata.glue.sample;//??????
+import com.posdata.glue.PosException;
+import com.posdata.glue.biz.activity.PosActivity;
+import com.posdata.glue.biz.constants.PosBizControlConstants;
+import com.posdata.glue.context.PosContext;
+import com.posdata.glue.dao.PosGenericDao;
+import com.posdata.glue.dao.vo.PosParameter;
+import com.posdata.glue.dao.vo.PosRowSet;
+    
+import com.posdata.glue.reuse.activity.PosServiceParamIF;
+
+public class ${classId} extends PosActivity 
+{
+    public String runActivity(PosContext ctx)
+    {
+        ${methodId}Action(ctx);        
+        return PosBizControlConstants.SUCCESS;
+    }
+
+    
+    /**
+    수정
+    */
+    private void ${methodId}Action(PosContext ctx)//update
+    {
+        PosGenericDao dao = this.getDao(PosServiceParamIF.DAO);
+        PosParameter param = null;
+        PosRowSet rowset = null;
+        PosRow row = null;
+        
+        String[] selectedRows         = (String[])ctx.get(PosServiceParamIF.SELECTED_ROWS);        
+#set $idx = 0            
+#for $fld in $aTable.nonPkColumnList
+        String[] ${fld.getPadedJavaName()} = (String[])ctx.get("${fld.javaName}"); //${fld.columnKor}
+    #set $idx = $idx + 1             
+#end for
+#for $fld in $aTable.pkColumnList
+        String[] ${fld.getPadedJavaName()} = (String[])ctx.get("${fld.javaName}"); //${fld.columnKor}
+    #set $idx = $idx + 1
+#end for
+
+        int index = 0;
+        int updateCount = 0
+        for (int i = 0; i < selectedRows.length; i++) 
+        {
+            index = Integer.parseInt(selectedRows[i]);
+            //this.logger.logDebug("xx=[" + xx[index] + "]");
+
+            param = new PosParameter();
+
+#set $idx = 0            
+#for $fld in $aTable.nonPkColumnList
+            param.setWhereClauseParameter($idx, ${fld.javaName}[index]);
+    #set $idx = $idx + 1             
+#end for
+#for $fld in $aTable.pkColumnList
+            param.setWhereClauseParameter($idx, ${fld.javaName}[index]); //Pk
+    #set $idx = $idx + 1
+#end for
+
+            updateCount += dao.update("${processID}_${methodId}", param);
+        }
+        ctx.put(PosServiceParamIF.UPDATE_COUNT, new Integer(updateCount));                
+    }    
+
+
+}
+

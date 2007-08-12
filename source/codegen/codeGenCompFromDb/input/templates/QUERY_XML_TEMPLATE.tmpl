@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='EUC-KR'?>
+<queryMap desc="HMI Project 쿼리파일">
+
+#for $tbl in $tableList
+<!--${tbl.table_cd}:${tbl.table_Eng} ${tbl.table_Kor}  -->
+	#for $m in $tbl.methodList
+<query id="${m.processID}_${m.methodId}" desc="${m.crudGubun} ${tbl.table_Kor}" fetchSize="100">
+	<![CDATA[
+$m.sqlStatement
+	]]>
+</query>
+
+	#end for
+#end for
+</queryMap>
+
